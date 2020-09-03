@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="none" configfailurepolicy="continue" thread-count="5" preserve-order="true">
+
+    <parameter name="shareReportToGoogleDrive" value="true"/>
+    <parameter name="isParallel" value="false"/>
+    <parameter name="RunHeadless" value="true"/>
+
+
+    <listeners>
+        <listener class-name="com.aeione.ops.generic.AnnotationTransformerListener"/>
+        <listener class-name="com.aeione.ops.generic.TestListener"/>
+    </listeners>
+
+    <test enabled="true" verbose="100" preserve-order="true" name="Chrome-Execution">
+
+        <parameter name="testBrowserName" value="Chrome"/>
+        <parameter name="reportName" value="Chrome-ExtentReport"/>
+        <parameter name="replaceExistingReport" value="true"/>
+
+        <classes>
+            <class name="com.aeione.ops.test.RegistrationPageTest"/>
+            <class name="com.aeione.ops.test.LoginPageTest"/>
+            <class name="com.aeione.ops.test.HomePageTest"/>
+            <class name="com.aeione.ops.test.PostWIthHashTagTest"/>
+            <class name="com.aeione.ops.test.PostCardTest"/>
+            <class name="com.aeione.ops.test.ProfilePageTest"/>
+            <class name="com.aeione.ops.test.ProfileCompletionPageTest"/>
+            <class name="com.aeione.ops.test.NotificationTest"/>
+            <class name="com.aeione.ops.test.WalletPageTest"/>
+            <class name="com.aeione.ops.test.BookmarkPageTest"/>
+            <class name="com.aeione.ops.test.InvitePageTest"/>
+            <class name="com.aeione.ops.test.OrganizationPageTest"/>
+            <class name="com.aeione.ops.test.SettingsPageTest"/>
+            <class name="com.aeione.ops.test.CommunityPageTest"/>
+            <class name="com.aeione.ops.test.ExplorePageTest"/>
+            <class name="com.aeione.ops.test.BoostConsolePageTest"/>
+            <class name="com.aeione.ops.test.EventPageTest"/>
+        </classes>
+    </test>
+
+
+    <test enabled="true" verbose="100" preserve-order="true" name="Firefox-Execution">
+
+        <parameter name="testBrowserName" value="Firefox"/>
+        <parameter name="reportName" value="Firefox-ExtentReport"/>
+        <parameter name="replaceExistingReport" value="true"/>
+
+        <classes>
+            <class name="com.aeione.ops.test.RegistrationPageTest"/>
+            <class name="com.aeione.ops.test.LoginPageTest"/>
+            <class name="com.aeione.ops.test.HomePageTest"/>
+            <class name="com.aeione.ops.test.PostWIthHashTagTest"/>
+            <class name="com.aeione.ops.test.PostCardTest"/>
+            <class name="com.aeione.ops.test.ProfilePageTest"/>
+            <class name="com.aeione.ops.test.ProfileCompletionPageTest"/>
+            <class name="com.aeione.ops.test.NotificationTest"/>
+            <class name="com.aeione.ops.test.WalletPageTest"/>
+            <class name="com.aeione.ops.test.BookmarkPageTest"/>
+            <class name="com.aeione.ops.test.InvitePageTest"/>
+            <class name="com.aeione.ops.test.OrganizationPageTest"/>
+            <class name="com.aeione.ops.test.SettingsPageTest"/>
+            <class name="com.aeione.ops.test.CommunityPageTest"/>
+            <class name="com.aeione.ops.test.ExplorePageTest"/>
+            <class name="com.aeione.ops.test.BoostConsolePageTest"/>
+            <class name="com.aeione.ops.test.EventPageTest"/>
+        </classes>
+    </test>
+
+</suite>

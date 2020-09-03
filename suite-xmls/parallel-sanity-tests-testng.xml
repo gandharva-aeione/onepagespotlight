@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" configfailurepolicy="continue" thread-count="100" preserve-order="false">
+
+    <parameter name="shareReportToGoogleDrive" value="true"/>
+    <parameter name="isParallel" value="true"/>
+    <parameter name="RunHeadless" value="false"/>
+
+    <listeners>
+        <listener class-name="com.aeione.ops.generic.AnnotationTransformerListener"/>
+        <listener class-name="com.aeione.ops.generic.TestListener"/>
+    </listeners>
+
+    <test enabled="true" verbose="100" preserve-order="false" name="Chrome1-Execution">
+
+        <parameter name="testBrowserName" value="Chrome"/>
+        <parameter name="reportName" value="Chrome-ParallelTest-ExtentReport"/>
+        <parameter name="replaceExistingReport" value="false"/>
+
+        <classes>
+            <class name="com.aeione.ops.test.RegistrationPageTest"/>
+        </classes>
+    </test>
+
+    <test enabled="true" verbose="100" preserve-order="false" name="Chrome2-Execution">
+
+        <parameter name="testBrowserName" value="Chrome"/>
+        <parameter name="reportName" value="Chrome-ParallelTest-ExtentReport"/>
+        <parameter name="replaceExistingReport" value="false"/>
+
+        <classes>
+            <class name="com.aeione.ops.test.LoginPageTest"/>
+        </classes>
+    </test>
+
+
+</suite>
