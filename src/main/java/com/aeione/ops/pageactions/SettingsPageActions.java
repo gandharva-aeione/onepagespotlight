@@ -3,8 +3,12 @@ package com.aeione.ops.pageactions;
 import com.aeione.ops.generic.DriverManager;
 import com.aeione.ops.generic.ExtentTestManager;
 import com.aeione.ops.generic.GenericFunctions;
+import com.aeione.ops.generic.TestListener;
 import com.aeione.ops.pageobjects.*;
 import com.relevantcodes.extentreports.LogStatus;
+import net.bytebuddy.implementation.bytecode.Throw;
+import net.sf.qualitycheck.Throws;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -31,8 +35,6 @@ public class SettingsPageActions
 
     public SettingsPageActions() throws IOException
     {
-
-
         genericfunctions = new GenericFunctions(DriverManager.getDriver());
         PageFactory.initElements(DriverManager.getDriver(), this);
         PageFactory.initElements(DriverManager.getDriver(), settingspageobject);
@@ -47,7 +49,7 @@ public class SettingsPageActions
 
     /**
      * Click On DropDown Actions
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnDropDownActions(String... strings)
@@ -111,7 +113,7 @@ public class SettingsPageActions
 
     /**
      * Click On Tabs
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnTabs(String... strings)
@@ -168,7 +170,7 @@ public class SettingsPageActions
 
     /**
      * Click on Change Password
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnChangePassword(String... strings)
@@ -190,7 +192,7 @@ public class SettingsPageActions
 
     /**
      * Enter Current Password
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void enterCurrentPassword(String... strings)
@@ -212,7 +214,7 @@ public class SettingsPageActions
 
     /**
      * Enter New Password
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void enterNewPassword(String... strings)
@@ -233,7 +235,7 @@ public class SettingsPageActions
 
     /**
      * Enter Confirm Password
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void enterConfirmPassword(String... strings)
@@ -254,7 +256,7 @@ public class SettingsPageActions
 
     /**
      *  Click on Update Password Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnUpdatePasswordButton(String... strings)
@@ -274,7 +276,7 @@ public class SettingsPageActions
 
     /**
      * Click on Close All Session Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnCloseAllSessionButton(String... strings)
@@ -295,7 +297,7 @@ public class SettingsPageActions
 
     /**
      * Click on Delete Account CheckBox
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void clickOnDeleteAccountCheckBox(String... strings)
@@ -316,7 +318,7 @@ public class SettingsPageActions
 
     /**
      * Enter Password for Delete Account
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void enterPasswordForDeleteAccount(String... strings)
@@ -338,7 +340,7 @@ public class SettingsPageActions
 
     /**
      * Click on Delete Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void clickOnConfirmDeleteButton(String... strings)
@@ -359,7 +361,7 @@ public class SettingsPageActions
 
     /**
      * Cancel Delete Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void clickOnCancelDeleteAccountButton(String... strings)
@@ -380,7 +382,7 @@ public class SettingsPageActions
 
     /**
      * Click on DeActivate Account Check Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void clickOnDeActivateAccountCheckBox(String... strings)
@@ -402,7 +404,7 @@ public class SettingsPageActions
 
     /**
      * Click on DeActivate Account Check Box List
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void clickOnDeactivateAccountCheckBoxList(String... strings)
@@ -425,7 +427,7 @@ public class SettingsPageActions
 
     /**
      * Click on DeActivate Account Check Box List
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void clickOnDeactivateConfirmButton(String... strings)
@@ -434,7 +436,6 @@ public class SettingsPageActions
 
         try
         {
-
             genericfunctions.waitTillTheElementIsVisible(settingspageobject.general_confirm_deactivate_button);
             settingspageobject.general_confirm_deactivate_button.click();
         }
@@ -446,7 +447,7 @@ public class SettingsPageActions
 
     /**
      * Click on Close All Session Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void clickOnSavePayPerPostBackgroundImageButton(String... strings)
@@ -466,7 +467,7 @@ public class SettingsPageActions
 
     /**
      * Click on Mature Flag Toggle
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void clickOnMatureFlagToggle(String... strings)
@@ -487,7 +488,7 @@ public class SettingsPageActions
 
     /**
      * Click on Save Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void clickOnSaveButton(String... strings)
@@ -507,7 +508,7 @@ public class SettingsPageActions
 
     /**
      * Click on Portfolio Toggle
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void clickOnPortfolioFlagToggle(String... strings)
@@ -519,6 +520,7 @@ public class SettingsPageActions
             verticleScrollTillEnd();
 
             genericfunctions.waitTillTheElementIsVisible(settingspageobject.general_portfoilo);
+            genericfunctions.waitWebDriver(2000);
             settingspageobject.general_portfoilo.click();
         }
         catch (Throwable e)
@@ -529,7 +531,7 @@ public class SettingsPageActions
 
     /**
      * Click on others
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void clickOnDeactivateAccountOthersOthersCheckBox(String... strings)
@@ -549,7 +551,7 @@ public class SettingsPageActions
 
     /**
      * Click on Deactivate Account Cancel Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void clickOnDeactivateAccountCancelButton(String... strings)
@@ -569,7 +571,7 @@ public class SettingsPageActions
 
     /**
      * Click on User Full Name
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void clickOnUserFullName(String... strings)
@@ -609,7 +611,7 @@ public class SettingsPageActions
 
     /**
      * Display of Settings Page tabs List
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfTabsListOfSettingsPage(String... strings)
@@ -657,7 +659,7 @@ public class SettingsPageActions
 
     /**
      * Display of Privacy Security Password Title
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfPrivacySecurityPasswordTitle(String... strings)
@@ -678,7 +680,7 @@ public class SettingsPageActions
 
     /**
      *  Display of Current Password Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfCurrentPasswordInputBox(String... strings)
@@ -699,7 +701,7 @@ public class SettingsPageActions
 
     /**
      * Display of New Password Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfNewPasswordInputBox(String... strings)
@@ -720,7 +722,7 @@ public class SettingsPageActions
 
     /**
      *  Display of Confirm Password Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfConfirmPasswordInputBox(String... strings)
@@ -741,7 +743,7 @@ public class SettingsPageActions
 
     /**
      *  Display of Update Password Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfUpdatePasswordButton(String... strings)
@@ -762,7 +764,7 @@ public class SettingsPageActions
 
     /**
      * Display of Cancel Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfCancelButton(String... strings)
@@ -783,20 +785,22 @@ public class SettingsPageActions
 
     /**
      * Display of Toast Container
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfToastContainer(String... strings)
     {
         String action = strings[1];
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Toast Container is displayed or not after " + "  \"<b>" + action +"\"  </b>"+ " Action");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] +
+                " :: Toast Container is displayed or not after " + "  \"<b>" + action +"\"  </b>"+ " Action");
 
         try
         {
             genericfunctions.waitTillTheElementIsVisible(settingspageobject.toast_container);
             String toast_container= settingspageobject.toast_container.getText();
             Assert.assertTrue(settingspageobject.toast_container.isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS,   "  \" Toast Container \" is displayed as :: " +" \"<b>" + toast_container +"\" </b>");
+            ExtentTestManager.getTest().log(LogStatus.PASS,   "  \" Toast Container \" is displayed as :: "
+                    +" \"<b>" + toast_container +"\" </b>");
         }
         catch (Throwable e)
         {
@@ -806,7 +810,7 @@ public class SettingsPageActions
 
     /**
      * Display of Close All Session Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfCloseAllSessionButton(String... strings)
@@ -827,7 +831,7 @@ public class SettingsPageActions
 
     /**
      * Display of Page Title
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfPageTitle(String... strings)
@@ -835,7 +839,8 @@ public class SettingsPageActions
         String exceptedTitle=strings[1];
         String action = strings[2];
         String actualTitle =null;
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Navigated to Log_in Page or not after " +" \"<b>" + action +"\"   </b>" +" Action ");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] +
+                " :: Navigated to Log_in Page or not after " +" \"<b>" + action +"\"   </b>" +" Action ");
 
         try
         {
@@ -870,7 +875,7 @@ public class SettingsPageActions
 
     /**
      * Display of Delete Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void verifyDisplayOfDeleteAccountCheckBox(String... strings)
@@ -891,7 +896,7 @@ public class SettingsPageActions
 
     /**
      * Display of General Password Delete Account InputBox
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void verifyDisplayOfGeneralPasswordDeleteAccountInputBox(String... strings)
@@ -912,7 +917,7 @@ public class SettingsPageActions
 
     /**
      * Display of Cofirm Delete Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void verifyDisaplayOfConfirmDeleteAccountButton(String... strings)
@@ -933,7 +938,7 @@ public class SettingsPageActions
 
     /**
      * Display of Cofirm Delete Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void verifyDisplayOfCancelDeleteAccountButton(String... strings)
@@ -954,7 +959,7 @@ public class SettingsPageActions
 
     /**
      * Display of Deactivate Account Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void verifyDisplayOfDeActivateAccountCheckBox(String... strings)
@@ -976,7 +981,7 @@ public class SettingsPageActions
 
     /**
      * Display of Alert PopUp
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 09-06-2020
      */
     public void verifyDisplayOfAlertPopUp(String... strings)
@@ -1006,7 +1011,7 @@ public class SettingsPageActions
 
     /**
      * PayPerPost Background Image is displayed or not
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 29-05-2020
      */
     public void verifyDisplayOfPayPerPostBackgroundImage(String... strings)
@@ -1027,7 +1032,7 @@ public class SettingsPageActions
 
     /**
      * Display of UserName Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfUserNameInputBox(String... strings)
@@ -1049,7 +1054,7 @@ public class SettingsPageActions
 
     /**
      * Display of Email Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfPrimaryEmailAddressInputBox(String... strings)
@@ -1065,13 +1070,13 @@ public class SettingsPageActions
         }
         catch (Throwable e)
         {
-            Assert.fail(" Could not found \" Priamry Eamil Address InputBox \" "  + " &"+e.getMessage()+"" );
+            Assert.fail(" Could not found \" Primary Email Address InputBox \" "  + " &"+e.getMessage()+"" );
         }
     }
 
     /**
      * Display of Phone Number Input Box
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfPhoneNumberInputBox(String... strings)
@@ -1093,7 +1098,7 @@ public class SettingsPageActions
 
     /**
      * Display of Language Dropdown
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfLanguageDropdown(String... strings)
@@ -1115,7 +1120,7 @@ public class SettingsPageActions
 
     /**
      * Display of Mature Flag
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfMatureToggleFlag(String... strings)
@@ -1137,7 +1142,7 @@ public class SettingsPageActions
 
     /**
      * Display of Portfolio Flag
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfPortfolioToggleFlag(String... strings)
@@ -1159,7 +1164,7 @@ public class SettingsPageActions
 
     /**
      * Display of Save Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfSaveButton(String... strings)
@@ -1181,7 +1186,7 @@ public class SettingsPageActions
 
     /**
      * Display of Deactivate Account Reasons
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void verifyDisplayOfDeactivateAccountReasons(String... strings)
@@ -1235,7 +1240,7 @@ public class SettingsPageActions
 
     /**
      * Display of Deactivate Account Others TextArea
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 10-06-2020
      */
     public void verifyDisplayOfDeactivateAccountOthersTextArea(String... strings)
@@ -1258,7 +1263,7 @@ public class SettingsPageActions
 
     /**
      * Display of Deactivate Account Cancel Button
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 11-06-2020
      */
     public void verifyDisplayOfDeactivateAccountCancelButton(String... strings)
@@ -1280,7 +1285,7 @@ public class SettingsPageActions
 
     /**
      * Display of Report DropDown
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void verifyDisplayOfReportDropDown(String... strings)
@@ -1303,7 +1308,7 @@ public class SettingsPageActions
     /**
      * verify Display Of Report Drop Down Options
      * 12-06-2020
-     * Author:- Gandharva
+     * @author:- Gandharva
      */
     public void verifyDisplayOfReportDropDownOptions(String... strings)
     {
@@ -1338,7 +1343,7 @@ public class SettingsPageActions
 
     /**
      * Display of Portfolio Button On Profile Card
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void verifyDisplayOfPortfolioButtonOnProfileCard(String... strings)
@@ -1360,26 +1365,47 @@ public class SettingsPageActions
 
     /**
      * Display of Portfolio Button On Profile Card
-     * Author:- Gandahrva
+     * @author:- Gandahrva
      * Date:- 12-06-2020
      */
     public void verifyPortfolioButtonIsNotDisplayedOnProfileCard(String... strings)
     {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Portfolio Button On Profile Card is displayed or not ");
-
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Portfolio Button is displayed or not On Profile Card ");
+        
         try
         {
-            Assert.assertTrue(postwithhashtagobjects.sidebar_portfolio_button.isDisplayed());
-
-            Assert.fail( " &"+ " \" Portfolio Button is Dispaled On Profile Card \" ");
-
+            postwithhashtagobjects.sidebar_portfolio_button.isDisplayed();
+            Assert.fail(" &"+ " Expected :: \" Portfolio Button\" should not have been displayed on Profile Card but it was..!!!"
+                            + " Actual :: \" Portfolio Button \" is displayed on Profile Card " );
         }
-        catch (Throwable e)
+        catch (NoSuchElementException e)
         {
-            ExtentTestManager.getTest().log(LogStatus.PASS, " Portfolio Button On Profile Card is not displayed ");
+           ExtentTestManager.getTest().log(LogStatus.PASS, " Portfolio Button is not displayed On Profile Card ");
         }
     }
 
+    /**
+     * Image Verification
+     * Author:- Gandahrva
+     * Date:- 29-05-2020
+     *//**//*
+    public void verifyDisplayOfImage(String... strings)
+    {
+        String expectedImage1 = strings [1];
+        String actualImage2 = null;
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Uploaded and Displayed Payperpost Background PayPerPost Image are same or not ");
 
-
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(settingspageobject.feed_paywall_background.get(0));
+            actualImage2 = settingspageobject.feed_paywall_background.get(0).getAttribute("style");
+            System.out.println("Image UrL="+actualImage2);
+            Assert.assertTrue(actualImage2.matches(expectedImage1));
+            ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Uploaded and Displayed Payperpost Background PayPerPost Image are same  ");
+        }
+        catch (Exception e)
+        {
+            Assert.fail(" "  + " &"+e.getMessage()+"" );
+        }
+    }*/
 }

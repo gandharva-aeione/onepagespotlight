@@ -92,7 +92,8 @@ public class RegistrationPageActions {
     }
 
 
-    public String getPhoneNumber(String... strings) {
+    public String getPhoneNumber(String... strings)
+    {
         String number = null;
         try {
             number = strings[0];
@@ -186,15 +187,13 @@ public class RegistrationPageActions {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String jsonResponse = gson.toJson(json);
 
-
             returnValues.add(body.asString());
-            System.out.println(jsonResponse);
+            System.out.println("JSON Response:- "+jsonResponse);
             returnValues.add(response.jsonPath().get("secret"));
-
-
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             Assert.fail("Could not verify Mobile number " + "&" + e.getMessage() + "");
-
         }
 
         return returnValues;
@@ -242,7 +241,8 @@ public class RegistrationPageActions {
             returnVal = body.asString();
 
             System.out.println(jsonResponse);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             Assert.fail("Could not confirm Mobile number " + "&" + e.getMessage() + "");
 
         }
@@ -274,16 +274,19 @@ public class RegistrationPageActions {
             String year = dateinfo[2].trim();
             skip_otp = Boolean.valueOf(strings[9].toLowerCase());
 
-            try {
+            System.out.println("OTP = "+otp);
+
+            try
+            {
                 if(!strings[10].isEmpty())
                 {
                     otp=strings[10];
+                    System.out.println("OTP = "+strings[10]);
                 }
-            }catch (ArrayIndexOutOfBoundsException e)
+            }
+            catch (ArrayIndexOutOfBoundsException e)
             {
-
-                    otp="121212";
-
+                otp="121212";
             }
 
 
@@ -297,6 +300,8 @@ public class RegistrationPageActions {
             requestParams.put("username", username);
             requestParams.put("number", countrycode + phonenumber);
             requestParams.put("code", otp);
+            System.out.println("Real OTP = "+ phonenumber);
+            System.out.println("Real OTP = "+ otp);
             requestParams.put("country_code", countrycode);
             requestParams.put("secret", secret);
             requestParams.put("email", email);
@@ -321,9 +326,10 @@ public class RegistrationPageActions {
             returnVal = body.asString();
 
             System.out.println(jsonResponse);
-        } catch (Exception e) {
-            Assert.fail("Could not register  " + "&" + e.getMessage() + "");
 
+        } catch (Exception e)
+        {
+            Assert.fail("Could not register  " + "&" + e.getMessage() + "");
         }
 
         return returnVal;
@@ -416,15 +422,19 @@ public class RegistrationPageActions {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Whether Country dropdown is displaying or not for each country option with  country flag , name , dial code ");
         List<WebElement> countries = null;
         String countryName = null;
-        try {
+        try
+        {
             genericfunctions.waitTillTheElementIsVisible(registrationpageobjects.countryDropdown);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             Assert.fail("Could not find \"Country dropdown\"" + "&" + e.getMessage() + "");
         }
 
-        try {
+        try
+        {
             countries = registrationpageobjects.countryOption;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             Assert.fail("Could not find \"Country option\"" + "&" + e.getMessage() + "");
         }
 
@@ -517,11 +527,13 @@ public class RegistrationPageActions {
         }
     }
 
-    public void verifyMobileConfirmApi(String... strings) throws Exception {
+    public void verifyMobileConfirmApi(String... strings) throws Exception
+    {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Mobile Confirm Api with following assertions :  ");
         String response = strings[1];
         String actualstatus = null;
-        try {
+        try
+        {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(response);
             actualstatus = String.valueOf(json.get("status"));
@@ -535,7 +547,9 @@ public class RegistrationPageActions {
             ExtentTestManager.getTest().log(LogStatus.PASS, "Status is displaying as  \"success\"");
             System.out.println(jsonResponse);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             Assert.fail("Expected :: Mobile Confirm Api status should be   \"success\"  ; Actual :: Mobile Confirm Api status is  \"" + actualstatus + "\"");
 
         }
@@ -581,25 +595,32 @@ public class RegistrationPageActions {
         String actualstatus = null;
         String actualMessage = null;
 
-        try {
+        try
+        {
             JSONParser parser = new JSONParser();
             JSONObject json = (JSONObject) parser.parse(response);
             actualstatus = String.valueOf(json.get("status"));
             actualMessage = String.valueOf(json.get("message"));
 
-            try {
+            try
+            {
                 Assert.assertTrue(actualstatus.equals("error"));
                 ExtentTestManager.getTest().log(LogStatus.PASS, "<pre>" + "" + JsonWriter.formatJson(response) + "</pre>");
                 ExtentTestManager.getTest().log(LogStatus.PASS, "Status is displaying as  \"" + actualstatus + "\"");
-            } catch (AssertionError e) {
+            }
+            catch (AssertionError e)
+            {
                 ExtentTestManager.getTest().log(LogStatus.FAIL, "<pre>" + "" + JsonWriter.formatJson(response) + "</pre>");
                 Assert.fail("Expected :: Response  \"Status\"  should be  \"error\" ; Actual :: Response  \"Status\" is \"" + actualstatus + "\"");
             }
 
-            try {
+            try
+            {
                 Assert.assertTrue(actualMessage.equals("Confirmation failed"));
                 ExtentTestManager.getTest().log(LogStatus.PASS, "Message is displaying as  \"" + actualMessage + "\"");
-            } catch (AssertionError e) {
+            }
+            catch (AssertionError e)
+            {
                 Assert.fail("Expected :: Response  \"Message\"  should be   \"Confirmation failed\" ; Actual :: Response  \"Message\" is \"" + actualMessage + "\"");
             }
         } catch (Exception e) {

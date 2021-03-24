@@ -49,7 +49,7 @@ public class PostCardTest extends TestSetUp {
      */
 
 
-  @Test(priority = 47, enabled = true, alwaysRun = true, description = "Verify content of Post Card")
+  @Test(priority = 52, enabled = true, alwaysRun = true, description = "Verify content of Post Card")
     public void tc_PC_12_P1_VerifyContentsOfPostCardTest() throws Exception {
 
         String range = "Login!A7:C7";
@@ -74,7 +74,7 @@ public class PostCardTest extends TestSetUp {
      * Author:- Smita Sahoo
      */
 
-   @Test(priority = 48, enabled = true, alwaysRun = true, description = "Verify the functionality of Buy coins button under Contribution popup")
+   @Test(priority = 53, enabled = true, alwaysRun = true, description = "Verify the functionality of Buy coins button under Contribution popup")
     public void tc_PC_02_P1_VerifyBuyCoinsButtonInContributionPopupTest() throws Exception {
 
         String range = "Login!A9:C9";
@@ -97,7 +97,7 @@ public class PostCardTest extends TestSetUp {
      * Author:- Smita Sahoo
      */
 
-  @Test(priority = 49, enabled = true, alwaysRun = true, description = "Verify that yes button is delete the post in Delete page")
+  @Test(priority = 54, enabled = true, alwaysRun = true, description = "Verify that yes button is delete the post in Delete page")
     public void tc_PC_03_P1_VerifyDeletePostCardWithYesButtonTest() throws Exception {
 
         String range = "Login!A9:C9";
@@ -129,7 +129,7 @@ public class PostCardTest extends TestSetUp {
      */
 
 
-    @Test(priority = 50, enabled = true, alwaysRun = true, description = "Verify the functionality of boost button in post card")
+    @Test(priority = 55, enabled = true, alwaysRun = true, description = "Verify the functionality of boost button in post card")
     public void tc_PC_04_P1_VerifyBoostButtonInPostCardTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -156,7 +156,7 @@ public class PostCardTest extends TestSetUp {
      * Author:- Smita Sahoo
      */
 
-    @Test(priority = 51, enabled = true, alwaysRun = true, description = "Verify that functionality of share button in post card")
+    @Test(priority = 56, enabled = true, alwaysRun = true, description = "Verify that functionality of share button in post card")
     public void tc_PC_08_P2_VerifyShareButtonInPostCardTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -186,7 +186,7 @@ public class PostCardTest extends TestSetUp {
      * Author:- Smita Sahoo
      */
 
-   @Test(priority = 52, enabled = true, alwaysRun = true, description = "Verify the like button function in post card")
+   @Test(priority = 57, enabled = true, alwaysRun = true, description = "Verify the like button function in post card")
     public void tc_PC_09_P2_VerifyLikeButtonInPostcardTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -214,7 +214,7 @@ public class PostCardTest extends TestSetUp {
      * Test_Cases_For_Verification  of "comment button" in own post card
      * Author:- Smita Sahoo
      */
-    @Test(priority = 53, enabled = true, alwaysRun = true, description = "Verify commenting on post")
+    @Test(priority = 58, enabled = true, alwaysRun = true, description = "Verify commenting on post")
     public void tc_PC_10_P2_VerifyCommentOnPostTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -244,7 +244,7 @@ public class PostCardTest extends TestSetUp {
      * Test_Cases_For_Verification  of like, Comment, Share, view and contribute count on the post card of follower user
      * Author:- Smita Sahoo
      */
-   @Test(priority = 54, enabled = true, alwaysRun = true, description = "Verify Contents Of Followed User Postcard ")
+   @Test(priority = 59, enabled = true, alwaysRun = true, description = "Verify Contents Of Followed User Postcard ")
     public void tc_PC_11_P1_VerifyContentsOfFollowedUserPostcardTest() throws Exception {
 
         String range = "Login!A7:C7";
@@ -291,7 +291,7 @@ public class PostCardTest extends TestSetUp {
      * Test_Cases_For_Verification of the Repost- post functionality
      * Author:- Smita Sahoo
      */
-    @Test(priority = 55, enabled = true, alwaysRun = true, description = "Verify the Repost- post functionality")
+    @Test(priority = 60, enabled = true, alwaysRun = true, description = "Verify the Repost- post functionality")
     public void tc_PC_14_P1_VerifyRepostPostTest() throws Exception {
 
         String range = "Login!A9:C9";
@@ -324,7 +324,7 @@ public class PostCardTest extends TestSetUp {
      * Test_Cases_For_Verification of "the functionality of boost from post card"
      * Author:- Smita Sahoo
      */
-    @Test(priority = 56, enabled = true, alwaysRun = true, description = "Verify boost from post card")
+    @Test(priority = 61, enabled = true, alwaysRun = true, description = "Verify boost from post card")
     public void tc_PC_13_P1_VerifyBoostPostCardTest() throws Exception {
 
         String HomeRange = "Home page!A2:A2";

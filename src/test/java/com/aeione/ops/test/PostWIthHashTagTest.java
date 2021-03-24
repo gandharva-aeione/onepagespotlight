@@ -46,13 +46,13 @@ public class PostWIthHashTagTest extends TestSetUp {
 
     public GoogleSheetAPI sheetAPI() throws IOException
     {
-       GoogleSheetAPI.getSheetsService();
+        GoogleSheetAPI.getSheetsService();
         return new GoogleSheetAPI();
     }
 
     public GoogleDriveAPI dsriveAPI() throws IOException {
 
-       GoogleDriveAPI.getDriveService();
+        GoogleDriveAPI.getDriveService();
         return new GoogleDriveAPI();
 
     }
@@ -61,8 +61,8 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 20, enabled = true, alwaysRun = true, description = "Verify all the contents of Poster")
-    public void tc_PWH_01_P1_verifyContentsOfPostTest() throws Exception {
+    @Test(priority = 24, enabled = true, alwaysRun = true, description = "Verify all the contents of Poster")
+    public void TC_PWH_01_P1_verifyContentsOfPostTest() throws Exception {
         String LoginRange = "Login!A6:C6";
         String username = null;
         String password = null;
@@ -83,8 +83,8 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Audio_Post_Functionality
      * Author:- Gandahrva
      */
-    @Test(priority = 21, enabled = true, alwaysRun = true, description = "Verify Audio File Functionality")
-    public void tc_PWH_02_P1_verifyAudioPostTest() throws Exception
+    @Test(priority = 25, enabled = true, alwaysRun = true, description = "Verify Audio File Functionality")
+    public void TC_PWH_02_P1_verifyAudioPostTest() throws Exception
     {
         String LoginRange = "Login!A6:C6";
         String PostWithHashTagRange = "PostWithHashTag!A16:A16";
@@ -119,8 +119,8 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Caeses_For_Video_Post_Functionality
      * Author:- Gandahrva
      */
-    @Test(priority = 22, enabled = true, alwaysRun = true, description = "Verify Video Post Fuctionality")
-    public void tc_PWH_03_P1_verifyVideoPostTest() throws Exception {
+    @Test(priority = 26, enabled = true, alwaysRun = true, description = "Verify Video Post Fuctionality")
+    public void TC_PWH_03_P1_verifyVideoPostTest() throws Exception {
         String LoginRange = "Login!A6:C6";
         String PostWithHashTagRange = "PostWithHashTag!A17:A17";
         String username = null;
@@ -153,7 +153,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Contents_Of_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 23, enabled = true, alwaysRun = true, description = "Verify all the contents of HashTags")
+    @Test(priority = 27, enabled = true, alwaysRun = true, description = "Verify all the contents of HashTags")
     public void TC_PWH_04_P1_verifyHashTagDropDownTest() throws Exception
     {
         String LoginRange = "Login!A6:C6";
@@ -181,7 +181,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_NSFW_Functionality
      * Author:- Gandahrva
      */
-    @Test(priority = 24, enabled = true, alwaysRun = true, description = "Verify Restricted Content Toggle Button")
+    @Test(priority = 28, enabled = true, alwaysRun = true, description = "Verify Restricted Content Toggle Button")
     public void TC_PWH_05_P1_verifyRestrictedContentToggleButtonTest() throws Exception
     {
         String LoginRange = "Login!A6:C6";
@@ -215,7 +215,6 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().clickOnUnCoverButton("Action Step");
         getPostWithHashTagActions().verifyDisplayOfCoverButtonOnFeed("Verify Step");
 
-
         /*getHomePageActions().clickOnTopBarDropdown("Action Step");
         getHomePageActions().clickOnSignOut("Action Step");
 
@@ -233,7 +232,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_NSFW_Functionality
      * Author:- Gandahrva
      */
-    @Test(priority = 25, enabled = true, alwaysRun = true, description = "Verify Restritected Content Post")
+    @Test(priority = 29, enabled = true, alwaysRun = true, description = "Verify Restritected Content Post")
     public void TC_PWH_06_P1_verifyRestrictedContentPost() throws Exception
     {
         //User A
@@ -297,7 +296,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Pay_Per_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 26, enabled = true, alwaysRun = true, description = "Verify Pay Per Post")
+    @Test(priority = 30, enabled = true, alwaysRun = true, description = "Verify Pay Per Post")
     public void TC_PWH_07_P1_verifyPayPerPostTest() throws Exception
     {
         String RegistrationRange = "Registration!A4:H";
@@ -320,7 +319,8 @@ public class PostWIthHashTagTest extends TestSetUp {
         String response=null;
 
         ArrayList<String> val = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
-        fullName=getRegistrationPage().getFullName();
+        /*fullName=getRegistrationPage().getFullName();*/
+        fullName = val.get(0);
         String userName=getRegistrationPage().getUserName(val.get(1));
         String emailAddress=getRegistrationPage().getEmail(val.get(2));
         String countryCode=val.get(3);
@@ -336,9 +336,15 @@ public class PostWIthHashTagTest extends TestSetUp {
         getRegistrationPage().verifyMobileApi("Verify Step", response);
         response=getRegistrationPage().mobileConfirmApi("Action Step",phoneNumber, secret,skipOtp , countryCode );
         getRegistrationPage().verifyMobileConfirmApi("Verify Step", response);
+
         response= getRegistrationPage().registerApi("Action & verify", fullName,userName,phoneNumber,countryCode,secret, emailAddress,dateOfBirth,createPassword,skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
 
+        //Update In Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
+
+        //Update In LogIn Page
         List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword , fullName));
         sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, LogInRange, "USER_ENTERED", values);
 
@@ -380,7 +386,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Pay_Per_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 27, enabled = true, alwaysRun = true, description = "Verify Unlock Pay Per Post")
+    @Test(priority = 31, enabled = true, alwaysRun = true, description = "Verify Unlock Pay Per Post")
     public void TC_PWH_08_P1_verifyUnlockPayPerPostTest() throws Exception
     {
         String LogInRange = "Login!A17:C17";
@@ -434,7 +440,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Edit_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 28, enabled = true, alwaysRun = true, description = "Verify Edit Post")
+    @Test(priority = 32, enabled = true, alwaysRun = true, description = "Verify Edit Post")
     public void TC_PWH_09_P1_verifyEditActonPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -477,7 +483,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Delete_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 29, enabled = true, alwaysRun = true, description = "Verify Delete Post")
+    @Test(priority = 33, enabled = true, alwaysRun = true, description = "Verify Delete Post")
     public void TC_PWH_10_P1_verifyDeletePostTest() throws Exception
     {
 
@@ -514,15 +520,19 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Share_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 30, enabled = true, alwaysRun = true, description = "Verify Share Post")
+    @Test(priority = 34, enabled = true, alwaysRun = true, description = "Verify Share Post")
     public void TC_PWH_11_P1_verifySharePostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String BlueStoreRange = "BlueStore!A2:F2";
+        String HomePageRange = "Home page!A3:C3";
+        String HomePageRange1 = "Home page!A2:C2";
+
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
         String imageFile = userDirPath + IMAGE_TEST_FILE1;
 
@@ -550,9 +560,19 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().enterBlueStoreTitle("Action Step",title);
         getPostWithHashTagActions().enterBlueStoreDescription("Action Step",description);
         getPostWithHashTagActions().enterBlueStoreUnits("Action Step",units);
-        getPostWithHashTagActions().enterBlueStorePrice("Action Step",price);
+        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",price);
         getPostWithHashTagActions().clickOnBluestoreSubmitButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
         getPostWithHashTagActions().clickOnShareButton("Action Step");
         getPostWithHashTagActions().clickOnShareMenuRepost("Action Step");
         getPostWithHashTagActions().verifyDisplayOfRepostPopUp("Verify Step");
@@ -566,7 +586,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#MyJourney_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 31, enabled = true, alwaysRun = true, description = "Create MyJourney Post")
+    @Test(priority = 35, enabled = true, alwaysRun = true, description = "Create MyJourney Post")
     public void TC_PWH_12_P1_VerifyCreateMyJourneyHashTagPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -611,7 +631,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#MyJourney_Edit_Delete_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 32, enabled = true, alwaysRun = true, description = "Verify MyJourney Post Functionality")
+    @Test(priority = 36, enabled = true, alwaysRun = true, description = "Verify MyJourney Post Functionality")
     public void TC_PWH_13_P1_VerifyMyJourneyPostEditAndDeleteActionTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -653,15 +673,18 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 33, enabled = true, alwaysRun = true, description = "Create ShowTimez Post")
+    @Test(priority = 37, enabled = true, alwaysRun = true, description = "Create ShowTimez Post")
     public void TC_PWH_14_P1_verifyCreateShowtimezPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String ShowTimezRange = "ShowTimez!A2:F2";
+        String HomePageRange = "Home page!A5:C5";
+        String HomePageRange1 = "Home page!A2:C2";
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
         String imageFile = userDirPath + IMAGE_TEST_FILE1;
 
@@ -697,22 +720,34 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().enterShowTimezDate("Action Step",strDate);
         getPostWithHashTagActions().enterShowTimezTime("Action Step",time);
         getPostWithHashTagActions().clickOnShowTimezSubmitButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title,tab);
     }
 
     /**
      * Test_Cases_For_#ShowTimez_Edit_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 34, enabled = true, alwaysRun = true, description = "Edit ShowTimez Post")
+    @Test(priority = 38, enabled = true, alwaysRun = true, description = "Edit ShowTimez Post")
     public void TC_PWH_15_P1_VerifyEditShowtimezPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String ShowTimezRange = "ShowTimez!A3:F3";
+        String HomePageRange = "Home page!A5:C5";
+        String HomePageRange1 = "Home page!A2:C2";
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
 
         Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRange);
         username = val.get("UserName / Email / PhoneNumber");
@@ -745,14 +780,24 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().enterShowTimezTime("Action Step",time);
         getPostWithHashTagActions().clickOnShowTimezSubmitButton("Action Step");
         getHomePageActions().clickOnHomeTopBar("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfEditedShowTimezPostTitleOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfEditedShowTimezPostTitleOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfEditedShowTimezPostTitleOnFeed("Verify Step",title,tab);
+
     }
 
     /**
      * Test_Cases_For_#ShowTimez_ReachOut_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 35, enabled = true, alwaysRun = true, description = "ReachOut ShowTimez Post")
+    @Test(priority = 39, enabled = true, alwaysRun = true, description = "ReachOut ShowTimez Post")
     public void TC_PWH_16_P1_VerifyReachOutShowtimezPostTest() throws Exception
     {
         String LogInRange = "Login!A7:C7";
@@ -777,16 +822,21 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_Delete_Post
      * Author:- Gandahrva
      */
-    @Test(priority = 36, enabled = true, alwaysRun = true, description = "Delete ShowTimez Post")
+    @Test(priority = 40, enabled = true, alwaysRun = true, description = "Delete ShowTimez Post")
     public void TC_PWH_17_P1_VerifyDeleteShowtimezPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String ShowTimezCreateRange = "ShowTimez!A5:F5";
         String ShowTimezDeleteRange = "ShowTimez!A4:B4";
+        String HomePageRange = "Home page!A5:C5";
+        String HomePageRange1 = "Home page!A2:C2";
+
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
+
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
         String imageFile = userDirPath + IMAGE_TEST_FILE1;
 
@@ -822,7 +872,16 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().enterShowTimezDate("Action Step",strDate);
         getPostWithHashTagActions().enterShowTimezTime("Action Step",time);
         getPostWithHashTagActions().clickOnShowTimezSubmitButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedShowTimezPostTitleOnFeed("Verify Step",title,tab);
 
         val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, ShowTimezDeleteRange);
         action = val.get("Action");
@@ -832,6 +891,7 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().postMenuDropDownActions("Action Step",action);
         getPostCardActions().clickOnYesButton("Action Step");
         getPostWithHashTagActions().verifyDisplayOfDeletedShowtimezPost("Verify Step",text);
+
     }
 
     /**
@@ -839,15 +899,18 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 21-05-2020
      */
-    @Test(priority = 37, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
+    @Test(priority = 41, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
     public void TC_PWH_18_P1_VerifyCreateBlueStoreHashTagPost() throws Exception
     {
         String LogInRange = "Login!A6:C6";
-        String BlueStoreRange = "BlueStore!A2:F2";
+        String BlueStoreRange = "BlueStore!A2:I2";
+        String HomePageRange = "Home page!A3:C3";
+        String HomePageRange1 = "Home page!A2:C2";
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
         String imageFile = userDirPath + IMAGE_TEST_FILE1;
 
@@ -863,8 +926,10 @@ public class PostWIthHashTagTest extends TestSetUp {
         String title = val.get("Title");
         String description = val.get("Description_Values");
         String units = val.get("No. Units");
-        String price = val.get("Price");
-
+        String regularprice = val.get("Regular_Price");
+        String salePrice = val.get("Sale_Price");
+        String location = val.get("Location");
+        String Category = val.get("Category");
 
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().clickOnPostMenuDropdown("Action Step");
@@ -873,10 +938,23 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().verifyDisplayOfUploadedBlueStoreThumbnail("Verify Step");
         getPostWithHashTagActions().enterBlueStoreTitle("Action Step",title);
         getPostWithHashTagActions().enterBlueStoreDescription("Action Step",description);
+        getPostWithHashTagActions().enterBlueStoreLocation("Action Step",location);
+        getPostWithHashTagActions().selectBlueStoreCategory("Action Step",Category);
         getPostWithHashTagActions().enterBlueStoreUnits("Action Step",units);
-        getPostWithHashTagActions().enterBlueStorePrice("Action Step",price);
+        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",regularprice);
+        getPostWithHashTagActions().enterBlueStoreSalePrice("Action Step",salePrice);
         getPostWithHashTagActions().clickOnBluestoreSubmitButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
     }
 
     /**
@@ -884,15 +962,19 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
-    @Test(priority = 38, enabled = true, alwaysRun = true, description = "Edit BlueStore Post")
+    @Test(priority = 42, enabled = true, alwaysRun = true, description = "Edit BlueStore Post")
     public void TC_PWH_19_P1_VerifyEditBlueStoreHashTagPost() throws Exception
     {
         String LogInRange = "Login!A6:C6";
-        String BlueStoreRange = "BlueStore!A4:F4";
+        String BlueStoreRange = "BlueStore!A4:I4";
+        String HomePageRange = "Home page!A3:C3";
+        String HomePageRange1 = "Home page!A2:C2";
+
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID);
         String imageFile = userDirPath + IMAGE_TEST_FILE;
 
@@ -909,7 +991,10 @@ public class PostWIthHashTagTest extends TestSetUp {
         String description = val.get("Description_Values");
         String units = val.get("No. Units");
         String currency = val.get("Currency");
-        String price = val.get("Price");
+        String regularprice = val.get("Regular_Price");
+        String salePrice = val.get("Sale_Price");
+        String location = val.get("Location");
+        String Category = val.get("Category");
 
         getPostWithHashTagActions().clickOnMoreMenuInPostCard("Action Step");
         getPostWithHashTagActions().postMenuDropDownActions("Action Step",action);
@@ -917,12 +1002,25 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().verifyDisplayOfUploadedBlueStoreThumbnail("Verify Step");
         getPostWithHashTagActions().enterBlueStoreTitle("Action Step",title);
         getPostWithHashTagActions().enterBlueStoreDescription("Action Step",description);
+        getPostWithHashTagActions().enterBlueStoreLocation("Action Step",location);
+        getPostWithHashTagActions().selectBlueStoreCategory("Action Step",Category);
         getPostWithHashTagActions().enterBlueStoreUnits("Action Step",units);
         getPostWithHashTagActions().selectCurrencyType("Action Step", currency);
-        getPostWithHashTagActions().enterBlueStorePrice("Action Step",price);
+        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",regularprice);
+        getPostWithHashTagActions().enterBlueStoreSalePrice("Action Step",salePrice);
         getPostWithHashTagActions().clickOnBluestoreSubmitButton("Action Step");
         getHomePageActions().clickOnHomeTopBar("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
     }
 
     /**
@@ -930,15 +1028,18 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
-    @Test(priority = 39, enabled = true, alwaysRun = true, description = "Share BlueStore Post")
+    @Test(priority = 43, enabled = true, alwaysRun = true, description = "Share BlueStore Post")
     public void TC_PWH_20_P1_VerifyShareBlueStoreHashTagPost() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String BlueStoreRange = "BlueStore!B5:C5";
+        String HomePageRange = "Home page!A3:C3";
+        String HomePageRange1 = "Home page!A2:C2";
 
         String username = null;
         String password = null;
         String fullName = null;
+        String tab = null;
 
         Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRange);
         username = val.get("UserName / Email / PhoneNumber");
@@ -958,7 +1059,16 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().clickOnRePostShareButton("Action Step");
         getPostWithHashTagActions().verifyDisplayOfRepostHeaderOnTimeLine("Verify Step");
         getPostWithHashTagActions().verifyDisplayOfRepostedBluestorePostOnFeed("Verify Step",message);
-        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
     }
 
     /**
@@ -966,16 +1076,20 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
-    @Test(priority = 40, enabled = true, alwaysRun = true, description = "Delete BlueStore Post")
-    public void TC_PWH_2_P1_VerifyDeleteBlueStoreHashTagPost() throws Exception
+    @Test(priority = 44, enabled = true, alwaysRun = true, description = "Delete BlueStore Post")
+    public void TC_PWH_21_P1_VerifyDeleteBlueStoreHashTagPost() throws Exception
     {
         String LogInRange = "Login!A6:C6";
-        String BlueStoreCreateRange = "BlueStore!A7:F7";
+        String BlueStoreCreateRange = "BlueStore!A7:I7";
         String BlueStoreDeleteRange = "BlueStore!A6:C6";
+        String HomePageRange = "Home page!A3:C3";
+        String HomePageRange1 = "Home page!A2:C2";
+
         String username = null;
         String password = null;
         String fullName = null;
         String action = null;
+        String tab = null;
         dsriveAPI().downloadFileFromGoogleDrive(TEST_VIDEO_ID1);
         String videoFile = userDirPath + VIDEO_TEST_FILE1;
 
@@ -991,7 +1105,11 @@ public class PostWIthHashTagTest extends TestSetUp {
         String title = val.get("Title");
         String description = val.get("Description_Values");
         String units = val.get("No. Units");
-        String price = val.get("Price");
+        String currency = val.get("Currency");
+        String regularprice = val.get("Regular_Price");
+        String salePrice = val.get("Sale_Price");
+        String location = val.get("Location");
+        String Category = val.get("Category");
 
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().clickOnPostMenuDropdown("Action Step");
@@ -1000,10 +1118,23 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().verifyDisplayOfUploadedBlueStoreThumbnail("Verify Step");
         getPostWithHashTagActions().enterBlueStoreTitle("Action Step",title);
         getPostWithHashTagActions().enterBlueStoreDescription("Action Step",description);
+        getPostWithHashTagActions().enterBlueStoreLocation("Action Step",location);
+        getPostWithHashTagActions().selectBlueStoreCategory("Action Step",Category);
         getPostWithHashTagActions().enterBlueStoreUnits("Action Step",units);
-        getPostWithHashTagActions().enterBlueStorePrice("Action Step",price);
+        getPostWithHashTagActions().selectCurrencyType("Action Step", currency);
+        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",regularprice);
+        getPostWithHashTagActions().enterBlueStoreSalePrice("Action Step",salePrice);
         getPostWithHashTagActions().clickOnBluestoreSubmitButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedBluestorePostOnFeed("Verify Step",title,tab);
 
         val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, BlueStoreDeleteRange);
         action = val.get("Action");
@@ -1014,7 +1145,12 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().clickOnMoreMenuInPostCard("Action Step");
         getPostWithHashTagActions().postMenuDropDownActions("Action Step",action);
         getPostCardActions().clickOnYesButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfDeletedBlueStorePost("Verify Step",deleteTitle);
+        getPostWithHashTagActions().verifyDisplayOfDeletedBlueStorePost("Verify Step",deleteTitle,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfDeletedBlueStorePost("Verify Step",deleteTitle,tab);
     }
 
     /**
@@ -1022,10 +1158,12 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 26-05-2020
      */
-    @Test(priority = 41, enabled = true, alwaysRun = true, description = "Create an Opportunity Post")
+    @Test(priority = 45, enabled = true, alwaysRun = true, description = "Create an Opportunity Post")
     public void TC_PWH_22_P1_VerifyCreateOpportunityHashTagPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
+        String HomePageRange = "Home page!A4:C4";
+        String HomePageRange1 = "Home page!A2:C2";
         String OpportunityRange = "Opportunity!A3:D3";
         String username = null;
         String password = null;
@@ -1034,6 +1172,7 @@ public class PostWIthHashTagTest extends TestSetUp {
         String description=null;
         String location=null;
         String category=null;
+        String tab = null;
 
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
         String imageFile = userDirPath + IMAGE_TEST_FILE1;
@@ -1061,8 +1200,20 @@ public class PostWIthHashTagTest extends TestSetUp {
         getHomePageActions().attachFile("Action Step",imageFile);
         getHomePageActions().verifyDisplayOfOpportunityThumbnail("Verify Step");
         getHomePageActions().clickOnPostOpportunityButton("Action Step");
-        getPostWithHashTagActions().verifyDisplayOfOpportunityPostCardOnFeed("Verify Step");
-        getPostWithHashTagActions().verifyDisplayOfCreatedOpportunityPostOnFeed("Verify Step",title);
+        //getPostWithHashTagActions().verifyDisplayOfOpportunityPostCardOnFeed("Verify Step");
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfOpportunityPostCardOnFeed("Verify Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedOpportunityPostOnFeed("Verify Step",title,tab);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        tab = val.get("Tab");
+        getHomePageActions().clickOnTabs("Action Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfOpportunityPostCardOnFeed("Verify Step",tab);
+        getPostWithHashTagActions().verifyDisplayOfCreatedOpportunityPostOnFeed("Verify Step",title,tab);
+
     }
 
     /**
@@ -1070,7 +1221,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 26-05-2020
      */
-    @Test(priority = 42, enabled = true, alwaysRun = true, description = "Contents of Opportunity Create PopUp")
+    @Test(priority = 46, enabled = true, alwaysRun = true, description = "Contents of Opportunity Create PopUp")
     public void TC_PWH_23_P1_VerifyContentsOfCreateOpportunityHashTagPopUpTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -1106,7 +1257,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
-    @Test(priority = 43, enabled = true, alwaysRun = true, description = "Create Portfolio Post")
+    @Test(priority = 47, enabled = true, alwaysRun = true, description = "Create Portfolio Post")
     public void TC_PWH_24_P1_VerifyCreatePortfolioHashTagPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -1154,7 +1305,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
-    @Test(priority = 44, enabled = true, alwaysRun = true, description = "Create Portfolio Restricted Post")
+    @Test(priority = 48, enabled = true, alwaysRun = true, description = "Create Portfolio Restricted Post")
     public void TC_PWH_25_P1_VerifyCreatePortfolioHashTagRestrictedPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -1206,7 +1357,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
-    @Test(priority = 45, enabled = true, alwaysRun = true, description = "Portfolio Post Actions")
+    @Test(priority = 49, enabled = true, alwaysRun = true, description = "Portfolio Post Actions")
     public void TC_PWH_26_P1_VerifyActionsOfPortfolioPostInPortfolioInnerPageTest() throws Exception
     {
         //User_A
@@ -1280,7 +1431,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 28-05-2020
      */
-    @Test(priority = 46, enabled = true, alwaysRun = true, description = "Portfolio Edit Post Actions")
+    @Test(priority = 50, enabled = true, alwaysRun = true, description = "Portfolio Edit Post Actions")
     public void TC_PWH_27_P1_VerifyEditPortfolioPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -1327,7 +1478,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 28-05-2020
      */
-    @Test(priority = 47, enabled = true, alwaysRun = true, description = "Portfolio Delete Post Actions")
+    @Test(priority = 51, enabled = true, alwaysRun = true, description = "Portfolio Delete Post Actions")
     public void TC_PWH_28_P1_VerifyDeletePortfolioPostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -1380,6 +1531,5 @@ public class PostWIthHashTagTest extends TestSetUp {
         getHomePageActions().navigateHomePage();
         getHomePageActions().clickOnTopBarDropdown("Action Step");
         getHomePageActions().clickOnSignOut("Action Step");
-
     }
 }

@@ -277,10 +277,12 @@ public class ProfilePageActions
 	 */  
 	public void verifyTheNavigationToProfilePage(String ...strings)
 	{
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: User Navigates to the Profile page or not by clicking on View Profile link"
-				+ "  with following assertions :");
 		String actualFullName=null;
 		String expectedFullName=strings[1] ;
+		String action = strings[2];
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: User Navigates to the Profile page or not by clicking on "+
+				" \"<b>" + action +"\"   </b>" + "  with following assertions :");
+
 		try
 		{
 			genericfunctions.waitForPageToLoad(profilepageobject.fullName_sidebar);
@@ -296,13 +298,13 @@ public class ProfilePageActions
 			switch (actualException)
 			{
 			case "NoSuchElementException":
-				Assert.fail("Expected ::User \"Full Name \" should be displayed ; Actual :: User \"Full Name  \" is not displaying"+"&"+e.getMessage()+"" );
+				Assert.fail("Expected ::User \"Full  Name \" should be displayed ; Actual :: User \"Full Name  \" is not displaying"+"&"+e.getMessage()+"" );
 				break;
 			case "AssertionError":
-				Assert.fail("Expected ::User \"Full Name \" should be displayed as <b>\"" + expectedFullName + "\"</b> ; Actual :: User \"Full Name \" is  displaying as   <b>\"" + actualFullName + "\"</b>");
+				Assert.fail("Expected ::User \"Full  Name \" should be displayed as <b>\"" + expectedFullName + "\"</b> ; Actual :: User \"Full Name \" is  displaying as   <b>\"" + actualFullName + "\"</b>");
 				break;
 			default:
-				Assert.fail(""+"&"+e.getMessage()+"");
+				Assert.fail("Record does not match..!!!"+"&"+e.getMessage()+"");
 			}
 		}
 	}

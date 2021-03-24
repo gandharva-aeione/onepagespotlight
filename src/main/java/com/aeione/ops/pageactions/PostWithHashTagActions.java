@@ -593,6 +593,50 @@ public class PostWithHashTagActions
     }
 
     /**
+     * Enter BlueStore Location
+     * Author:- Gandharva
+     * Date:- 25-02-2021
+     */
+    public void enterBlueStoreLocation(String... strings)
+    {
+        String location = strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Enter BlueStore Loaction as " + "\"<b>" + location +"\"   </b>");
+        try
+        {
+
+            genericfunctions.waitTillTheElementIsVisible(postwithhashtagobjects.bluestore_location);
+            postwithhashtagobjects.bluestore_location.clear();
+            postwithhashtagobjects.bluestore_location.sendKeys(location);
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not able to enter bluestore Location" + " &"+e.getMessage()+ "");
+        }
+    }
+
+    /**
+     * Enter BlueStore Category
+     * Author:- Gandharva
+     * Date:- 25-02-2021
+     */
+    public void selectBlueStoreCategory(String... strings)
+    {
+
+        String category=strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Select "+ "\"<b>" + category.toUpperCase() +"\" " +
+                "  </b>"+ " from the Bluestore Categories");
+        try
+        {
+            selectdropdownOption=new Select(homepageobjects.bluestore_category);
+            selectdropdownOption.selectByValue(category);
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not perform an action on \"Category\" "+"&"+e.getMessage()+"" );
+        }
+    }
+
+    /**
      * Enter BlueStore Units
      * Author:- Gandharva
      */
@@ -614,22 +658,43 @@ public class PostWithHashTagActions
     }
 
     /**
-     * Enter BlueStore Price
+     * Enter BlueStore Regular Price
      * Author:- Gandharva
      */
-    public void enterBlueStorePrice(String... strings)
+    public void enterBlueStoreRegularPrice(String... strings)
     {
         String price = strings[1];
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Enter BlueStore Price as "+ "\"<b>" + price +"\"   </b>");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Enter BlueStore Regular Price as "+ "\"<b>" + price +"\"   </b>");
         try
         {
-            genericfunctions.waitTillTheElementIsVisible(postwithhashtagobjects.bluestore_price);
-            postwithhashtagobjects.bluestore_price.clear();
-            postwithhashtagobjects.bluestore_price.sendKeys(price);
+            genericfunctions.waitTillTheElementIsVisible(postwithhashtagobjects.bluestore_regular_price);
+            postwithhashtagobjects.bluestore_regular_price.clear();
+            postwithhashtagobjects.bluestore_regular_price.sendKeys(price);
         }
         catch (Throwable e)
         {
-            Assert.fail("Could not able to enter bluestore Price" + " &"+e.getMessage()+ "");
+            Assert.fail("Could not able to enter bluestore Regular Price" + " &"+e.getMessage()+ "");
+        }
+    }
+
+    /**
+     * Enter BlueStore Sale Price
+     * Author:- Gandharva
+     * Date:- 25-02-2021
+     */
+    public void enterBlueStoreSalePrice(String... strings)
+    {
+        String price = strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Enter BlueStore Sale Price as "+ "\"<b>" + price +"\"   </b>");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(postwithhashtagobjects.bluestore_sale_price);
+            postwithhashtagobjects.bluestore_sale_price.clear();
+            postwithhashtagobjects.bluestore_sale_price.sendKeys(price);
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not able to enter bluestore Sale Price" + " &"+e.getMessage()+ "");
         }
     }
 

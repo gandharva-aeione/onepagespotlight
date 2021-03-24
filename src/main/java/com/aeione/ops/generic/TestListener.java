@@ -17,13 +17,13 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.Reporter;
+import org.testng.*;
 import com.aeione.ops.generic.FileHandling;
+import org.testng.annotations.DataProvider;
 
+import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
+import java.lang.annotation.Target;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
@@ -34,21 +34,26 @@ import static com.aeione.ops.generic.FileHandling.createDirectoryByFolderName;
 public class TestListener extends TestSetUp implements ITestListener
 {
 	static Logger log = Logger.getLogger(GenericFunctions.class.getName());
-	String isTestPassed="";
+
+    String  currentLocalDateAndTime;
+    //ATUTestRecorder recorder;
+    String screenRecordTestPath;
+
+	/*String isTestPassed="";
     String overViewSheet=null;
     ArrayList<String> failedModules=null;
-    ArrayList<String> totalSheets= null;
+    ArrayList<String> totalSheets= null;*/
 	 
-    private static String getTestMethodName(ITestResult iTestResult) {
+    private static String getTestMethodName(ITestResult iTestResult)
+    {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
     
     private static String getTestClassName(ITestResult iTestResult)
     {
-
-    	return iTestResult.getMethod().getRealClass().getSimpleName();
-    	
+        return iTestResult.getMethod().getRealClass().getSimpleName();
     }
+
     public GoogleSheetAPI sheetAPI() throws IOException
     {
         return new GoogleSheetAPI();
@@ -60,16 +65,17 @@ public class TestListener extends TestSetUp implements ITestListener
     }
 
     //Before starting all tests, below method runs.
-    
 	@Override
     public void onStart(ITestContext iTestContext)
 	{
-	    try{
+	    try
+        {
         createDirectoryByFolderName("reports");
         createDirectoryByFolderName("json-formatted-file");
         createDirectoryByFolderName("json-file");
 
-        GoogleSheetAPI.getSheetsService();
+        //16-09-2020
+       /* GoogleSheetAPI.getSheetsService();
         GoogleDriveAPI.getDriveService();
 
         failedModules =new ArrayList<String>();
@@ -85,23 +91,26 @@ public class TestListener extends TestSetUp implements ITestListener
 
         overViewSheet=totalSheets.get(0);
 
-        } catch (Exception e) {
+        */
+
+        }
+	    catch (Exception e)
+        {
             e.printStackTrace();
         }
-        
     }
- 
+
     //After ending all tests, below method runs.
     @Override
     public void onFinish(ITestContext iTestContext)
     {
         System.out.println("I am in onFinish method " + iTestContext.getName());
     	log.info("I am in onFinish method " + iTestContext.getName());
-
     }
  
     @Override
-    public void onTestStart(ITestResult iTestResult) {
+    public void onTestStart(ITestResult iTestResult)
+    {
         System.out.println("I am in onTestStart method " +  getTestMethodName(iTestResult) + " start , I am in onTestStart class " +  getTestClassName(iTestResult) + " start");
         log.info("I am in onTestStart method " +  getTestMethodName(iTestResult) + " start , I am in onTestStart class " +  getTestClassName(iTestResult) + " start");
         
@@ -110,17 +119,19 @@ public class TestListener extends TestSetUp implements ITestListener
         //Get the class Name of the Test method
 
         System.out.println("Print on Test Start"+iTestResult.getTestClass().toString());
-
     }
  
     @Override
-    public void onTestSuccess(ITestResult iTestResult) {
+    public void onTestSuccess(ITestResult iTestResult)
+    {
         System.out.println("I am in onTestSuccess method " +  getTestMethodName(iTestResult) + " succeed , I am in onTestSuccess class " +  getTestClassName(iTestResult) + " succeed");
        log.info("I am in onTestSuccess method " +  getTestMethodName(iTestResult) + " succeed , I am in onTestSuccess class " +  getTestClassName(iTestResult) + " succeed");
         //ExtentReports log operation for passed tests.
-        
+
         ExtentTestManager.getTest().log(LogStatus.PASS, getTestClassName(iTestResult) +" Test passed");
 
+        //16-09-2020
+/*
         System.out.println(getTestClassName(iTestResult));
 
        try{
@@ -153,7 +164,7 @@ public class TestListener extends TestSetUp implements ITestListener
 
         }  catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
  
     @Override
@@ -195,6 +206,9 @@ public class TestListener extends TestSetUp implements ITestListener
 //		{
 //			log.error(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + "BROWSER LOG ::" + entry.getMessage());
 //		}
+
+        //16-09-2020
+        /*
         try{
         List<List<Object>> updateStatus = Arrays.asList(Arrays.asList("FAILED"));
         String a = "Sanity Suite!A1:ZZ";
@@ -214,7 +228,7 @@ public class TestListener extends TestSetUp implements ITestListener
         }  catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
 
     }
  
@@ -227,7 +241,8 @@ public class TestListener extends TestSetUp implements ITestListener
         //Extentreports log operation for skipped tests.
         ExtentTestManager.getTest().log(LogStatus.SKIP, getTestClassName(iTestResult)+" Test Skipped");
 
-        try{
+        //16-09-2020
+        /*try{
             List<List<Object>> updateStatus = Arrays.asList(Arrays.asList("SKIPPED"));
             String a = "Sanity Suite!A1:ZZ";
             int rowNum = sheetAPI().getRowIndexByColumnValue(TEST_EXECUTION_SHEET, a, getTestMethodName(iTestResult));
@@ -235,7 +250,7 @@ public class TestListener extends TestSetUp implements ITestListener
             sheetAPI().updateRowDataByColumnName(TEST_EXECUTION_SHEET, testCaseLevelRange, "USER_ENTERED", updateStatus);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override

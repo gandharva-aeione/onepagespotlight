@@ -55,7 +55,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 57, enabled = true, alwaysRun = true, description = "Verify View-Profile Link")
+	@Test(priority = 62, enabled = true, alwaysRun = true, description = "Verify View-Profile Link")
 	public void tc_PP_01_P1_VerifyViewProfileLinkTest() throws Exception
 	{
 
@@ -80,14 +80,17 @@ public class ProfilePageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 58, enabled = true, alwaysRun = true, description = "Verify View-Profile link functionality")
+	@Test(priority = 63, enabled = true, alwaysRun = true, description = "Verify View-Profile link functionality")
 	public void tc_PP_02_P1_VerifyViewProfileLinkFunctionalityTest() throws Exception
-	{  
+	{
+		String rangeOfUserDetails = "Profile Page!A2:J2";
+		Map<String, String> userDetails= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, rangeOfUserDetails);
+		String action = userDetails.get("Action");
 		getHomePageActions().clickOnTopBarDropdown("Action Step");
 		String Full_Name=getProfilePageActions().getUserFullNameFromeProfileDropdown();
 		getProfilePageActions().verifyViewProfileLink("Verify Step");
 		getProfilePageActions().clickOnViewProfileLink("Action Step");
-		getProfilePageActions().verifyTheNavigationToProfilePage("Verify Step", Full_Name);
+		getProfilePageActions().verifyTheNavigationToProfilePage("Verify Step", Full_Name,action);
 	}
 
 	/* @author:Aishwarya
@@ -95,7 +98,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Created on : 08-05-2020
 	 */
 
-	@Test(priority = 59, enabled = true, alwaysRun = true, description = "Verify Edit Profile picture")
+	@Test(priority = 64, enabled = true, alwaysRun = true, description = "Verify Edit Profile picture")
 	public void tc_PP_03_P1_VerifyEditProfilePictureTest() throws Exception{
 
 
@@ -114,7 +117,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify the Portfolio button & navigation to the Portfolio page
 	 * Created on : 08-05-2020
 	 */  
-	@Test(priority = 60, enabled = true, alwaysRun = true, description = "Verify Portfolio Page on clicking Portfolio "
+	@Test(priority = 65, enabled = true, alwaysRun = true, description = "Verify Portfolio Page on clicking Portfolio "
 			+ "button from the Profile page")
 	public void tc_PP_04_P1_VerifyNavigationToPortfolioPageTest() throws Exception
 	{
@@ -130,10 +133,10 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify the details under the About section
 	 * Created on : 12-05-2020
 	 */   
-	@Test(priority = 61, enabled = true, alwaysRun = true, description = "Verify the About section details in Profile page")
+	@Test(priority = 66, enabled = true, alwaysRun = true, description = "Verify the About section details in Profile page")
 	public void tc_PP_05_P1_VerifyUserDetailsUnderAboutSectionTest() throws Exception{
 
-		String rangeOfUserDetails = "Profile Page!A2:I2";
+		String rangeOfUserDetails = "Profile Page!A2:J2";
 		Map<String, String> userDetails= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, rangeOfUserDetails);
 
 		getHomePageActions().clickOnTopBarDropdown("Action Step");
@@ -146,7 +149,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify creating a post from Profile Page
 	 *Created on : 12-05-2020
 	 */
-	@Test(priority = 62, enabled = true, alwaysRun = true, description = "Verify creating the post from Profile page")
+	@Test(priority = 67, enabled = true, alwaysRun = true, description = "Verify creating the post from Profile page")
 	public void tc_PP_06_P1_VerifyCreatingPostFromProfilePageTest() throws Exception {
 
 		String textPostVal = null;
@@ -172,7 +175,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Created on : 12-05-2020
 	 */
 
-	@Test(priority = 63, enabled = true, alwaysRun = true, description = "Verify the About section details")
+	@Test(priority = 68, enabled = true, alwaysRun = true, description = "Verify the About section details")
 	public void tc_PP_07_P1_VerifyCreatingSpecialHashtagPostTest() throws Exception
 	{
 		String hashtagType = null;

@@ -33,7 +33,7 @@ public class NotificationTest extends TestSetUp
 
     }
 
-    @Test(priority = 92, enabled = true, alwaysRun = true, description = "Verify Notification icon functionality")
+    @Test(priority = 101, enabled = true, alwaysRun = true, description = "Verify Notification icon functionality")
     public void tc_NT_01_P1_VerifyNotificationIconTest() throws Exception
     {
         String  loginRange = "Login!A12:C12";

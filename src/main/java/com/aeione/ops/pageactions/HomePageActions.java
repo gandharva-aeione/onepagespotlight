@@ -7,11 +7,14 @@ import com.aeione.ops.pageobjects.HomePageObjects;
 import com.aeione.ops.pageobjects.LoginPageObjects;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import java.io.IOException;
+import java.util.List;
 
 import static com.aeione.ops.generic.IAutoConst.HOMEURL;
 
@@ -27,7 +30,8 @@ public class HomePageActions
     Select selectdropdownOption=null;
 
 
-    public HomePageActions() throws IOException {
+    public HomePageActions() throws IOException
+    {
         genericfunctions = new GenericFunctions(DriverManager.getDriver());
         PageFactory.initElements(DriverManager.getDriver(), this);
         PageFactory.initElements(DriverManager.getDriver(), loginpageobjects);
@@ -89,7 +93,7 @@ public class HomePageActions
         {
             genericfunctions.waitWebDriver(2000);
             DriverManager.getDriver().findElement(By.id("file")).sendKeys(file);
-            ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Media File Uploaded Successfully");
+            ExtentTestManager.getTest().log(LogStatus.PASS, " " + strings[0] + " :: Media File Uploaded Successfully");
         }
         catch (Throwable e)
         {
@@ -151,14 +155,25 @@ public class HomePageActions
             genericfunctions.waitTillTheElementIsVisible(homepageobjects.blog_preview_publish_button);
             homepageobjects.blog_preview_publish_button.click();
 
-                try
-                {
-                    genericfunctions.waitTillTheElementIsVisible(homepageobjects.blog_title_error);
-                    Assert.fail("Create Blog Failed Due to <b><font color=red>\"" +homepageobjects.blog_title_error.getText() + "\"</font></b>");
-                }
-                catch(Exception e)
-                {
-                }
+            try
+            {
+                genericfunctions.waitTillTheElementIsVisible(homepageobjects.blog_title_error);
+                Assert.fail("Create Blog Failed Due to <b><font color=red>\"" +homepageobjects.blog_title_error.getText() + "\"</font></b>");
+            }
+            catch(Exception e)
+            {
+            }
+
+            try
+            {
+                //genericfunctions.waitTillTheElementIsVisible(homepageobjects.blog_draft_message);
+                genericfunctions.waitTillElementToBeDisappearByLocator(By.xpath("//span[contains(.,'Saved as a draft')]"));
+                Assert.fail("Create Blog Failed Due to <b><font color=red>\"" +homepageobjects.blog_draft_message.getText() + "\"</font></b>");
+            }
+            catch(Exception e)
+            {
+            }
+
         }
         catch (Exception e)
         {
@@ -281,8 +296,56 @@ public class HomePageActions
         }
     }
 
+    /**
+     * Click On Tabs
+     * Author:- Gandahrva
+     * Date:- 29-05-2020
+     */
+    public void clickOnTabs(String... strings)
+    {
+        String action= strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Click on : " +" \"<b>" + action +"\"   </b>" + "Tab");
 
+        try
+        {
+            switch (action)
+            {
+                case "All Posts" :
 
+                    DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'All Posts')]")).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " \"Clicked on All Posts Tab \" ");
+                    break;
+
+                case "Blue Store":
+
+                    DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Blue Store')]")).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " \"Clicked on Blue Store Tab \" ");
+                    break;
+
+                case "Opportunities" :
+
+                    DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Opportunities')]")).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " \"Clicked on Opportunities Tab \" ");
+                    break;
+
+                case "Showtimez" :
+
+                    DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Showtimez')]")).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " \"Clicked on Showtimez Tab \" ");
+                    break;
+
+                case "Blogs" :
+
+                    DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Blogs')]")).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " \"Clicked on Blogs Tab \" ");
+                    break;
+            }
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not perform an action on" + action + "Tab" + " &"+e.getMessage()+"" );
+        }
+    }
 
 
     //////////////////////////////////////// Page Verification //////////////////////////////////
@@ -939,7 +1002,6 @@ public class HomePageActions
                     Assert.fail(""+"&"+e.getMessage()+"");
             }
         }
-
     }
 
     /**
@@ -1037,6 +1099,7 @@ public class HomePageActions
             genericfunctions.waitForPageToLoad(homepageobjects.activity_text.get(0));
             actualTextPost=homepageobjects.activity_text.get(0).getText().trim();
             genericfunctions.waitTillTheElementIsVisible(homepageobjects.activity_text.get(0));
+           // genericfunctions.scrollToElement(homepageobjects.activity_text.get(0));
             Assert.assertTrue(actualTextPost.equals(expectedTextPost));
             ExtentTestManager.getTest().log(LogStatus.PASS,  " Expected :: \" Created Text Post\" should be displayed as :: "
                     + " \"<b>" + expectedTextPost +"\"   </b> ; Actual :: \" Created Text Post\" is displayed as :: " + " \"<b>" + actualTextPost +"\"   </b>");
@@ -1266,7 +1329,8 @@ public class HomePageActions
         {
             genericfunctions.waitTillTheElementIsVisible(homepageobjects.oppotunity_widget_opportunity_name);
             Assert.assertTrue(homepageobjects.oppotunity_widget_opportunity_name.isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, " \"Opportunity Widget :: \"  User Created Opportunity is displayed under Opportunity Widget");
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \"Opportunity Widget :: " +
+                    "\"  User Created Opportunity is displayed under Opportunity Widget");
 
         } catch (Throwable e)
         {
@@ -1296,6 +1360,7 @@ public class HomePageActions
         }
     }
 
+
     /**
      * Verify_Messenger_PopUp_Search
      * Author:- Gandahrva
@@ -1313,6 +1378,158 @@ public class HomePageActions
         {
             Assert.fail("Could not found the Search Bar" + "&" + e.getMessage() + "");
         }
+    }
+
+    /**
+     * Created by Gandharva Gowda
+     * Date:- 08-09-2020
+     * Verify_HomePage_Filters_Tab
+     * Author:- Gandahrva
+     */
+    public void verifyDisplayOfHomePageFiltersWidget(String...strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " "+ strings[0]  + " :: Home Page Filter Widget is Displaying or not");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(homepageobjects.home_page_filters);
+            Assert.assertTrue(homepageobjects.home_page_filters.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS,  "\" Home Page Filters Widget\" is displayed");
+
+        } catch (Throwable e)
+        {
+            Assert.fail("Expected :: \" Home Page Filters Widget \"  should be displayed  ; " +
+                    "Actual :: \" Home Page Filters Widget \" is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Created by Gandharva Gowda
+     * Date:- 08-09-2020
+     * Verify_HomePage_Filters_Tab
+     * Author:- Gandahrva
+     */
+    public void verifyDisplayOfHomePageFiltersTabs(String...strings)
+    {
+        String[] expectedTabs=strings[0].split("\\,");
+        List<WebElement> tabs=null;
+        String currentExpectedTab = null;
+        String currentActualTab = null;
+
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[1]  + " :: Home Page Filter Tabs List are displayed or not with following assertions: ");
+
+        try
+        {
+            ExtentTestManager.getTest().log(LogStatus.INFO, " " + "<b>"+" Tab Lists are :- "+"</b>");
+            genericfunctions.waitTillTheElementIsVisible(homepageobjects.home_page_filters_tabs.get(0));
+            Assert.assertTrue(homepageobjects.home_page_filters_tabs.get(0).isDisplayed());
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not found \"Tabs List\"" + "&" + e.getMessage() + "");
+        }
+        tabs = homepageobjects.home_page_filters_tabs;
+
+        try
+        {
+            for (int i = 0; i < tabs.size(); i++)
+            {
+                currentExpectedTab = expectedTabs[i];
+
+                currentActualTab = tabs.get(i).getText();
+
+                genericfunctions.waitTillTheElementIsVisible(homepageobjects.home_page_filters_tabs.get(i));
+
+                /*System.out.println("CurrentExpectedTab="+currentExpectedTab);
+                System.out.println("currentActualTab="+currentActualTab);*/
+
+                Assert.assertTrue(currentActualTab.trim().equals(currentExpectedTab.trim()));
+                ExtentTestManager.getTest().log(LogStatus.PASS, " " +   "<b>" + homepageobjects.home_page_filters_tabs.get(i).getText() + "</b>");
+            }
+
+            ExtentTestManager.getTest().log(LogStatus.PASS, " Tabs list are displayed");
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Expected :: " + currentExpectedTab + " Tab should be displayed  ; " +
+                    "Actual ::" + currentActualTab + " Tab is not displayed"+"&"+e.getMessage()+"");
+        }
+    }
+
+    /**
+     * Created by Gandharva Gowda
+     * Date:- 08-09-2020
+     * Verify_Tabs_Highlighted
+     * Author:- Gandahrva
+     */
+    public void verifyHighlightedTab(String...strings)
+    {
+        // String action = strings[1];
+        String color = DriverManager.getDriver().findElement(By.xpath("//*[@class='text-content']")).getCssValue("color");
+
+        //DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'"+action+"')]")).click();
+
+        //String backcolor = DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'"+action+"')]")).getCssValue("background-color");
+
+        System.out.println("color="+color);
+        String first = Color.fromString(color).asHex(); //converted Into HexFormat
+        System.out.println("Hexcolor="+first);
+
+        String backcolor = DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Showtimez')]")).getCssValue("color");
+        //System.out.println("Action Happening="+action);
+        System.out.println("backcolorShowtimez="+backcolor);
+        String hexcolo = Color.fromString(backcolor).asHex(); //converted Into HexFormat
+        System.out.println("BGHexcolorShowtimez="+hexcolo);
+
+        DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Showtimez')]")).click();
+        genericfunctions.waitWebDriver(2000);
+        String afterClick = DriverManager.getDriver().findElement(By.xpath("//*[contains(text(),'Showtimez')]")).getCssValue("color");
+        System.out.println("AfterCLickShowtiez="+afterClick);
+        String newColor = Color.fromString(afterClick).asHex(); //converted Into HexFormat
+
+        System.out.println("AfterCLickColorShowtimez="+newColor);
+
+        //System.out.println(backcolor);
+
+        /*String[] hexValue = color.replace("rgba(", "").replace(")", "").split(",");
+        System.out.println("Color="+hexValue);
+
+        hexValue[0] = hexValue[0].trim();
+
+        int hexValue1 = Integer.parseInt(hexValue[0]);
+
+        hexValue[1] = hexValue[1].trim();
+
+        int hexValue2 = Integer.parseInt(hexValue[1]);
+
+        hexValue[2] = hexValue[2].trim();
+
+        int hexValue3 = Integer.parseInt(hexValue[2]);
+
+        String actualColor = String.format("#%02x%02x%02x", hexValue1, hexValue2, hexValue3);
+
+        *//*if(!color.equals(backcolor))
+        {
+
+            System.out.println("Text is highlighted!");
+
+        }
+
+        else
+            {
+                System.out.println("Text is not highlighted!");
+        }*//*
+     */
+    }
+
+
+    /**
+     * Created by Gandharva Gowda
+     * Date:- 08-09-2020
+     * Verify_HomePage_Filters_PostUnderRespectiveFilter
+     * Author:- Gandahrva
+     */
+    public void verifyDisplayOfPostUnderRespectiveFilter(String...strings)
+    {
 
     }
 }

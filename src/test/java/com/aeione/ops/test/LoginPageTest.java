@@ -17,7 +17,8 @@ import java.util.Map;
  * <p>
  * Tests on Login functionalities
  */
-public class LoginPageTest extends TestSetUp {
+public class LoginPageTest extends TestSetUp
+{
    public LoginPageActions getLoginPage() throws IOException {
       return new LoginPageActions();
    }

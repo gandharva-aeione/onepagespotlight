@@ -60,7 +60,7 @@ public class SettingsPageTest extends TestSetUp
 
     }
 
-    @Test(priority = 114, enabled = true, alwaysRun = true, description = "Verify Settings option")
+    @Test(priority = 123, enabled =  true, alwaysRun = true, description = "Verify Settings option")
     public void TC_STG_01_P1_settingsOptionTest() throws Exception
     {
 
@@ -86,7 +86,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
-    @Test(priority = 115, enabled = true, alwaysRun = true, description = "Verify Settings Page Contents")
+    @Test(priority = 124, enabled =  true, alwaysRun = true, description = "Verify Settings Page Contents")
     public void TC_STG_02_P1_verifyContentsOfSettingsPageTest() throws Exception
     {
         String LoginRange = "Login!A6:C6";
@@ -119,7 +119,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
-    @Test(priority = 116, enabled = true, alwaysRun = true, description = "Verify Change Password Contents")
+    @Test(priority = 125, enabled =  true, alwaysRun = true, description = "Verify Change Password Contents")
     public void TC_STG_05_P1_verifyContentsOfChangePasswordPageTest() throws Exception
     {
         String LoginRange = "Login!A6:C6";
@@ -160,7 +160,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
-    @Test(priority = 117, enabled = true, alwaysRun = true, description = "Verify Update Password")
+    @Test(priority = 126, enabled =  true, alwaysRun = true, description = "Verify Update Password")
     public void TC_STG_06_P1_verifyUpdatePasswordPageTest() throws Exception
     {
         String LoginRange = "Login!A16:C16";
@@ -225,7 +225,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
-    @Test(priority = 118, enabled = true, alwaysRun = true, description = "Verify Close All Session")
+    @Test(priority = 127, enabled =  true, alwaysRun = true, description = "Verify Close All Session")
     public void TC_STG_07_P1_verifyCloseAllSessionButtonTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -275,7 +275,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 09-06-2020
      */
-    @Test(priority = 119, enabled = true, alwaysRun = true, description = "Verify Delete Account")
+    @Test(priority = 128, enabled =  true, alwaysRun = true, description = "Verify Delete Account")
     public void TC_STG_08_P1_verifyDeleteAccountTest() throws Exception
     {
         String RegistrationRange = "Registration!A4:H";
@@ -314,6 +314,11 @@ public class SettingsPageTest extends TestSetUp
         response= getRegistrationPage().registerApi("Action & verify", fullName,userName,phoneNumber,countryCode,secret, emailAddress,dateOfBirth,createPassword,skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
 
+        //Update In Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
+
+        //Update In LogIn Page
         List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword , fullName));
         sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, LogInRange, "USER_ENTERED", values);
 
@@ -355,7 +360,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 09-06-2020
      */
-    @Test(priority = 120, enabled = true, alwaysRun = true, description = "Verify DeActivate Account")
+    @Test(priority = 129, enabled =  true, alwaysRun = true, description = "Verify DeActivate Account")
     public void TC_STG_09_P1_verifyDeActivateAccountTest() throws Exception
     {
         String LogInRange = "Login!A16:C16";
@@ -410,10 +415,10 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
-    @Test(priority = 121, enabled = true, alwaysRun = true, description = "Save PayPerPost Background Image")
+    @Test(priority = 130, enabled =  true, alwaysRun = true, description = "Save PayPerPost Background Image")
     public void TC_STG_13_P1_verifySavePayPerPostBackgroundImageTest() throws Exception
     {
-        String LogInRange = "Login!A8:C8";
+        String LogInRange = "Login!A7:C7";
         String TopBarDropDownRange = "TopBarDropDownActions!A6:B6";
         String SettingsRange ="Settings!A5:L5";
         String PostWIthHashTagRange = "PostWIthHashTag!A15:F15";
@@ -479,7 +484,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
-    @Test(priority = 122, enabled = true, alwaysRun = true, description = "Verify General Tab Contents")
+    @Test(priority = 131, enabled =  true, alwaysRun = true, description = "Verify General Tab Contents")
     public void TC_STG_14_P1_verifyContentsOfGeneralTabTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -522,7 +527,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
-    @Test(priority = 123, enabled = true, alwaysRun = true, description = "Verify Mature Falg is Enabled")
+    @Test(priority = 132, enabled =  true, alwaysRun = true, description = "Verify Mature Falg is Enabled")
     public void TC_STG_15_P1_verifyMatureFlagToggleIsEnabledTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -585,7 +590,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
-    @Test(priority = 124, enabled = true, alwaysRun = true, description = "Verify Mature Flag is Disabled")
+    @Test(priority = 133, enabled =  true, alwaysRun = true, description = "Verify Mature Flag is Disabled")
     public void TC_STG_16_P1_verifyMatureFlagToggleIsDisabledTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -631,12 +636,12 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
-    @Test(priority = 125, enabled = true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Enable")
+    @Test(priority = 134, enabled =  true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Enable")
     public void TC_STG_17_P1_verifyPortfolioToggleFlagIsEnableTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
         String TopBarDropDownRange = "TopBarDropDownActions!A6:B6";
-        String SettingsRange ="Settings!A2:O2";
+        String SettingsRange ="Settings!A2:T2";
 
         String title = LOGIN_PAGE_TITLE;
         String username = null;
@@ -661,6 +666,7 @@ public class SettingsPageTest extends TestSetUp
         action = val.get(1);
         String disableFlag = val.get(7);
         String activity = val.get(14);
+        String condition = val.get(19);
 
         getSettingsActions().clickOnTabs("Action Step",action);
         getSettingsActions().clickOnPortfolioFlagToggle("Action Step",disableFlag);
@@ -699,7 +705,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
-    @Test(priority = 126, enabled = true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Disable")
+    @Test(priority = 135, enabled =  true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Disable")
     public void TC_STG_18_P1_verifyPortfolioToggleFlagIsDisableTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
@@ -770,7 +776,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
-    @Test(priority = 127, enabled = true, alwaysRun = true, description = "Verify Contents Of Delete Account And Deactivate Account")
+    @Test(priority = 136, enabled =  true, alwaysRun = true, description = "Verify Contents Of Delete Account And Deactivate Account")
     public void TC_STG_19_P1_verifyContentsOfDeleteAccountAndDeactivateAccountTest() throws Exception
     {
 
@@ -821,7 +827,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
-    @Test(priority = 128, enabled = true, alwaysRun = true, description = "Verify Contents Of Report DropDown")
+    @Test(priority = 137, enabled =  true, alwaysRun = true, description = "Verify Contents Of Report DropDown")
     public void TC_STG_20_P1_verifyContentsOfReportDropDownTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";

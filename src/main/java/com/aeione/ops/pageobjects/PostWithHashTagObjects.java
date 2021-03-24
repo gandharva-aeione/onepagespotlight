@@ -86,10 +86,14 @@ public class PostWithHashTagObjects
     public WebElement bluestore_title;
     @FindBy (id = "bluestore-description")
     public WebElement bluestore_description;
+    @FindBy (id = "bluestore-location")
+    public WebElement bluestore_location;
     @FindBy (id = "bluestore-units")
     public WebElement bluestore_units;
-    @FindBy (id = "bluestore-price")
-    public WebElement bluestore_price;
+    @FindBy ( id = "Bluestore_Regular_Price")
+    public WebElement bluestore_regular_price;
+    @FindBy ( id = "Bluestore_Sale_Price")
+    public WebElement bluestore_sale_price;
     @FindBy (id = "bluestore-submit")
     public WebElement bluestore_submit;
     @FindBy (id = "activity-bluestore-title")
@@ -143,7 +147,7 @@ public class PostWithHashTagObjects
     @FindBy (xpath = "//*[contains(text(),'send_arrow')]")
     public WebElement send_button;
 
-    @FindBy (xpath = "//*[@class='form-control form-control-lg ng-untouched ng-pristine ng-valid']")
+    @FindBy (id = "currency-type")
     public WebElement bluestore_currency_type;
 
     @FindBy(id = "activity-opportunity-title")

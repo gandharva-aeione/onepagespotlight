@@ -9,6 +9,7 @@ import com.aeione.ops.pageobjects.ProfilePageObjects;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -75,6 +76,30 @@ public class ProfileCompletionPageActions {
         catch(Exception e)
         {
             Assert.fail("Could not perform action on \"Follow \" button " +"&"+ e.getMessage());
+        }
+    }
+
+    /**
+     * @autor click on followed UserName
+     * @param strings
+     */
+    public void clickOnFullName(String ...strings)
+    {
+        String loginUser = strings[1];
+        String activity = strings[2];
+        String searchedName = strings[3];
+
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  " +" \"<b>" + loginUser +"\"   </b>" + " is Searching for his / her "
+                + " \"<b>" + activity +"\"   </b>" +  " User :: \"<b>" + searchedName +"\" </b>" + "and Clicking on Profile Card");
+        try
+        {
+            genericfunctions.waitForPageToLoad(profileCompletionPageObjects.followed_UserName);
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.followed_UserName);
+            profileCompletionPageObjects.followed_UserName.click();
+        }
+        catch(Exception e)
+        {
+            Assert.fail("Could not perform action on \" Username \" " +"&"+ e.getMessage());
         }
     }
 
@@ -186,17 +211,25 @@ public class ProfileCompletionPageActions {
      * enter  location on contact textfield
      *
      * @param strings
-     * @autor Kirthana SS
+     * @autor Kirthana SS / Gandharva
      */
     public void enterContactLocation(String... strings) {
         String contactLocation=strings[1].trim();
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter contact location as  <b>\""+contactLocation+"\" </b> ");
         try {
-            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.profile_edit_contact_location_textfield);
+            //genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.profile_edit_contact_location_textfield);
+            genericfunctions.waitForPageToLoad(profileCompletionPageObjects.profile_edit_contact_location_textfield);
+
+            genericfunctions.waitWebDriver(1000);
+            profileCompletionPageObjects.profile_edit_contact_location_textfield.click();
+
             profileCompletionPageObjects.profile_edit_contact_location_textfield.clear();
-            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.profile_edit_contact_location_textfield);
+            genericfunctions.waitWebDriver(1000);
+
             profileCompletionPageObjects.profile_edit_contact_location_textfield.sendKeys(contactLocation);
+
             genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.profile_edit_contact_location_textfield);
+
         } catch (Exception e) {
             Assert.fail("Could not perform action on \"Contact location \" textfield" + "&" + e.getMessage());
         }
@@ -993,6 +1026,134 @@ public class ProfileCompletionPageActions {
         }
     }
 
+    /**
+     * click on add Projects button
+     *
+     * @param strings
+     * @autor Gandharva
+     */
+    public void clickOnAddProjectsButton(String... strings) {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on Add Projects button");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.add_projects_button);
+            profileCompletionPageObjects.add_projects_button.click();
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Add Projects \" button" + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     *  enter  of Project Title
+     * @param
+     * @autor Gandharva
+     * Date:- 14-12-2020
+     */
+
+    public void enterProjectTitle(String ...strings)
+    {
+        String title=strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Project Title as :: "+" \"<b>" + title +"\"   </b>");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_titile_textfield);
+            genericfunctions.waitWebDriver(1000);
+            profileCompletionPageObjects.project_titile_textfield.clear();
+            profileCompletionPageObjects.project_titile_textfield.sendKeys(title);
+
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Project Title\" textField in add Project section" + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     *  enter  of Project Description
+     * @param
+     * @autor Gandharva
+     * Date:- 14-12-2020
+     */
+
+    public void enterProjectDescription(String ...strings)
+    {
+        String description=strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Project Description as :: "+ " \"<b>" + description +"\" </b>");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_description_textfield);
+            genericfunctions.waitWebDriver(1000);
+            profileCompletionPageObjects.project_description_textfield.clear();
+            profileCompletionPageObjects.project_description_textfield.sendKeys(description);
+
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Project Description\" textField in add Project section" + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     *  enter  of Project Link
+     * @param
+     * @autor Gandharva
+     * Date:- 14-12-2020
+     */
+
+    public void enterProjectLink(String ...strings)
+    {
+        String link=strings[1];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Project Link as :: " + " \"<b style='color:#FF0000'>" + link + "\" </b>");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_link_textfield);
+            genericfunctions.waitWebDriver(1000);
+            profileCompletionPageObjects.project_link_textfield.clear();
+            profileCompletionPageObjects.project_link_textfield.sendKeys(link);
+
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Project Link\" textField in add Project section" + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     * Click on Project updation save button
+     *
+     * @param strings
+     * Date:- 14-12-2020
+     * @autor Gandharva
+     */
+    public void clickOnProjectUpdationSaveButton(String... strings)
+    {
+
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Click on Project Updation Save button");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.projects_save_button);
+            profileCompletionPageObjects.projects_save_button.click();
+
+        } catch (Exception e)
+        {
+            Assert.fail("Could not perform action on \"Save Changes \"  button in Project section " + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     * Click on  show education  on profile radio button
+     *
+     * @param strings
+     * @autor Gandahrva
+     * Date:- 14-12-2020
+     */
+    public void clickOnShowProjectOnProfileRadioButton(String... strings)
+    {
+        boolean isShowEducationOnProfile = Boolean.valueOf(strings[1].toLowerCase());
+        if (isShowEducationOnProfile == true)
+        {
+            ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on show project on profile radio button");
+            try
+            {
+                genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.projects_show_on_profile_radiobutton);
+                profileCompletionPageObjects.projects_show_on_profile_radiobutton.click();
+
+            } catch (Exception e)
+            {
+                Assert.fail("Could not perform action on \"Show project on profile \" radio button " + "&" + e.getMessage());
+            }
+        }
+    }
 
     /**
      * click on education tab
@@ -1029,6 +1190,68 @@ public class ProfileCompletionPageActions {
         }
     }
 
+    /**
+     * click on education tab
+     *
+     * @param strings
+     * @autor Kirthana SS
+     */
+    public void clickOnProjectsTab(String... strings) {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on Projects tab");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.profile_edit_projects_tab);
+            profileCompletionPageObjects.profile_edit_projects_tab.click();
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \" Projects \" tab" + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     * click on education tab
+     *
+     * @param strings
+     * @autor Gandharva
+     * Date:- 15-12-2020
+     */
+    public void clickOnEditIconOnProjectsSection(String... strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on Project edit icon");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_details.get(0));
+            action = new Actions(DriverManager.getDriver());
+            action.clickAndHold(profileCompletionPageObjects.project_details.get(0)).moveToElement(profileCompletionPageObjects.edit_projects_icon.get(0))
+                    .doubleClick(profileCompletionPageObjects.edit_projects_icon.get(0)).build().perform();
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not perform action on Education \" Edit \" icon " + "&" + e.getMessage());
+        }
+    }
+
+    /**
+     * click on education tab
+     *
+     * @param strings
+     * @autor Gandharva
+     * Date:- 15-12-2020
+     */
+    public void clickOnDeleteIconOnProjectsSection(String... strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on Project Delete icon");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_details.get(0));
+            action = new Actions(DriverManager.getDriver());
+            action.clickAndHold(profileCompletionPageObjects.project_details.get(0)).moveToElement(profileCompletionPageObjects.delete_projects_icon.get(0))
+                    .doubleClick(profileCompletionPageObjects.delete_projects_icon.get(0)).build().perform();
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not perform action on Education \" Edit \" icon " + "&" + e.getMessage());
+        }
+    }
+
 
 
     /**
@@ -1043,7 +1266,8 @@ public class ProfileCompletionPageActions {
         try {
             genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.created_education_details);
             action = new Actions(DriverManager.getDriver());
-            action.clickAndHold(profileCompletionPageObjects.created_education_details).moveToElement(profileCompletionPageObjects.education_remove_image).doubleClick(profileCompletionPageObjects.education_remove_image).build().perform();
+            action.clickAndHold(profileCompletionPageObjects.created_education_details).moveToElement(profileCompletionPageObjects.education_remove_image)
+                    .doubleClick(profileCompletionPageObjects.education_remove_image).build().perform();
         } catch (Throwable e) {
             Assert.fail("Could not perform action on Education \"remove\" icon " + "&" + e.getMessage());
         }
@@ -1169,7 +1393,6 @@ public class ProfileCompletionPageActions {
     }
 
 
-
     /**
      * Select education start year dropdown
      *
@@ -1254,7 +1477,6 @@ public class ProfileCompletionPageActions {
 
 
     /////////////////////////// Page Verifications ////////////////////////////////////////////////////////
-
     /**
      * Verify contents of general info tab
      *
@@ -1385,7 +1607,246 @@ public class ProfileCompletionPageActions {
         verifyDisplayOfAwardIssuerYearDropdown();
         verifyDisplayOfAwardShowOnProfileRadioButton();
         verifyDisplayOfAwardUpdationSaveButton();
+    }
 
+    /**
+     * Verify contents of Add work education page
+     *
+     * @param strings
+     * @autor Kirthana / Gandharva
+     * Date :- 14-12-2020
+     */
+    public void verifyContensOfAddProjectsSection(String... strings) {
+
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: User navigates to Add Project page or not on clicking \"Add Projects\" button  with following assertions :");
+
+        verifyDisplayOfProjectsTitleTextfield();
+        verifyDisplayOfProjectDescriptionTextfield();
+        verifyDisplayOfProjectLinkTextfield();
+        verifyDisplayOfShowProjectsOnProfileRadioButton();
+        verifyDisplayOfProjectSaveChangesButton();
+        verifyDisplayOfProjectCancelButton();
+    }
+
+    /**
+     * Verify display of  Projects title textfield
+     *
+     * @param
+     * @autor Gandharva
+     * Date :- 14-12-2020
+     */
+
+    public void verifyDisplayOfProjectsTitleTextfield()
+    {
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_titile_textfield);
+            Assert.assertTrue(profileCompletionPageObjects.project_titile_textfield.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \" Project title\" textfield is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \"Project title\" textfield should be displayed ;" +
+                    " Actual :: Projects \"Project title\" textfield is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Verify display of  Projects title textfield
+     *
+     * @param
+     * @autor Gandharva
+     * Date :- 14-12-2020
+     */
+
+    public void verifyDisplayOfProjectDescriptionTextfield()
+    {
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_description_textfield);
+            Assert.assertTrue(profileCompletionPageObjects.project_description_textfield.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \" Project Description\" textfield is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \"Project Description\" textfield should be displayed ;" +
+                    " Actual :: Projects \"Project Description\" textfield is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Verify display of  Projects title textfield
+     *
+     * @param
+     * @autor Gandharva
+     * Date :- 14-12-2020
+     */
+
+    public void verifyDisplayOfProjectLinkTextfield()
+    {
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_link_textfield);
+            Assert.assertTrue(profileCompletionPageObjects.project_link_textfield.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \" Project Link\" textfield is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \"Project Link\" textfield should be displayed ;" +
+                    " Actual :: Projects \"Project Link\" textfield is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Verify display of  Projects show on profile radio button
+     *
+     * @param
+     * @autor  Gandharva
+     * Date :- 14-12-2020
+     */
+
+    public void verifyDisplayOfShowProjectsOnProfileRadioButton()
+    {
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.projects_show_on_profile_radiobutton);
+            Assert.assertTrue(profileCompletionPageObjects.projects_show_on_profile_radiobutton.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \" Projects show on profile\" radio button is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \" Project show on profile\" radio button should be displayed ; " +
+                    "Actual :: Projects \" Project show on profile\" radio button is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Verify display of Projects Save button
+     *
+     * @param
+     * @autor Gandharva
+     * Date:- 14-12-2020
+     * */
+
+    public void verifyDisplayOfProjectSaveChangesButton() {
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.projects_save_button);
+            Assert.assertTrue(profileCompletionPageObjects.projects_save_button.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " Projects \"Save \" button is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \"Save \" button should be displayed ; " +
+                    "Actual :: Projects \"Save \" button is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     * Verify display of  Projects cancel button
+     *
+     * @param
+     * @autor Kirthana / Gandharva
+     * Date :- 14-12-2020
+     */
+
+    public void verifyDisplayOfProjectCancelButton() {
+        try {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.projects_cancel_button);
+            Assert.assertTrue(profileCompletionPageObjects.projects_cancel_button.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " Projects \"Cancel\" button is displaying");
+        } catch (Exception e) {
+            Assert.fail("Expected :: Projects \"Cancel\" button should be displayed ;" +
+                    " Actual :: Projects \"Cancel\" button is not displayed" + "&" + e.getMessage() + "");
+        }
+    }
+
+
+    /**
+     * @param
+     * @autor Gandharva
+     *  verify Display Of User details Visiblity
+     *  Date :- 02-12-2020
+     *
+     */
+    public void verifyDisplayOfUserDetailsOnProfilePageAboutInfoWidget(String ...strings)
+    {
+        String visiblePrivacy = strings[1].trim();
+        String info = strings[2].trim();
+        String actualLocation = null;
+        String expectedLocation = strings[3]; ;
+        String userA= strings[4];
+        String userB = strings[5];
+        String action = strings[6];
+
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Display of \"<b>" + info +"\"   </b>" +
+                " with the following Privacy setting : \"<b>" + visiblePrivacy +"\"   </b>");
+
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.sidebar_location);
+            Assert.assertTrue(profileCompletionPageObjects.sidebar_location.isDisplayed());
+
+            ExtentTestManager.getTest().log(LogStatus.PASS,"Based on the \"Privacy Setting\" i.e " + "\"<b>" + visiblePrivacy + "\"</b>"
+                    +  "the " + "\"<b>"+info + "\"</b>" + " details of " + "\"<b>" + userA + "\"</b>" +  " is visible to his :" +
+                    "\"<b>"+ action + "\"</b>" + " user :: " + "\"<b>"+ userB + "\"</b>");
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Expected :: " +"<b>" + info +"\" </b>" + "should be displayed ; " +
+                    "Actual :: " + "<b>" + info +"\" </b>" + " is displayed" + "&" + e.getMessage() + "");
+        }
+
+        try
+        {
+            actualLocation = profileCompletionPageObjects.sidebar_location.getText().trim();
+            Assert.assertTrue(actualLocation.equals(expectedLocation));
+            ExtentTestManager.getTest().log(LogStatus.PASS,   "Expected :: " + "\"<b>" + expectedLocation +"\" </b>" + " should be displayed ; " +
+                    "Actual :: " + "\"<b>" + actualLocation +"\" </b>" + " is displayed ; ");
+        }
+        catch(Throwable e)
+        {
+            String actualException=e.getClass().getName();
+
+            switch (actualException)
+            {
+                case "java.lang.NoSuchElementException":
+                    Assert.fail("Expected :: " +"<b>" + expectedLocation +"\" </b>" + "should be displayed ; " +
+                            "Actual :: " + "<b>" + actualLocation +"\" </b>" + " is displayed" + "&" +e.getMessage()+ "");
+                    break;
+
+                case "java.lang.AssertionError":
+                    Assert.fail("Expected :: " +"<b>" + expectedLocation +"\" </b>" + "should be displayed ; " +
+                            "Actual :: " + "<b>" + actualLocation +"\" </b>" + " is displayed " + "&" +e.getMessage()+ "");
+                    break;
+                default:
+                    Assert.fail(actualException+ "&"  + e.getMessage() + "");
+            }
+        }
+    }
+
+    /**
+     * @param
+     * @autor Gandharva
+     *  verify Display Of User Details
+     *
+     */
+    public void verifyUserDetailsNotDisplayedOnProfilePageAboutInfoWidget(String ...strings)
+    {
+        String visiblePrivacy = strings[1].trim();
+        String info = strings[2].trim();
+        String userA = strings[3];
+        String userB = strings[4];
+        String activity = strings[5];
+        String details = null;
+        try
+        {
+            profileCompletionPageObjects.sidebar_location.isDisplayed();
+            Assert.fail(" &"+ " Expected :: Based on the \"Privacy Setting\" i.e  " + "\"<b>" + visiblePrivacy + "\"</b>"
+                    +"\"</b>" + "the " + "\"<b>"+info + "\"</b>" + profileCompletionPageObjects.sidebar_location.getText() +
+                    "  details of " + "\"<b>" + userA + "\"</b>" +  " should not visible to his :" +"\"<b>"+ activity + "\"</b>" + " user :: " + "\"<b>"+ userB + "\"</b>"
+                    +
+                    " Actual :: Based on the \"Privacy Setting\" i.e " + "\"<b>" + visiblePrivacy + "\"</b>"
+                    + "\"</b>" + "the " + "\"<b>"+info + "\"</b>" + profileCompletionPageObjects.sidebar_location.getText() +
+                    " details of " + "\"<b>" + userA + "\"</b>" +  " is  visible to his :" +
+                    "\"<b>"+ activity + "\"</b>" + " user :: " + "\"<b>"+ userB + "\"</b>" );
+        }
+        catch (NoSuchElementException e)
+        {
+           ExtentTestManager.getTest().log(LogStatus.PASS,"Based on the \"Privacy Setting\" i.e " + "\"<b>" + visiblePrivacy + "\"</b>"
+                    + "\"</b>" + "the " + "\"<b>"+info + "\"</b>" + profileCompletionPageObjects.sidebar_location.getText() +
+                   " details of " + "\"<b>" + userA + "\"</b>" +  " is  not visible to his :" +
+                    "\"<b>"+ activity + "\"</b>" + " user :: " + "\"<b>"+ userB + "\"</b>");
+
+        }
 
     }
 
@@ -1403,7 +1864,8 @@ public class ProfileCompletionPageActions {
             Assert.assertTrue(profileCompletionPageObjects.award_titile_textfield.isDisplayed());
             ExtentTestManager.getTest().log(LogStatus.PASS, " \"Award title\" textfield is displaying");
         } catch (Exception e) {
-            Assert.fail("Expected :: Education \"Award title\" textfield should be displayed ; Actual :: Education \"Award title\" textfield is not displayed" + "&" + e.getMessage() + "");
+            Assert.fail("Expected :: Education \"Award title\" textfield should be displayed ;" +
+                    " Actual :: Education \"Award title\" textfield is not displayed" + "&" + e.getMessage() + "");
         }
     }
 
@@ -2479,7 +2941,8 @@ public class ProfileCompletionPageActions {
         try {
             Assert.assertTrue(actualProfileCompletionPercentage.equals(expectedProfileCompletionPercentage));
             ExtentTestManager.getTest().log(LogStatus.PASS, "Profile completion percentage incremented by  <b>\"5%\"</b>");
-        } catch (Throwable e) {
+        } catch (Throwable e)
+        {
             Assert.fail("Expected :: Profile completion percentage should be <b>\""+expectedProfileCompletionPercentage+"\" </b> ; Actual :: Profile completion percentage is <b>\""+actualProfileCompletionPercentage+"\" </b>"+ "&" + e.getMessage() + "");
         }
     }
@@ -2711,26 +3174,97 @@ public class ProfileCompletionPageActions {
     /**
      *  Verify cover Image is not displayed
      *
-     * @autor Kirthana SS
+     * @autor Kirthana SS /Gandharva
      * @param strings
      */
     public void verifyNotDisplayOfCoverImage(String ...strings)
     {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Cover image is deleted or not with following assertions :");
 
-        try {
+        try
+        {
             genericfunctions.waitTillElementToBeDisappearByLocator(By.xpath("//*[@class='opspot-banner-img m-banner--img-cover']"));
-            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.cover_img);
-            Assert.assertTrue(profileCompletionPageObjects.cover_img.isDisplayed());
+            //genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.cover_img);
+            /*Assert.assertTrue(profileCompletionPageObjects.cover_img.isDisplayed());*/
+            profileCompletionPageObjects.cover_img.isDisplayed();
             Assert.fail("Expected :: \"Cover \" image  should not be displayed ; Actual :: \"Cover\" image is  displayed");
-        } catch (Exception e)
+        }
+        catch (NoSuchElementException e )
         {
             ExtentTestManager.getTest().log(LogStatus.PASS,  " Cover image is deleted successfully");
-
         }
     }
 
 
+    /**
+     *  Verify Created Project displayed or not
+     *
+     * @autor Gandharva
+     * Date :- 14-12-2020
+     * @param strings
+     */
+    public void verifyDisplayOfCreatedProjectOnProjectSection(String ...strings)
+    {
+        String ExceptedTitle = strings[1].trim();
+        String actualTitle = null;
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Project Details are displayed or not with following assertions :");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.project_details.get(0));
+            Assert.assertTrue(profileCompletionPageObjects.project_details.get(0).isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS,  "  \"Project details\" are displayed on Projects Section");
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not found \" Project Details on Project Section\" " + "&" + e.getMessage());
+        }
+
+        try
+        {
+            actualTitle = profileCompletionPageObjects.project_details.get(0).getText().trim();
+            Assert.assertTrue(actualTitle.equals(ExceptedTitle));
+
+            ExtentTestManager.getTest().log(LogStatus.PASS,  " Expected :: \" Project Title \" should be displayed as :: "
+                    + " \"<b>" + ExceptedTitle +"\"   </b> ; Actual :: \" Project Title\" is displayed as :: " + " \"<b>" + actualTitle +"\"   </b>");
+        }
+        catch (Throwable e)
+        {
+            Assert.fail(" Expected :: \" Project Title \" should be displayed as :: " + " \"<b>" + ExceptedTitle +"\"   </b> ; " +
+                    "Actual :: \" Project Title \" is displayed as :: " + " \"<b>" + actualTitle +"\"   </b>"  + "&" + e.getMessage() + "");
+        }
+    }
+
+    /**
+     *  Verify Deleted Project displayed or not
+     *
+     * @autor Gandharva
+     * Date :- 15-12-2020
+     * @param strings
+     */
+    public void verifyDisplayOfDeletedProjectOnProjectSection(String ...strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Project is deleted or not on Projects Section with following assertion :");
+        String expectedTextPost = strings[1].trim();
+        genericfunctions.waitWebDriver(2000);
+        try
+        {
+            for (WebElement webElement : profileCompletionPageObjects.project_details)
+            {
+
+                if (expectedTextPost.equals(webElement.getText()))
+                {
+                    Assert.assertFalse(webElement.isDisplayed());
+                }
+            }
+            ExtentTestManager.getTest().log(LogStatus.PASS, " \" Post \" is deleted");
+
+
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Expected :: \" Project\" should be deleted ; Actual :: \"Project \" is not deleted" + "&" + e.getMessage() + "");
+        }
+    }
 
 
 }

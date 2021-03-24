@@ -53,7 +53,7 @@ public class WalletPageTest extends TestSetUp
     }
 
 
-    @Test(priority = 93, enabled = true, alwaysRun = true, description = "Verify the functionality of wallet topBar ")
+    @Test(priority = 102, enabled = true, alwaysRun = true, description = "Verify the functionality of wallet topBar ")
     public void tc_WLT_01_P1_VerifyWalletTopBarTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";
@@ -75,7 +75,7 @@ public class WalletPageTest extends TestSetUp
      * Verify "0.25" Coins are getting added to wallet on registration
      *
      */
-    @Test(priority = 94, enabled = true, alwaysRun = true, description = "Verify \"0.25\" coins are getting added to wallet on registration")
+    @Test(priority = 103, enabled = true, alwaysRun = true, description = "Verify \"0.25\" coins are getting added to wallet on registration")
     public void tc_WLT_02_P1_VerifyCoinsAddedToWalletOnRegistrationTest() throws Exception
     {
         //Registration
@@ -137,7 +137,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Contents of Transaction Tab
      *
      */
-    @Test(priority = 95, enabled = true, alwaysRun = true, description = "Verify Contents of Transaction Tab")
+    @Test(priority = 104, enabled = true, alwaysRun = true, description = "Verify Contents of Transaction Tab")
     public void tc_WLT_04_P1_VerifyContentsOfTransactionTabTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";
@@ -164,7 +164,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Calculating of cost per coins in Buy Coins popup
      *
      */
-    @Test(priority = 96, enabled = true, alwaysRun = true, description = "Verify Calculating of cost per coins in Buy Coins popup")
+    @Test(priority = 105, enabled = true, alwaysRun = true, description = "Verify Calculating of cost per coins in Buy Coins popup")
     public void tc_WLT_07_P1_VerifyCalculationOfCostPerBuyCoinsTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";
@@ -195,7 +195,7 @@ public class WalletPageTest extends TestSetUp
      * Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup
      *
      */
-    @Test(priority = 97, enabled = true, alwaysRun = true, description = "Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup")
+    @Test(priority = 106, enabled = true, alwaysRun = true, description = "Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup")
     public void tc_WLT_18_P1_VerifyCoinsSliderAtBuyCoinsPopupTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";

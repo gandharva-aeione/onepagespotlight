@@ -3,8 +3,8 @@ package com.aeione.ops.generic;
 public interface IAutoConst
 {
 
-   // Application Constants
-	String TEST_APP_URL="https://stg.doesntexist.com/";
+	// Application Constants
+	String TEST_APP_URL="https://stg.doesntexist.com/login";
 	String GMAIL_URL="https://www.gmail.com";
 	String FIREFOX="Firefox";
 	String CHROME="Chrome";
@@ -19,55 +19,63 @@ public interface IAutoConst
 	String DRIVER_UPDATION_BATCHFILE="driver_updation.bat";
 
 	String HEADLESSBROWSER="HEADLESSBROWSER";
-	String TEST_IMAGE_ID="1WSVWlpUNLJ8vIZo2LCcfr3yz58D8MDdB";
-	String TEST_VIDEO_ID="1otif4qfWcX7U4l0fn2HtzYDAliely7iT";
 
-	String TEST_IMAGE_ID1="1PyLPO5aQj80KMMgmKHUJLRUwxNnCpN03";
-	String TEST_IMAGE_ID2="1RjFeRqGP_7drTdjYnA0x0bSxGqGyxqyG";
+	String TEST_IMAGE_ID="1_n9YbB2tb0tgG7m6gQFqYrBjv6yKyTyt";
+	String TEST_VIDEO_ID="1jCV_e-KU2HnKVX6q4_FBxLJG4o3AA8OP";
 
-	String TEST_AUDIO_ID="1XPNjDXa9RwXBqIxb1GnO0LhtRU-y2foM";
-	String TEST_VIDEO_ID1="1EqQa_ued69A4Boew-s4sjkwzuf079vN2";
+	String TEST_IMAGE_ID1="1ZN-6Vt-C_8YXq_n02Fs2w4ykGfSocV3D";
+	String TEST_IMAGE_ID2="155yQ8ba_hLmx1xICIrerkKyNU9DTtX8V";
+	String TEST_STORE_IMAGE_ID="1tk_6kxn6pMtULgHKPUevW3MYEVJJ0wMc";
+	String TEST_OPPORTUNITY_IMAGE_ID="1wf9LrvY6wzlTlaqQpMEuEh-7VE6-G4fm";
+	String TEST_SHOWTIMEZ_IMAGE_ID="1k0YKjXmLiuxKnxs98leHRgrlSVHZTe1r";
+
+	String TEST_AUDIO_ID="1BRDDt2NposS4BN_w3yLjYdSoGujvQvSt";
+	String TEST_VIDEO_ID1="1bGJOeXONYsgswo8D1US-DxSYk9c9jYGq";
 
 
-	String TEST_DATA_GOOGLESHEET="1HRLXHwflJ4y_5J0wDYUc71EuJPHO787it77lTw7Ksec";
-	String AUTOMATION_REPORTS="15QONwpNRfAdYD3m0iiZdM8cR-xoAbwP_";
-	String IMAGE_TEST_FILE="/ops-test-image.png";
+	String TEST_DATA_GOOGLESHEET="1iYM6-D1Xq5oFJ-iRvTNDZ4iMjl9olQh-C2dxQTfbYhc";
+	String AUTOMATION_REPORTS="1DQwJth5RfHvnj_yFtqxxsbUuqJUZJOe7";
+
+	String IMAGE_TEST_FILE="/ops-test-image.jpg";
 	String VIDEO_TEST_FILE="/ops-test-video.mp4";
 	String VIDEO_TEST_FILE1="/KGF-Card-Test.mp4";
 	String IMAGE_TEST_FILE1="/ops_test_image.jpg";
 	String AUDIO_TEST_FILE="/ops-test-audio.mp3";
 	String IMAGE_TEST_FILE2="/ops_test_image3.jpg";
+	String IMAGE_STORE_TEST_FILE="/ops_test_store_image.jpg";
+	String IMAGE_OPPORTUNITY_TEST_FILE="/ops_test_opportunity_image.jpeg";
+	String IMAGE_SHOWTIMEZ_TEST_FILE="/ops_test_showtimez_image.jpg";
 
 	String TESTCASE_EXECUTION_CONFIGURATION_SHEET_ID="1PshffTlb_dcPvGowgDngj3NBICyYUjKJayIdCJGwehU";
 	String MIME_TYPE_GOOGLE_SHEET="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	String TEST_EXECUTION_SHEET="1SEKZORS-Xb-cnuKLGrdoxyA-0yXMV8s2zuxG6lZCab0";
+	//String TEST_EXECUTION_SHEET="1HVl88zGLHR2fPakKf7or3RtRvMjtc2WiW2k4KkrhMYo";
+	String TEST_EXECUTION_SHEET="1HVl88zGLHR2fPakKf7or3RtRvMjtc2WiW2k4KkrhMYo";
 
-    String LOGIN_PAGE_TITLE = "Login | One Page Spotlight";
+	String LOGIN_PAGE_TITLE = "Login | One Page Spotlight";
 
-    //Google Test Drive  Constants
-    String AUTHORIZE_URI = "automation@aeione.com";
+	//Google Test Drive  Constants
+	String AUTHORIZE_URI = "automation@aeione.com";
 
+	//Page Urls
+	String DISPOSABLE_EMAIL_ID_GENERATOR_URL = "https://www.mailinator.com/";
 
-    //Page Urls
-    String DISPOSABLE_EMAIL_ID_GENERATOR_URL = "https://www.mailinator.com/";
-
-    //Application URLs
-    String HOMEURL = "https://stg.doesntexist.com/newsfeed/subscribed";
-
-
-    //API URI:
-    String MOBILE_VERIFY_URI = "https://stg.doesntexist.com/api/v3/verification/mobile/verify";
-    String MOBILE_CONFIRM_URI = "https://stg.doesntexist.com/api/v3/verification/mobile/confirm";
-    String MOBILE_REGISTER_URI = "https://stg.doesntexist.com/api/v1/register";
+	//Application URLs
+	String HOMEURL = "https://stg.doesntexist.com/newsfeed/subscribed";
 
 
-    String CONSTANT_ROW = "Registration!A5:B5";
+	//API URI:
+	String MOBILE_VERIFY_URI = "https://stg.doesntexist.com/api/v3/verification/mobile/verify";
+	String MOBILE_CONFIRM_URI = "https://stg.doesntexist.com/api/v3/verification/mobile/confirm";
+	String MOBILE_REGISTER_URI = "https://stg.doesntexist.com/api/v1/register";
 
-    String ENABLED = "Enabled";
-    String ENABLED_SPECIFIC_TEST_CASES = "Enabled Specific Test Cases";
-    String DISABLED = "Disabled";
-    String DISABLED_SPECIFIC_TEST_CASES = "Disabled Specific Test Cases";
 
+	String CONSTANT_ROW = "Registration!A5:B5";
+	String CONSTANT_DELETED_ROW = "DeletedAccounts!A2:H2";
+
+	String ENABLED = "Enabled";
+	String ENABLED_SPECIFIC_TEST_CASES = "Enabled Specific Test Cases";
+	String DISABLED = "Disabled";
+	String DISABLED_SPECIFIC_TEST_CASES = "Disabled Specific Test Cases";
 
 }
 

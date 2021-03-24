@@ -50,7 +50,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for users posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 98, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for own posts")
+    @Test(priority = 107, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for own posts")
     public void tc_BM_01_P1_verifyBookmarkIconInCreatedPostTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -74,7 +74,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" icon is displayed  for  "FOLLOWED USER" posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 99, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for followed users  posts")
+    @Test(priority = 108, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for followed users  posts")
     public void tc_BM_02_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
         String range = "Login!A7:C7";
@@ -109,7 +109,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for "FOLLOWING USER" posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 100, enabled = true, alwaysRun = true, description = "Verify BOOKMARK functionality for Following users  posts")
+    @Test(priority = 109, enabled = true, alwaysRun = true, description = "Verify BOOKMARK functionality for Following users  posts")
     public void tc_BM_03_P1_verifyBookmarkInfollowingUserPostTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A5:B5";
@@ -188,7 +188,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify user is able to select any filters in bookmark page.
      * Author:- Smita Sahoo
      */
-    @Test(priority = 101, enabled = true, alwaysRun = true, description = "Verify user  is able to select any filters in bookmark page")
+    @Test(priority = 110, enabled = true, alwaysRun = true, description = "Verify user  is able to select any filters in bookmark page")
     public void tc_BM_04_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
         String range = "Login!A19:C19";
@@ -246,7 +246,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify contents in bookmarked post
      * Author:- Smita Sahoo
      */
-    @Test(priority = 102, enabled = true, alwaysRun = true, description = "Verify contents in bookmarked post")
+    @Test(priority = 111, enabled = true, alwaysRun = true, description = "Verify contents in bookmarked post")
     public void tc_BM_05_P1_verifyBookmarkInfollowingUserPostTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A5:B5";

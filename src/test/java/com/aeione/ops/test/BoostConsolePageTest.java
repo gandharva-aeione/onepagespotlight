@@ -43,7 +43,7 @@ public class BoostConsolePageTest extends TestSetUp {
      */
 
 
-    @Test(priority = 139, enabled = true, alwaysRun = true, description = "Verify the boost Console under profile drop down")
+    @Test(priority = 147, enabled = true, alwaysRun = true, description = "Verify the boost Console under profile drop down")
     public void tc_BC_01_P1_verifyBoostConsoleIconInProfileDropdownTest () throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";

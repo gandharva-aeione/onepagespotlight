@@ -48,7 +48,7 @@ public class InvitePageTest extends TestSetUp {
      * Test_Caeses_For_Check that User gets an option for "Invite Friend"
      * Author:- Smita Sahoo
      */
-  @Test(priority = 103, enabled = true, alwaysRun = true, description = "Display of Invite Friends option ")
+  @Test(priority = 112, enabled = true, alwaysRun = true, description = "Display of Invite Friends option ")
     public void tc_IN_01_P1_VerifyInviteFriendOptionTest() throws Exception
     {  String range = "Login!A9:C9";
 
@@ -65,7 +65,7 @@ public class InvitePageTest extends TestSetUp {
      * Test_Caeses_For_"Verify user able to navigate to OnePageSpotLight Page through ""Email_Link"""
      * Author:- Smita Sahoo
      */
-    @Test(priority = 104, enabled = true, alwaysRun = true, description = "navigate to OnePageSpotLight Page through Email link")
+    @Test(priority = 113, enabled = true, alwaysRun = true, description = "navigate to OnePageSpotLight Page through Email link")
     public void tc_IN_03_P1_VerifyInviteFriendsThroughEmailLinkTest() throws Exception
     {
         String range = "Login!A9:C9";

@@ -1289,8 +1289,6 @@ public class GenericFunctions // implements IAutoConst//
 
 
 
-
-
 	public static String generateRandomEmail(int length, String emailExtention)
 	{
 		// log.info("Generating a Random email String");

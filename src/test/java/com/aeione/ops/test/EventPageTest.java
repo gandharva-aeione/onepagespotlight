@@ -52,7 +52,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority = 140, enabled = true, alwaysRun = true, description = "Verify \"Create Event\" option by clicking on the Group "
+	@Test(priority = 148, enabled = true, alwaysRun = true, description = "Verify \"Create Event\" option by clicking on the Group "
 			+ "link from Header")
 	public void tc_EV_01_P1_VerifyCreateEventOptionByClickingOnGroupLinkTest() throws Exception
 	{
@@ -78,7 +78,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 141, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" option by clicking on the Group "
+	@Test(priority = 149, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" option by clicking on the Group "
 			+ "link from Header")
 	public void tc_EV_02_P1_VerifyNavigationToCreateEventPageTest() throws Exception
 	{
@@ -94,7 +94,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 142, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	@Test(priority = 150, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void tc_EV_03_P1_VerifyCreateEventTest() throws Exception
 	{
 		String range = "Event!A2:I2";
@@ -146,7 +146,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 143, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	@Test(priority = 151, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void tc_EV_04_P1_VerifyCreatedEventInHomePageTest() throws Exception
 	{
 		String range = "Event!A2:B2";
@@ -176,7 +176,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 27-05-2020
 	 */
 
-	@Test(priority = 144, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	@Test(priority = 152, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void tc_EV_05_P1_VerifyDeletingEventTest() throws Exception
 	{
 		String range = "Event!A2:B2";

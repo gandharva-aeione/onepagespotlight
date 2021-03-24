@@ -1,6 +1,7 @@
 package com.aeione.ops.pageobjects;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -33,11 +34,24 @@ public class HomePageObjects
     @FindBy( id = "topbar-group")
     public WebElement topbar_group;
 
+    @FindBy (xpath = "//div[@class='o-home-filter-tab']")
+    public WebElement home_page_filters;
+
+    @FindBy (xpath = "//*[@class='text-content']")
+    public List<WebElement> home_page_filters_tabs;
+
+    @FindBy (xpath = "//*[contains(text(),'All Posts')]")
+    public WebElement allPost_Tab;
+
     //--------#Tags-------------
     @FindBy(id = "post-menu-dropdown")
     public WebElement post_menu_dropdown;
     @FindBy(id = "post-menu-opportunity")
     public WebElement post_menu_opportunity;
+
+    //---------BlueStore#Tags----------
+    @FindBy (id = "Bluestore_Select_Category")
+    public WebElement bluestore_category;
 
     //---------Opportunity#Tags----------
     @FindBy (id = "opportunity-category")
@@ -80,9 +94,18 @@ public class HomePageObjects
     @FindBy (xpath = "//*[contains(text(),'Error: You must provide a title')]")
     public WebElement blog_title_error;
 
+    @FindAll({
+            @FindBy(xpath = "//*[@class='text-md grey align']"),
+            @FindBy(xpath = "//span[contains(.,'Saved as a draft')]")
+    })
+    public  WebElement blog_draft_message;
+
+    /*@FindBy (xpath = "//span[contains(.,'Saved as a draft')]")
+    public  WebElement blog_draft_message;
+*/
     @FindBy(xpath = "//*[@id='view-blog']")
     public WebElement blog_title_name;
-    
+
     @FindBy(xpath = "//*[@class='m-rich-embed--title mdl-card__title-text mdl-typography--font-medium ng-star-inserted']")
     public List<WebElement> blog_name;
 
@@ -147,13 +170,16 @@ public class HomePageObjects
     @FindBy(xpath = "//*[@class='o-card o-card-suggestion']")
     public WebElement suggested_widget;
 
-    @FindBy(xpath = "//div[@class='o-suggestion__avatar']")
+    /*@FindBy(xpath = "//div[@class='o-suggestion__avatar']")
+    public WebElement suggested_user_profile_image;*/
+
+    @FindBy(id="suggested_user_profile_image")
     public WebElement suggested_user_profile_image;
 
-    @FindBy(xpath = "//div[@class='o-suggestion__name caption-bold']")
+    @FindBy(id = "suggested_user_profile_name")
     public WebElement suggested_user_profile_name;
 
-    @FindBy(xpath = "//div[@class='text-md grey']")
+    @FindBy(id = "suggested_user_username")
     public WebElement suggested_user_username;
 
     @FindBy(id = "follow")

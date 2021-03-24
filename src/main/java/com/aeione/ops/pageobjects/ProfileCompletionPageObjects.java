@@ -1,6 +1,7 @@
 package com.aeione.ops.pageobjects;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -144,8 +145,14 @@ public class ProfileCompletionPageObjects {
     @FindBy(id = "profile-edit-education")
     public WebElement profile_edit_education_tab;
 
+    @FindBy( xpath = "//a[contains(.,'Projects')]")
+    public WebElement profile_edit_projects_tab;
+
     @FindBy(id = "education-add-education")
     public WebElement add_education_button;
+
+    @FindBy(id = "projects-add-projects")
+    public WebElement add_projects_button;
 
     @FindBy(id = "eduaction-field-of-study")
     public WebElement eduaction_field_of_study_textfield;
@@ -237,7 +244,13 @@ public class ProfileCompletionPageObjects {
     @FindBy(id = "carousel-delete-banner-image")
     public WebElement delete_cover_image_icon;
 
-    @FindBy(xpath = "//*[@class='opspot-banner-img m-banner--img-cover']")
+    /*@FindBy(xpath = "//*[@class='opspot-banner-img m-banner--img-cover']")
+    public WebElement cover_img;*/
+
+    @FindAll({
+            @FindBy(xpath = "//*[@class='opspot-banner-img m-banner--img-cover']"),
+            @FindBy(id = "banners-cover-image")
+            })
     public WebElement cover_img;
 
     @FindBy(id = "carousel-right-banner-image")
@@ -245,6 +258,39 @@ public class ProfileCompletionPageObjects {
 
     @FindBy(id = "follow")
     public WebElement follow_button;
+
+    @FindBy ( id = "suggested_user_profile_name")
+    public WebElement followed_UserName;
+
+    @FindBy ( id = "sidebar-location")
+    public  WebElement sidebar_location;
+
+    @FindBy ( name = "title")
+    public WebElement project_titile_textfield;
+
+    @FindBy ( id = "projects-component-description")
+    public WebElement project_description_textfield;
+
+    @FindBy (id = "projects-location")
+    public WebElement project_link_textfield;
+
+    @FindBy ( id = "projects-show-on-profile")
+    public WebElement projects_show_on_profile_radiobutton;
+
+    @FindBy (id = "projects-update-button")
+    public WebElement projects_save_button;
+
+    @FindBy ( id = "projects-cancel-button")
+    public WebElement projects_cancel_button;
+
+    @FindBy (id = "awards-award-title")
+    public List<WebElement>  project_details;
+
+    @FindBy ( id = "projects-update-icon")
+    public List<WebElement> edit_projects_icon;
+
+    @FindBy ( id = "projects-remove-image")
+    public List<WebElement> delete_projects_icon;
 
 
 }

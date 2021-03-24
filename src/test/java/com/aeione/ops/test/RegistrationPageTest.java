@@ -1,23 +1,32 @@
 package com.aeione.ops.test;
 
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.RegistrationPageActions;
+import com.google.inject.internal.util.$Strings;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
+ * @CustomAnnotation (value=Kirthana)
  * @author :  Kirthana
  * @date   :  05-05-2020
  *
  * Tests on  Regsitartion Functionalities
  *
  */
+
 public class RegistrationPageTest  extends TestSetUp
 {
 
@@ -31,15 +40,22 @@ public class RegistrationPageTest  extends TestSetUp
         return new GoogleSheetAPI();
     }
 
-    public GoogleDriveAPI dsriveAPI() throws IOException {
+    public GoogleDriveAPI dsriveAPI() throws IOException
+    {
 
       GoogleDriveAPI.getDriveService();
         return new GoogleDriveAPI();
 
     }
+    /**
+     * @author :  Kirthana
+     * @date   :  05-05-2020
+     *
+     * Tests on  Regsitartion Functionalities
+     *
+     */
 
-
-    @Test(priority = 01, enabled = true, alwaysRun = true, description = "Verify Registration API with valid password ")
+    @Test(priority = 01, enabled = true, alwaysRun = true, description = "Verify Registration API with valid password")
     public void tc_RG_01_P1_RegistrationAPITest() throws Exception
     {
 
@@ -54,7 +70,8 @@ public class RegistrationPageTest  extends TestSetUp
         String emailAddress=getRegistrationPage().getEmail(val.get(2));
         String countryCode=val.get(3);
         String dateOfBirth=val.get(5);
-        String createPassword=getRegistrationPage().getRandomValidPassword(val.get(6));
+        //String createPassword=getRegistrationPage().getRandomValidPassword(val.get(6));
+        String createPassword= val.get(6);
         String skipOtp=val.get(7);
         String phoneNumber= getRegistrationPage().getPhoneNumber(val.get(4));
 
@@ -89,8 +106,7 @@ public class RegistrationPageTest  extends TestSetUp
 
     }
 
-
-    @Test(priority = 02, enabled = true, alwaysRun = true, description = "Verify that user is able to register by giving Invalid OTP or not with  Registration API ")
+    @Test(priority = 02, enabled = true, alwaysRun = true, description = "Verify that user is able to register by giving Invalid OTP or not with  Registration API" )
     public void tc_RG_02_P1_RegistrationWithInvalidOTPAPITest() throws Exception
     {
         String range = "Registration!A2:H";
@@ -104,7 +120,8 @@ public class RegistrationPageTest  extends TestSetUp
         String emailAddress=getRegistrationPage().getEmail(val.get(2));
         String countryCode=val.get(3);
         String dateOfBirth=val.get(5);
-        String createPassword=getRegistrationPage().getRandomValidPassword(val.get(6));
+        //String createPassword=getRegistrationPage().getRandomValidPassword(val.get(6));
+        String createPassword= val.get(6);
         String skipOtp=val.get(7);
         String invalidOTP=getRegistrationPage().getRandomOTP();
         String phoneNumber= getRegistrationPage().getPhoneNumber(val.get(4));
@@ -114,9 +131,13 @@ public class RegistrationPageTest  extends TestSetUp
         String secret=responseinfo.get(1);
 
         getRegistrationPage().verifyMobileApi("Verify Step", response);
-        response=getRegistrationPage().mobileConfirmApi("Action Step",phoneNumber, secret,skipOtp , countryCode );
+        response=getRegistrationPage().mobileConfirmApi("Action Step",phoneNumber, secret,skipOtp, countryCode );
+
+        System.out.println("Response:-"+response);
         getRegistrationPage().verifyMobileConfirmApi("Verify Step", response);
-        response= getRegistrationPage().registerApi("Action & verify", fullName,userName,phoneNumber,countryCode,secret, emailAddress,dateOfBirth,createPassword,skipOtp, invalidOTP);
+        response= getRegistrationPage().registerApi("Action & verify", fullName,userName,phoneNumber,countryCode,secret, emailAddress,dateOfBirth,createPassword,skipOtp,invalidOTP);
+        System.out.println("Response OTP:-"+invalidOTP);
+        System.out.println("Response:-"+response);
         getRegistrationPage().verifyRegisterApiWithInvalidOTP("Verify Step", response);
     }
 
@@ -168,7 +189,8 @@ public class RegistrationPageTest  extends TestSetUp
         String emailAddress=getRegistrationPage().getEmail(validData.get(2));
         String countryCode= validData.get(3);
         String skipOtp= validData.get(7);
-        String createPassword=getRegistrationPage().getRandomValidPassword(validData.get(6));
+        //String createPassword=getRegistrationPage().getRandomValidPassword(validData.get(6));
+        String createPassword= validData.get(6);
         String phoneNumber= getRegistrationPage().getPhoneNumber(validData.get(4));
         ArrayList<String> inValidData = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, invalidDataRange);
         String dateOfBirth= inValidData.get(5);

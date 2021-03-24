@@ -47,7 +47,7 @@ public class ExplorePageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority =136, enabled = true, alwaysRun = true, description = "Verify navigation to the \" Explore page\" by clicking on the Home page Header >> Explore ")
+	@Test(priority =145, enabled = true, alwaysRun = true, description = "Verify navigation to the \" Explore page\" by clicking on the Home page Header >> Explore ")
 	public void tc_EX_01_P1_VerifyNavigationToExplorePageTest() throws Exception
 	{
 		String range = "Login!A14:C14";
@@ -72,7 +72,7 @@ public class ExplorePageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority =138, enabled = true, alwaysRun = true, description = "Verify \" Suggested Hashtags\" in sub-header of Explore page")
+	@Test(priority =146, enabled = true, alwaysRun = true, description = "Verify \" Suggested Hashtags\" in sub-header of Explore page")
 	public void tc_EX_02_P1_VerifySuggestedHashtagsInSubHeaderOfExplorePageTest() throws Exception{
 
 		String range = "Explore Page!A21:A1";

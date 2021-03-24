@@ -69,7 +69,8 @@ public abstract class TestSetUp implements IAutoConst {
 
     @Parameters({"reportName", "replaceExistingReport", })
     @BeforeTest
-    public static void beforeTest(String reportName, boolean replaceExistingReport) {
+    public static void beforeTest(String reportName, boolean replaceExistingReport)
+    {
 
         DriverManager.setReportName(reportName);
         DriverManager.setReplaceExistingReport(replaceExistingReport);
@@ -81,7 +82,8 @@ public abstract class TestSetUp implements IAutoConst {
 
     @Parameters({"testBrowserName", "RunHeadless"})
     @BeforeClass(alwaysRun = true)
-    public void launchApplication(String testBrowserName, String RunHeadless) throws Exception {
+    public void launchApplication(String testBrowserName, String RunHeadless) throws Exception
+    {
         // start the proxy
         proxy = new BrowserMobProxyServer();
         proxy.start(0);
@@ -231,7 +233,8 @@ public abstract class TestSetUp implements IAutoConst {
 
         }
 
-        try {
+        try
+        {
             System.out.println("Test Execution Completed : Closing the browser");
             ReadJSONExample.readHAR(file, newFile);
             proxy.stop();
@@ -245,7 +248,8 @@ public abstract class TestSetUp implements IAutoConst {
 
 
     @AfterClass
-    public static void closeApplication() {
+    public static void closeApplication()
+    {
         DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.getDriver().quit();
     }
@@ -258,7 +262,8 @@ public abstract class TestSetUp implements IAutoConst {
         ExtentTestManager.endTest();
         DriverManager.getExtentReport().flush();
 
-        if (!isParallel == true) {
+        if (!isParallel == true)
+        {
             String renamedReport = renameReport();
 
             if (shareReportToGoogleDrive == true) {
@@ -285,6 +290,7 @@ public abstract class TestSetUp implements IAutoConst {
         removeFilesByExtention(".mp3");
         removeFilesByExtention(".mp4");
         removeFilesByExtention(".png");
+        removeFilesByExtention(".jpeg");
     }
 
 
@@ -342,10 +348,6 @@ public abstract class TestSetUp implements IAutoConst {
 
         return newFile.getAbsolutePath();
     }
-
-
-
-
 
 
     /**

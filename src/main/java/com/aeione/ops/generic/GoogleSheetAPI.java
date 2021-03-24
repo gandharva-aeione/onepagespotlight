@@ -323,12 +323,6 @@ public class GoogleSheetAPI {
     }
 
 
-
-
-
-
-
-
     /**
      *
      * @autor Kirthana SS

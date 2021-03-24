@@ -7,7 +7,11 @@
 
 package com.aeione.ops.generic;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.ExtentReports;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -23,7 +27,8 @@ public class ExtentManager extends TestSetUp {
 
 
 
-    public static ExtentReports getReporter() {
+    public static ExtentReports getReporter()
+    {
 
         LocalDate localDate = LocalDate.now();
         DriverManager.setlocalTime(LocalTime.now());
@@ -36,7 +41,8 @@ public class ExtentManager extends TestSetUp {
 
         //create Directory
         File file = new File(localDirectoryPath);
-        if (!file.exists()) {
+        if (!file.exists())
+        {
             //Creating the directory
             file.mkdir();
         }

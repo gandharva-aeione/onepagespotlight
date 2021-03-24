@@ -50,7 +50,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify creating a public community
 	 * Created on : 05-05-2020
 	 */
-	@Test(priority =129, enabled = true, alwaysRun = true, description = "Verify Create Public Community")
+	@Test(priority =138, enabled = true, alwaysRun = true, description = "Verify Create Public Community")
 	public void tc_CM_02_and_CM_12_P1_VerifyCreatingPublicCommunityTest() throws Exception
 	{
 
@@ -96,7 +96,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 130, enabled = true, alwaysRun = true, description = "Verify converting a public community to private community")
+	@Test(priority = 139, enabled = true, alwaysRun = true, description = "Verify converting a public community to private community")
 	public void tc_CM_04_P1_VerifyConvertingPublicCommunityToPrivateTest() throws Exception
 	{
 		getCommunityPageActions().clickOnCommunityTabFromHomePage("Action Step");
@@ -113,7 +113,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 131, enabled = true, alwaysRun = true, description = "Verify Invite members by creating private community")
+	@Test(priority = 140, enabled = true, alwaysRun = true, description = "Verify Invite members by creating private community")
 	public void tc_CM_03_and_CM_12_P1_InviteMembersInPrivateCommunityTest() throws Exception
 	{		
 		String range1 = "Community!A3:E3";
@@ -153,7 +153,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 01-06-2020
 	 */
 
-	@Test(priority = 132, enabled = true, alwaysRun = true, description = "Verify \"Deleting\" the community as Admin")
+	@Test(priority = 141, enabled = true, alwaysRun = true, description = "Verify \"Deleting\" the community as Admin")
 	public void tc_CM_05_P1_VerifyDeletingCommunityAsAdminTest() throws Exception
 	{
 		getCommunityPageActions().clickOnCommunityTabFromHomePage("Action Step");
@@ -172,7 +172,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 01-06-2020
 	 */
 
-	@Test(priority = 133, enabled = true, alwaysRun = true, description = "Verify \"Create Post\" in community as admin")
+	@Test(priority = 142, enabled = true, alwaysRun = true, description = "Verify \"Create Post\" in community as admin")
 	public void tc_CM_06_P1_VerifyCreatingPostInCommunityAsAdminTest() throws Exception
 	{
 		String textPostVal = null;
@@ -193,7 +193,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify joining a community
 	 * Created on : 02-06-2020
 		*/
-	@Test(priority = 134, enabled = true, alwaysRun = true, description = "Verify \"Join community\" in community ")
+	@Test(priority = 140, enabled = true, alwaysRun = true, description = "Verify \"Join community\" in community ")
 	public void tc_CM_09_P1_VerifyJoiningCommunityTest() throws Exception
 	{
 		getCommunityPageActions().clickOnCommunityTabFromHomePage("Action Step");
@@ -206,7 +206,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify changing community Settings
 	 * Created on : 02-06-2020
 	 */
-	@Test(priority = 135, enabled = true, alwaysRun = true, description = "Verify changing \"Community Settings \" as admin")
+	@Test(priority = 143, enabled = true, alwaysRun = true, description = "Verify changing \"Community Settings \" as admin")
 	public void tc_CM_07_P1_VerifyChangingCommunitySettingsTest() throws Exception
 	{
 		getCommunityPageActions().clickOnCommunityTabFromHomePage("Action Step");
@@ -222,7 +222,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify Updated Settings of community as admin
 	 * Created on : 02-06-2020
 	 */
-	@Test(priority = 136, enabled = true, alwaysRun = true, description = "Verify \"Updated Settings \" of community as admin")
+	@Test(priority = 144, enabled = true, alwaysRun = true, description = "Verify \"Updated Settings \" of community as admin")
 	public void tc_CM_08_P1_VerifyUpdatedSettingsOfCommunityTest() throws Exception
 	{
 		getCommunityPageActions().clickOnCommunityTabFromHomePage("Action Step");

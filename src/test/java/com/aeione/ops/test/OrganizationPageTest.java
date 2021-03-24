@@ -65,7 +65,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 105, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
+	@Test(priority = 114, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
 	public void tc_ORG_01_P1_VerifyFunctionalityOfCreateOrganizationButtonTest() throws Exception
 	{
 
@@ -93,7 +93,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 106, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
+	@Test(priority = 115, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
 	public void tc_ORG_02_P1_CreateAndVerifyOrganizationTest() throws Exception
 	{
 
@@ -133,7 +133,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 107, enabled = true, alwaysRun = true, description = "Verify functionality of Invite members icon")
+	@Test(priority = 116, enabled = true, alwaysRun = true, description = "Verify functionality of Invite members icon")
 	public void tc_ORG_03_P1_VerifyInviteMembersIconAsOwnerTest() throws Exception
 	{
 		getHomePageActions().clickOnTopBarDropdown("Action Step");        
@@ -149,7 +149,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 108, enabled = true, alwaysRun = true, description = "Verify creating Text post as owner")
+	@Test(priority = 117, enabled = true, alwaysRun = true, description = "Verify creating Text post as owner")
 	public void tc_ORG_04_P1_VerifyCreatingTextPostAsOwnerTest() throws Exception
 	{
 		String range = "Organization!E2:F2";
@@ -172,7 +172,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 109, enabled = true, alwaysRun = true, description = "Verify Deleting the uploaded post as owner")
+	@Test(priority = 118, enabled = true, alwaysRun = true, description = "Verify Deleting the uploaded post as owner")
 	public void tc_ORG_05_P1_VerifyDeletingPostAsOwnerTest() throws Exception
 	{
 		String range = "Organization!E2:F2";
@@ -194,7 +194,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 09-06-2020
 	 */
 
-	@Test(priority = 110, enabled = true, alwaysRun = true, description = "Verify Creating Restricted post as owner")
+	@Test(priority = 119, enabled = true, alwaysRun = true, description = "Verify Creating Restricted post as owner")
 	public void tc_ORG_06_P1_VerifyCreatingRestrictedPostTest() throws Exception
 	{
 		String range = "Organization!E2:F2";
@@ -219,7 +219,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 09-06-2020
 	 */
 
-	@Test(priority = 111, enabled = true, alwaysRun = true, description = "Verify Creating a post as owner")
+	@Test(priority = 120, enabled = true, alwaysRun = true, description = "Verify Creating a post as owner")
 	public void tc_ORG_07_P1_VerifyCreatePostFunctionalityForOwnerTest() throws Exception
 	{
 		String range = "Organization!E2:F2";
@@ -244,7 +244,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 09-06-2020
 	 */
 
-	@Test(priority = 112, enabled = true, alwaysRun = true, description = "Verify \"Comment functionality\" for Created Post functionality as Owner")
+	@Test(priority = 121, enabled = true, alwaysRun = true, description = "Verify \"Comment functionality\" for Created Post functionality as Owner")
 	public void tc_ORG_08_P1_VerifyCommentFunctionalityForPostAsOwnerTest() throws Exception
 	{
 		String range = "Organization!F2:G2";
@@ -311,7 +311,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
-	@Test(priority = 113, enabled = true, alwaysRun = true, description = "Verify deleting the organization")
+	@Test(priority = 122, enabled = true, alwaysRun = true, description = "Verify deleting the organization")
 	public void tc_ORG_09_P1_VerifyDeleteOrganizationTest() throws Exception
 	{
 		String range = "Organization!A2:D2";
