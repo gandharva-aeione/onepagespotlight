@@ -8023,3 +8023,54 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 2021-03-24 16:45:17,127 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_20_P1_VerifyShareBlueStoreHashTagPost start , I am in onTestStart class PostWIthHashTagTest start 
 2021-03-24 16:46:42,197 INFO  [GenericFunctions] I am in onTestFailure method TC_PWH_20_P1_VerifyShareBlueStoreHashTagPost failed, I am in onTestFailure class PostWIthHashTagTest failed 
 2021-03-24 16:46:47,399 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_21_P1_VerifyDeleteBlueStoreHashTagPost start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:47:35,604 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_21_P1_VerifyDeleteBlueStoreHashTagPost succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:47:40,143 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_22_P1_VerifyCreateOpportunityHashTagPostTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:48:24,292 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_22_P1_VerifyCreateOpportunityHashTagPostTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:48:29,084 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_23_P1_VerifyContentsOfCreateOpportunityHashTagPopUpTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:48:53,470 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_23_P1_VerifyContentsOfCreateOpportunityHashTagPopUpTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:48:57,887 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_24_P1_VerifyCreatePortfolioHashTagPostTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:49:34,908 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_24_P1_VerifyCreatePortfolioHashTagPostTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:49:39,575 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_25_P1_VerifyCreatePortfolioHashTagRestrictedPostTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:50:16,655 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_25_P1_VerifyCreatePortfolioHashTagRestrictedPostTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:50:21,966 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_26_P1_VerifyActionsOfPortfolioPostInPortfolioInnerPageTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:51:19,473 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_26_P1_VerifyActionsOfPortfolioPostInPortfolioInnerPageTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:51:24,647 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_27_P1_VerifyEditPortfolioPostTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:52:09,273 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_27_P1_VerifyEditPortfolioPostTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:52:14,099 INFO  [GenericFunctions] I am in onTestStart method TC_PWH_28_P1_VerifyDeletePortfolioPostTest start , I am in onTestStart class PostWIthHashTagTest start 
+2021-03-24 16:52:52,470 INFO  [GenericFunctions] I am in onTestSuccess method TC_PWH_28_P1_VerifyDeletePortfolioPostTest succeed , I am in onTestSuccess class PostWIthHashTagTest succeed 
+2021-03-24 16:53:29,999 INFO  [GenericFunctions] I am in onTestStart method tc_PC_12_P1_VerifyContentsOfPostCardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:54:40,472 INFO  [GenericFunctions] I am in onTestSuccess method tc_PC_12_P1_VerifyContentsOfPostCardTest succeed , I am in onTestSuccess class PostCardTest succeed 
+2021-03-24 16:54:47,327 INFO  [GenericFunctions] I am in onTestStart method tc_PC_02_P1_VerifyBuyCoinsButtonInContributionPopupTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:54:49,977 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_02_P1_VerifyBuyCoinsButtonInContributionPopupTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:55:32,991 INFO  [GenericFunctions] I am in onTestStart method tc_PC_03_P1_VerifyDeletePostCardWithYesButtonTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:55:36,895 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_03_P1_VerifyDeletePostCardWithYesButtonTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:56:20,625 INFO  [GenericFunctions] I am in onTestStart method tc_PC_04_P1_VerifyBoostButtonInPostCardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:56:24,950 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_04_P1_VerifyBoostButtonInPostCardTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:57:08,747 INFO  [GenericFunctions] I am in onTestStart method tc_PC_08_P2_VerifyShareButtonInPostCardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:57:12,796 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_08_P2_VerifyShareButtonInPostCardTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:57:56,681 INFO  [GenericFunctions] I am in onTestStart method tc_PC_09_P2_VerifyLikeButtonInPostcardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:58:00,886 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_09_P2_VerifyLikeButtonInPostcardTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:58:44,641 INFO  [GenericFunctions] I am in onTestStart method tc_PC_10_P2_VerifyCommentOnPostTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 16:58:48,674 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_10_P2_VerifyCommentOnPostTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 16:59:32,501 INFO  [GenericFunctions] I am in onTestStart method tc_PC_11_P1_VerifyContentsOfFollowedUserPostcardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 17:00:03,000 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_11_P1_VerifyContentsOfFollowedUserPostcardTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 17:00:46,726 INFO  [GenericFunctions] I am in onTestStart method tc_PC_14_P1_VerifyRepostPostTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 17:00:50,423 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_14_P1_VerifyRepostPostTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 17:01:34,171 INFO  [GenericFunctions] I am in onTestStart method tc_PC_13_P1_VerifyBoostPostCardTest start , I am in onTestStart class PostCardTest start 
+2021-03-24 17:02:19,333 INFO  [GenericFunctions] I am in onTestFailure method tc_PC_13_P1_VerifyBoostPostCardTest failed, I am in onTestFailure class PostCardTest failed 
+2021-03-24 17:02:38,923 INFO  [GenericFunctions] I am in onTestStart method tc_PP_01_P1_VerifyViewProfileLinkTest start , I am in onTestStart class ProfilePageTest start 
+2021-03-24 17:02:59,634 INFO  [GenericFunctions] I am in onTestFailure method tc_PP_01_P1_VerifyViewProfileLinkTest failed, I am in onTestFailure class ProfilePageTest failed 
+2021-03-24 17:03:12,748 INFO  [GenericFunctions] I am in onTestStart method tc_PP_02_P1_VerifyViewProfileLinkFunctionalityTest start , I am in onTestStart class ProfilePageTest start 
+2021-03-24 17:03:22,002 INFO  [GenericFunctions] I am in onTestFailure method tc_PP_02_P1_VerifyViewProfileLinkFunctionalityTest failed, I am in onTestFailure class ProfilePageTest failed 
+2021-03-24 17:03:22,002 INFO  [GenericFunctions] I am in onTestFailure method tc_PP_02_P1_VerifyViewProfileLinkFunctionalityTest failed, I am in onTestFailure class ProfilePageTest failed 
+2021-03-24 17:20:05,435 INFO  [GenericFunctions] I am in onTestStart method tc_RG_01_P1_RegistrationAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-03-24 17:20:12,295 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_01_P1_RegistrationAPITest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
+2021-03-24 17:20:14,542 INFO  [GenericFunctions] I am in onTestStart method tc_RG_02_P1_RegistrationWithInvalidOTPAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-03-24 17:20:16,575 INFO  [GenericFunctions] I am in onTestFailure method tc_RG_02_P1_RegistrationWithInvalidOTPAPITest failed, I am in onTestFailure class RegistrationPageTest failed 
+2021-03-24 17:20:16,886 INFO  [GenericFunctions] I am in onTestStart method tc_RG_03_P1_RegistrationWithInvalidPasswordAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-03-24 17:20:18,594 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_03_P1_RegistrationWithInvalidPasswordAPITest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
+2021-03-24 17:20:18,599 INFO  [GenericFunctions] I am in onTestStart method tc_RG_04_P1_RegistrationOnDOBWithAgeLimitAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-03-24 17:20:20,927 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_04_P1_RegistrationOnDOBWithAgeLimitAPITest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
+2021-03-24 17:20:20,929 INFO  [GenericFunctions] I am in onTestStart method tc_RG_05_P1_SelectCountryCodeTest start , I am in onTestStart class RegistrationPageTest start 
+2021-03-24 17:22:10,936 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_05_P1_SelectCountryCodeTest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
+2021-03-24 17:22:14,114 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
