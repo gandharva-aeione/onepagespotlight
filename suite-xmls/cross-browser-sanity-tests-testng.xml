@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="none" configfailurepolicy="continue" thread-count="5" preserve-order="true">
 
-    <parameter name="shareReportToGoogleDrive" value="false"/>
+    <parameter name="shareReportToGoogleDrive" value="true"/>
     <parameter name="isParallel" value="false"/>
-    <parameter name="RunHeadless" value="false"/>
+    <parameter name="RunHeadless" value="true"/>
 
 
     <listeners>
