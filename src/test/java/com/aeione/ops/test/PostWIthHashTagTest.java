@@ -524,7 +524,7 @@ public class PostWIthHashTagTest extends TestSetUp {
     public void TC_PWH_11_P1_verifySharePostTest() throws Exception
     {
         String LogInRange = "Login!A6:C6";
-        String BlueStoreRange = "BlueStore!A2:F2";
+        String BlueStoreRange = "BlueStore!A2:I2";
         String HomePageRange = "Home page!A3:C3";
         String HomePageRange1 = "Home page!A2:C2";
 
@@ -549,8 +549,10 @@ public class PostWIthHashTagTest extends TestSetUp {
         String title = val.get("Title");
         String description = val.get("Description_Values");
         String units = val.get("No. Units");
-        String price = val.get("Price");
-
+        String regularprice = val.get("Regular_Price");
+        String salePrice = val.get("Sale_Price");
+        String location = val.get("Location");
+        String Category = val.get("Category");
 
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().clickOnPostMenuDropdown("Action Step");
@@ -559,8 +561,11 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().verifyDisplayOfUploadedBlueStoreThumbnail("Verify Step");
         getPostWithHashTagActions().enterBlueStoreTitle("Action Step",title);
         getPostWithHashTagActions().enterBlueStoreDescription("Action Step",description);
+        getPostWithHashTagActions().enterBlueStoreLocation("Action Step",location);
+        getPostWithHashTagActions().selectBlueStoreCategory("Action Step",Category);
         getPostWithHashTagActions().enterBlueStoreUnits("Action Step",units);
-        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",price);
+        getPostWithHashTagActions().enterBlueStoreRegularPrice("Action Step",regularprice);
+        getPostWithHashTagActions().enterBlueStoreSalePrice("Action Step",salePrice);
         getPostWithHashTagActions().clickOnBluestoreSubmitButton("Action Step");
 
         val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange1);
@@ -1339,17 +1344,20 @@ public class PostWIthHashTagTest extends TestSetUp {
         getPostWithHashTagActions().verifyPortfolioRestrictedContentToggleIsEnabled("Verify Step");
         getPostWithHashTagActions().clickOnPortfolioSubmitButton("Action Step");
 
-        getPostWithHashTagActions().verifyDisplayOfRestrictedContentCoveredPost("Verify Step");
         getPostWithHashTagActions().clickOnUnCoverButton("Action Step");
         getPostWithHashTagActions().verifyDisplayOfRestrictedContentUnCoveredPost("Verify Step");
+
         getPostWithHashTagActions().clickOnCoverButton("Action Step");
+        getPostWithHashTagActions().verifyDisplayOfRestrictedContentCoveredPost("Verify Step");
 
         getPostWithHashTagActions().clickOnProfileDetails("Action Step");
 
-        getPostWithHashTagActions().verifyDisplayOfRestrictedContentCoveredPost("Verify Step");
         getPostWithHashTagActions().clickOnUnCoverButton("Action Step");
         getPostWithHashTagActions().verifyDisplayOfRestrictedContentUnCoveredPost("Verify Step");
+
         getPostWithHashTagActions().clickOnCoverButton("Action Step");
+        getPostWithHashTagActions().verifyDisplayOfRestrictedContentCoveredPost("Verify Step");
+
     }
 
     /**

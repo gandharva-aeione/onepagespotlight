@@ -7,6 +7,7 @@ import com.aeione.ops.pageobjects.HomePageObjects;
 import com.aeione.ops.pageobjects.LoginPageObjects;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -28,6 +29,7 @@ public class HomePageActions
     GenericPageActions genericPageActions=new GenericPageActions();
     Actions actions = null;
     Select selectdropdownOption=null;
+    WebElement driver;
 
 
     public HomePageActions() throws IOException
@@ -55,6 +57,7 @@ public class HomePageActions
 
         try
         {
+            genericfunctions.waitWebDriver(2000);
             genericfunctions.waitTillTheElementIsVisible(homepageobjects.topbar_dropdown);
             genericfunctions.waitForPageToLoad(homepageobjects.topbar_dropdown);
 
@@ -93,6 +96,7 @@ public class HomePageActions
         {
             genericfunctions.waitWebDriver(2000);
             DriverManager.getDriver().findElement(By.id("file")).sendKeys(file);
+            genericfunctions.waitWebDriver(2000);
             ExtentTestManager.getTest().log(LogStatus.PASS, " " + strings[0] + " :: Media File Uploaded Successfully");
         }
         catch (Throwable e)
@@ -1299,7 +1303,7 @@ public class HomePageActions
     }
 
     /**
-     * Verify_Uploaded_Thumbnail_Text_On_TextArea
+     * Verify_Uploaded_Thumbnail
      * Author:- Gandahrva
      */
     public void verifyDisplayOfOpportunityThumbnail(String... strings)
@@ -1308,9 +1312,10 @@ public class HomePageActions
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Opportunity Thumbnail has Uploaded or not");
         try
         {
-            genericfunctions.waitForPageToLoad(homepageobjects.opportunity_title);
+            genericfunctions.waitForPageToLoad(homepageobjects.opportunity_thumbnail);
+            genericfunctions.waitTillTheElementIsVisible(homepageobjects.opportunity_thumbnail);
             Assert.assertTrue(homepageobjects.opportunity_thumbnail.isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, ""+strings[0]+ ":: \"Opportunity Image Thumbnail\" has displayed");
+            ExtentTestManager.getTest().log(LogStatus.PASS, ""+ " \"Opportunity Image Thumbnail\" has displayed");
         }
         catch (Throwable e)
         {

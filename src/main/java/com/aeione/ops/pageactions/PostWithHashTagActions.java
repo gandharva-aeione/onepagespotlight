@@ -9,6 +9,7 @@ import com.aeione.ops.pageobjects.LoginPageObjects;
 import com.aeione.ops.pageobjects.PostWithHashTagObjects;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +17,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
+
+import static com.aeione.ops.generic.TestSetUp.driver;
 
 public class PostWithHashTagActions
 {
@@ -30,6 +33,7 @@ public class PostWithHashTagActions
 
     Select selectCurrencydropdownOption=null;
     Select selectdropdownOption=null;
+
 
     public PostWithHashTagActions()
     {
@@ -340,6 +344,13 @@ public class PostWithHashTagActions
             Assert.fail("Could not perform an action :: " + "\"<b>" + action + " </b>" + " &"+e.getMessage()+"" );
         }
     }
+
+    public void verticleScrollTillEnd()
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)");
+    }
+
 
     /**
      * Perform Edit-Post Action
@@ -667,6 +678,7 @@ public class PostWithHashTagActions
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Enter BlueStore Regular Price as "+ "\"<b>" + price +"\"   </b>");
         try
         {
+            genericfunctions.waitForPageToLoad(postwithhashtagobjects.bluestore_regular_price);
             genericfunctions.waitTillTheElementIsVisible(postwithhashtagobjects.bluestore_regular_price);
             postwithhashtagobjects.bluestore_regular_price.clear();
             postwithhashtagobjects.bluestore_regular_price.sendKeys(price);
@@ -707,6 +719,7 @@ public class PostWithHashTagActions
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + ":: Click On Share Button");
         try
         {
+          /*  ((JavascriptExecutor) driver).executeScript("javascript:window.scrollBy(0,250)");*/
             genericfunctions.waitForPageToLoad(postwithhashtagobjects.share_menu.get(0));
             postwithhashtagobjects.share_menu.get(0).click();
         }
@@ -727,6 +740,7 @@ public class PostWithHashTagActions
         {
             genericfunctions.waitForPageToLoad(postwithhashtagobjects.bluestore_submit);
             postwithhashtagobjects.bluestore_submit.click();
+            genericfunctions.waitWebDriver(3000);
         }
         catch (Throwable e)
         {

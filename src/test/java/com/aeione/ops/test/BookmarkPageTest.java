@@ -50,7 +50,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for users posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 107, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for own posts")
+    @Test(priority = 108, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for own posts")
     public void tc_BM_01_P1_verifyBookmarkIconInCreatedPostTest() throws Exception {
         String range = "Login!A9:C9";
         String range1 = "Home page!A2:B2";
@@ -74,7 +74,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" icon is displayed  for  "FOLLOWED USER" posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 108, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for followed users  posts")
+    @Test(priority = 109, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for followed users  posts")
     public void tc_BM_02_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
         String range = "Login!A7:C7";
@@ -109,19 +109,22 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for "FOLLOWING USER" posts
      * Author:- Smita Sahoo
      */
-    @Test(priority = 109, enabled = true, alwaysRun = true, description = "Verify BOOKMARK functionality for Following users  posts")
-    public void tc_BM_03_P1_verifyBookmarkInfollowingUserPostTest() throws Exception {
-        String range = "Login!A9:C9";
-        String range1 = "Home page!A5:B5";
-        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
+    @Test(priority = 110, enabled = true, alwaysRun = true, description = "Verify BOOKMARK functionality for Following users  posts")
+    public void tc_BM_03_P1_verifyBookmarkInfollowingUserPostTest() throws Exception
+    {
+        String LogInRange = "Login!A9:C9";
+        String HomePageRange = "Home page!A14:A14";
+
+        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRange);
         String mobile_number = val.get("UserName / Email / PhoneNumber");
         String password = val.get("Password");
         String fullname = val.get("FullName");
-        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range1);
-        String textPostVal = val.get("Post_Text");
 
         getLoginPage().logIn("Action Step", fullname, "mobile_number, password", mobile_number, password);
 
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        String textPostVal = val.get("Post_Text");
+        
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().enterTextOnMessageTextArea("Action Step", textPostVal);
         getHomePageActions().clickOnPostButton("Action Step");
@@ -132,23 +135,23 @@ public class BookmarkPageTest extends TestSetUp {
 
         String RegistrationRange = "Registration!A4:H";
 
-        String LogInRange = "Login!A19:C19";
-        String range2 = "Login!A9:C9";
+        String BookMarkLogInRange = "Login!A19:C19";
+       // String range2 = "Login!A9:C9";
         String fullName = null;
         String username_B = null;
         String password_B = null;
         ArrayList<String> responseinfo = null;
         String response = null;
 
-        ArrayList<String> val1 = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
-        fullName = getRegistrationPage().getFullName();
-        String userName = getRegistrationPage().getUserName(val1.get(1));
-        String emailAddress = getRegistrationPage().getEmail(val1.get(2));
-        String countryCode = val1.get(3);
-        String dateOfBirth = val1.get(5);
-        String createPassword = getRegistrationPage().getRandomValidPassword(val1.get(6));
-        String skipOtp = val1.get(7);
-        String phoneNumber = getRegistrationPage().getPhoneNumber(val1.get(4));
+        ArrayList<String> value = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
+        fullName = value.get(0);
+        String userName = getRegistrationPage().getUserName(value.get(1));
+        String emailAddress = getRegistrationPage().getEmail(value.get(2));
+        String countryCode = value.get(3);
+        String dateOfBirth = value.get(5);
+        String createPassword = getRegistrationPage().getRandomValidPassword(value.get(6));
+        String skipOtp = value.get(7);
+        String phoneNumber = getRegistrationPage().getPhoneNumber(value.get(4));
 
         responseinfo = getRegistrationPage().mobileVerifyApi("Action Step", phoneNumber, countryCode, skipOtp);
         response = responseinfo.get(0);
@@ -160,18 +163,27 @@ public class BookmarkPageTest extends TestSetUp {
         response = getRegistrationPage().registerApi("Action & verify", fullName, userName, phoneNumber, countryCode, secret, emailAddress, dateOfBirth, createPassword, skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
 
-        List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
-        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, LogInRange, "USER_ENTERED", values);
+        //Update In Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
 
-        val1 = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, LogInRange);
-        username_B = val1.get(0);
-        password_B = val1.get(1);
-        fullName = val1.get(2);
-        Map<String, String> val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range2);
-        String username_to_search = val2.get("FullName");
-        val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range1);
-        String PostVal = val2.get("Post_Text");
+        //Update In LogIn Page
+        List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
+        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, BookMarkLogInRange, "USER_ENTERED", values);
+
+        value = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, BookMarkLogInRange);
+        username_B = value.get(0);
+        password_B = value.get(1);
+        fullName = value.get(2);
+
         getLoginPage().logIn("Action Step", fullName, "valid username, password", username_B, password_B);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRange);
+        String username_to_search = val.get("FullName");
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        String PostVal = val.get("Post_Text");
+
         getLoginPage().clickOnAddSkillsPopupCloseButton("Action Step");
         getSearchActions().enterUsernameOnSearchTextFieldAndSelectUserName("Action Step", username_to_search);
         getBookmarkPageActions().clickOnFollowButton("Action Step");
@@ -188,31 +200,35 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify user is able to select any filters in bookmark page.
      * Author:- Smita Sahoo
      */
-    @Test(priority = 110, enabled = true, alwaysRun = true, description = "Verify user  is able to select any filters in bookmark page")
+    @Test(priority = 111, enabled = true, alwaysRun = true, description = "Verify user  is able to select any filters in bookmark page")
     public void tc_BM_04_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
-        String range = "Login!A19:C19";
-        String range1 = "Login!A9:C9";
-        String range2 = "Home page!A3:B3";
-        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range1);
+        String LogInRangeUserA = "Login!A9:C9";
+        String LogInRangeUserB = "Login!A19:C19";
+        String HomeRange = "Home page!A14:A14";
+
+        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRangeUserA);
         String mobile_number = val.get("UserName / Email / PhoneNumber");
         String password = val.get("Password");
         String fullname = val.get("FullName");
-        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range2);
-        String textPostVal = val.get("Post_Text");
 
         getLoginPage().logIn("Action Step", fullname, "valid mobile_no, password", mobile_number, password);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomeRange);
+        String textPostVal = val.get("Post_Text");
+
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().enterTextOnMessageTextArea("Action Step", textPostVal);
         getHomePageActions().clickOnPostButton("Action step");
         getHomePageActions().clickOnTopBarDropdown("Action Step");
         getHomePageActions().clickOnSignOut("Action Step");
 
-        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRangeUserB);
         String username_B = val.get("UserName / Email / PhoneNumber");
         String password_B = val.get("Password");
         fullname = val.get("FullName");
-        Map<String, String> val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range2);
+
+        Map<String, String> val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomeRange);
         String PostVal = val2.get("Post_Text");
 
         getLoginPage().logIn("Action Step", fullname, "username, password", username_B, password_B);
@@ -246,26 +262,30 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify contents in bookmarked post
      * Author:- Smita Sahoo
      */
-    @Test(priority = 111, enabled = true, alwaysRun = true, description = "Verify contents in bookmarked post")
+    @Test(priority = 112, enabled = true, alwaysRun = true, description = "Verify contents in bookmarked post")
     public void tc_BM_05_P1_verifyBookmarkInfollowingUserPostTest() throws Exception {
-        String range = "Login!A9:C9";
-        String range1 = "Home page!A5:B5";
-        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
+        String LoginRangeUserA = "Login!A9:C9";
+        String HomePageRange = "Home page!A55:A15";
+        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LoginRangeUserA);
         String mobile_number = val.get("UserName / Email / PhoneNumber");
         String password = val.get("Password");
         String fullname = val.get("FullName");
-        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range1);
-        String textPostVal = val.get("Post_Text");
+
         getLoginPage().logIn("Action Step", fullname, "mobile_number, password", mobile_number, password);
+
+        val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
+        String textPostVal = val.get("Post_Text");
+
         getHomePageActions().clickOnPosterTextArea("Action Step");
         getHomePageActions().enterTextOnMessageTextArea("Action Step", textPostVal);
         getHomePageActions().clickOnPostButton("Action Step");
         getHomePageActions().verifyDisplayOfCreatedTextPost("Verify Step", textPostVal);
         getHomePageActions().clickOnTopBarDropdown("Action Step");
         getHomePageActions().clickOnSignOut("Action Step");
+
         String RegistrationRange = "Registration!A4:H";
-        String LogInRange = "Login!A19:C19";
-        String range2 = "Login!A9:C9";
+        String LogInRangeUserB = "Login!A19:C19";
+        String SearchUserRange = "Login!A9:C9";
         String fullName = null;
         String username_B = null;
         String password_B = null;
@@ -273,7 +293,7 @@ public class BookmarkPageTest extends TestSetUp {
         String response = null;
 
         ArrayList<String> val1 = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
-        fullName = getRegistrationPage().getFullName();
+        fullName = val1.get(0);
         String userName = getRegistrationPage().getUserName(val1.get(1));
         String emailAddress = getRegistrationPage().getEmail(val1.get(2));
         String countryCode = val1.get(3);
@@ -292,19 +312,28 @@ public class BookmarkPageTest extends TestSetUp {
         response = getRegistrationPage().registerApi("Action & verify", fullName, userName, phoneNumber, countryCode, secret, emailAddress, dateOfBirth, createPassword, skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
 
-        List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
-        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, LogInRange, "USER_ENTERED", values);
+        //Update In Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
 
-        val1 = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, LogInRange);
+        //Update In LogIn Page
+        List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
+        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, LogInRangeUserB, "USER_ENTERED", values);
+
+        val1 = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, LogInRangeUserB);
         username_B = val1.get(0);
         password_B = val1.get(1);
         fullName = val1.get(2);
-        Map<String, String> val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range2);
+
+        Map<String, String> val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, SearchUserRange);
         String username_to_search = val2.get("FullName");
-        val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range1);
+
+        val2 = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, HomePageRange);
         String PostVal = val2.get("Post_Text");
+
         getLoginPage().logIn("Action Step", fullName, "valid username, password", username_B, password_B);
         getLoginPage().clickOnAddSkillsPopupCloseButton("Action Step");
+
         getSearchActions().enterUsernameOnSearchTextFieldAndSelectUserName("Action Step", username_to_search);
         getBookmarkPageActions().clickOnFollowButton("Action Step");
         getHomePageActions().clickOnHomeTopBar("Action Step");

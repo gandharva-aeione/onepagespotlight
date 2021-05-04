@@ -41,7 +41,7 @@ public class CommunityPageObjects {
 	@FindBy(id = "invite-search-members")
     public WebElement searchMembers_TextField;
 	
-	@FindBy(id = "invite-invite-member-button")
+	@FindBy( xpath = "//*[@class='icon-plus-circle invite-community-icon']")
     public WebElement inviteButton;
 	
 	@FindBy(id = "group-settings-menu")
@@ -75,9 +75,15 @@ public class CommunityPageObjects {
 	
 	@FindBy(id = "group-join")
 	public WebElement joinButton;
+
+	@FindBy ( id = "group-leave")
+	public WebElement group_leave_button;
 	
 	@FindBy(id = "group-join")
     public WebElement joinButton_PrivateCommunity;
+
+	@FindBy (id = "overlay-dismiss")
+	public WebElement join_private_community_request_pop_up;
 	
 	@FindBy(id = "group-cancel")
     public WebElement cancelbutton_PrivateCommunity;
@@ -86,6 +92,9 @@ public class CommunityPageObjects {
 	
 	@FindBy(id ="group-settings-edit")
     public WebElement editCommunity;
+
+	@FindBy ( id = "profile2-group-members-count")
+	public WebElement group_members_count;
 	
 	@FindBy(id ="group-settings-disable-gathering")
     public WebElement disableGathering;

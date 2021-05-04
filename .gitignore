@@ -5,6 +5,7 @@
 /json-formatted-file/
 /json-file/
 /target/
+/true/
 .DS_Store
 /.idea/
 /src/main/resources/ATUTestRecorder_2.1.jar

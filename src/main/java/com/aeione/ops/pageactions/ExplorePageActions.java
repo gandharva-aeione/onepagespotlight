@@ -90,64 +90,44 @@ public class ExplorePageActions {
 	}
 
 	/*
-	 * @author: Aishwarya
+	 * @author: Gandharva
 	 * Description: Verify navigation to the Explore page
-	 * Created on : 22-05-2020
+	 * Created on : 27-04-2021
 	 */
-	public void verifySuggestedHashtagsInSubHeaderOfExplorePage(Map<String, String> suggestedHashtags, String string)
+	public void verifySuggestedHashtagsInSubHeaderOfExplorePage(String ... strings)
 	{
-		
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + string+ " ::  Suggested Hashtags in sub-header of Explore page"
+		List<WebElement> tabs=null;
+		String[] expectedTabs=strings[1].split("\\,");
+		String currentExpectedTabs= null;
+		String currentActualTabs = null;
+
+		tabs = explorePageObjects.suggested_HashtagsList;
+		System.out.println("tabs Size:-"+tabs.size());
+
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " +strings[0] + " ::  Suggested Hashtags in sub-header of Explore page"
 				+ " with following assertions :");
-		Map<String, String> expectedHashtags= suggestedHashtags;
-		int i=0;
-		ArrayList<String> actualHashtagsName=null;
-		
-		try {
-		 List<WebElement> actualHashtags1 = explorePageObjects.suggested_HashtagsList;
-		   for(i=0 ; i<=actualHashtags1.size()-1; i++)
-		   {
-			   actualHashtagsName.add(actualHashtags1.get(i).getText());
-			   
-			   //Compares both the lists by removing matching contents
-			   expectedHashtags.remove(actualHashtagsName); 
-		   }
-		   if(expectedHashtags.size()==0)
-		   {
-			  ExtentTestManager.getTest().log(LogStatus.PASS , "PASS");
-		   }else
-		   {
-			   String missingHashtags = expectedHashtags.toString();
-		   Assert.fail("Expected :: \"20 default suggestion Hashtags\" should be displayed ; Actual :: " +missingHashtags+ " suggestion hashtags are not displaying");
-		   }
-		
+
+		try
+		{
+			for (int i = 0; i < tabs.size(); i++)
+			{
+				currentExpectedTabs = expectedTabs[i].trim();
+				currentActualTabs = tabs.get(i).getText().trim();
+				System.out.println("Tabs :-"+currentActualTabs);
+				System.out.println("Excepted Tabs :-"+currentExpectedTabs);
+
+				genericfunctions.waitTillTheElementIsVisible(explorePageObjects.suggested_HashtagsList.get(i));
+				genericfunctions.waitTillTheElementIsVisibleAndClickable(explorePageObjects.suggested_HashtagsList.get(i));
+				Assert.assertTrue(currentActualTabs.equals(currentExpectedTabs));
+				ExtentTestManager.getTest().log(LogStatus.PASS, " " + "<b>" + explorePageObjects.suggested_HashtagsList.get(i).getText() + " is Clickable" + "</b>");
+			}
 		}
-		   catch(Throwable e)
-					{
-			   Assert.fail("Failed to verify the suggestion hashtags in Explore page");
-					}  
+		catch (Throwable e)
+		{
+			Assert.fail("&"+"Expected :: " + currentExpectedTabs + " Category should be displayed  ; Actual :: "
+					+ currentActualTabs + " Category is not displayed"+"&"+e.getMessage()+"");
+		}
 
-		        }
-		       
-		
-		
-		
-		
-					
-					
-		
-					
-	
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 }

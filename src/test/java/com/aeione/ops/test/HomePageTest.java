@@ -558,7 +558,6 @@ public class HomePageTest extends TestSetUp {
         getHomePageActions().navigateHomePage();
         getHomePageActions().clickOnTopBarDropdown("Action Step");
         getHomePageActions().clickOnSignOut("Action Step");
-
     }
 
 }

@@ -17,7 +17,7 @@ public class ProfilePageObjects {
     @FindBy(id = "sidebar-portfolio")
     public WebElement portfolio_Button;
   
-    @FindBy(id = "portfolio-owner-portfolio")
+    @FindBy( xpath = "//*[@class='o-portfolio-profile__details']//h4")
     public WebElement portfolioPage_Header;
     
     @FindBy(id = "avatar-image-edit")

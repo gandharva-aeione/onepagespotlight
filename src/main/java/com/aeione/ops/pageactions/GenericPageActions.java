@@ -77,15 +77,23 @@ public class GenericPageActions {
         }
     }
 
-    public void launchNewTabAndAccessURL(String... strings) throws Exception {
-        String url= strings[0];
+    public void launchNewTabAndAccessURL(String... strings) throws Exception
+    {
+        String url= strings[1];
 
+        try
+        {
+            String mainWindow = DriverManager.getDriver().getWindowHandle();
 
-        String mainWindow = DriverManager.getDriver().getWindowHandle();
-        ((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.open(arguments[0])", url);
-        genericfunctions.switchToNewWindow();
+            ((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.open(arguments[0])", url);
+            genericfunctions.switchToNewWindow();
+            Thread.sleep(10000);
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Could not Launch \" GMAIL Link\" "+"&"+e.getMessage()+"" );
+        }
 
-        Thread.sleep(10000);
     }
 
 }

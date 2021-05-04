@@ -849,8 +849,9 @@ public class SettingsPageActions
              //actualTitle= DriverManager.getDriver().getTitle();
              //actualTitle= Title.split("[, ?.@(*)]+");
 
-             System.out.println("Title:-"+actualTitle);
-            Assert.assertTrue(actualTitle.equals(exceptedTitle));
+             System.out.println("Title:-"+exceptedTitle);
+            //Assert.assertTrue(actualTitle.equals(exceptedTitle));
+            Assert.assertEquals(actualTitle,exceptedTitle);
             ExtentTestManager.getTest().log(LogStatus.PASS, " Expected :: \"Page Title\" should be displayed as "
                     +  ":: \"<b>" + actualTitle +"\"   </b>" +" ; Actual :: \"Page Title\" is displayed as"  + ":: \"<b>" + exceptedTitle +"\"   </b>"+"");
         }
@@ -861,14 +862,16 @@ public class SettingsPageActions
 
             switch (actualException)
             {
-                case "NoSuchElementException":
-                    Assert.fail(" Could not found \"LogIn Page \" "  + " &" +e.getMessage());
+                case "java.lang.NoSuchElementException":
+                    Assert.fail( " &" + " Could not found \"LogIn Page \" "  + " &" +e.getMessage());
                     break;
-                case "AssertionError":
-                    Assert.fail(" Could not found \"LogIn Page \" "  + " &" +e.getMessage()+"" );
+                case "java.lang.AssertionError":
+                    Assert.fail(  " &" +" Expected :: \"Page Title\" should be displayed as "
+                            +  ":: \"<b>" + actualTitle +"\"   </b>" +" ; Actual :: \"Page Title\" is displayed as"
+                            + ":: \"<b>" + exceptedTitle +"\"   </b>"+""+e.getMessage()+"" );
                     break;
                 default:
-                    Assert.fail(""+ actualTitle+" \"<b>" + DriverManager.getDriver().getTitle() +"\"   </b>" +" &" + e.getMessage()+ "");
+                    Assert.fail( " &" + actualTitle+" \"<b>" + DriverManager.getDriver().getTitle() +"\"   </b>" +" &" + e.getMessage()+ "");
             }
         }
     }

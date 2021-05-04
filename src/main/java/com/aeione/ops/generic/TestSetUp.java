@@ -29,6 +29,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import static com.aeione.ops.generic.HandleCommandsBatchFile.runBatchFile;
@@ -119,6 +120,7 @@ public abstract class TestSetUp implements IAutoConst {
                 chromeOptions.addArguments("disable-gpu");
                 chromeOptions.addArguments("–disable-dev-shm-usage");
                 chromeOptions.setExperimentalOption("useAutomationExtension", false);
+               // chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                 chromeOptions.addArguments("--incognito");
                 chromeOptions.addArguments("--window-size=1980,1080");
                 driver = new ChromeDriver(chromeOptions);

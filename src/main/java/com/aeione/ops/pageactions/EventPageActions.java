@@ -263,6 +263,7 @@ public class EventPageActions {
 		try
 		{
 			genericfunctions.waitForPageToLoad(eventPageObjects.create_Button);
+			genericfunctions.waitWebDriver(3000);
 			Assert.assertTrue(eventPageObjects.create_Button.isEnabled());
 			createbutton=eventPageObjects.create_Button.getText();
 			eventPageObjects.create_Button.click();

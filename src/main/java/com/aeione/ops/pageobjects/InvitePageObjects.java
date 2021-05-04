@@ -29,7 +29,7 @@ public class InvitePageObjects {
     @FindBy(id= "password")
     public WebElement gmail_password;
 
-    @FindBy(xpath= "//span[text()='Next']")
+    @FindBy( id = "identifierNext")
     public WebElement gmail_id_next_button;
 
     @FindBy(xpath= "//div[@id='passwordNext']//div)[2]")

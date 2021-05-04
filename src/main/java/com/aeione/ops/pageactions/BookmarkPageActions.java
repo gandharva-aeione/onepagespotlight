@@ -63,7 +63,7 @@ public class BookmarkPageActions {
     }
 
     public void moveCursorToBookmarkIcon(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: move cursor On Bookmark icon");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Move cursor On Bookmark icon");
         try {
 
             genericfunctions.waitTillTheElementIsVisible(bookmarkpageobjects.bookmark_icon.get(0));

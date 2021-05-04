@@ -94,33 +94,45 @@ public class InvitePageActions {
     {
         String userCredentials= strings[1];
 
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Login to gmail "+userCredentials+"");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Gmail "+userCredentials+"");
 
         String emailId = strings[2].trim();
         String password = strings[3].trim();
 
-        enterEmailid(emailId);
-        clickOnEmaiIdNext();
-        enterEmailPassword(password);
-        clickOnPasswordNext();
+        try
+        {
+            enterEmailid(emailId);
+            clickOnEmaiIdNext();
+            enterEmailPassword(password);
+            clickOnPasswordNext();
+        }
+        catch (Exception e)
+        {
+            Assert.fail("&"+"Could not LogIn to \" GMAIL \"" + "&" + e.getMessage() + "");
+        }
+
     }
 
     public void enterEmailid(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click and enter email id ");
-        try {String emailid = strings[0];
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + " Click and Enter Email ID as :: "+ " \"<b>" + strings[0] +"\" </b>");
+        try
+        {
+            String emailid = strings[0];
 
             genericfunctions.waitTillTheElementIsVisible(invitepageobjects.gmail_id);
 
             invitepageobjects.gmail_id.sendKeys(emailid);
-        } catch (Exception e) {
-            Assert.fail("Could not perform action on \"Email id\"" + "&" + e.getMessage() + "");
 
+        }
+        catch (Exception e)
+        {
+            Assert.fail("Could not perform action on \"Email id\"" + "&" + e.getMessage() + "");
         }
 
     }
 
     public void clickOnEmaiIdNext(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click and enter email id ");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + "  Click Next Button ");
         try {
 
             genericfunctions.waitTillTheElementIsVisible(invitepageobjects.gmail_id_next_button);
@@ -133,7 +145,7 @@ public class InvitePageActions {
 
     }
     public void enterEmailPassword(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click and enter email password");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + " Click and Enter Gmail Password as :: " + " \"<b>" + strings[0] +"\" </b>");
         try {
             String emailPassword = strings[0];
 
@@ -147,7 +159,7 @@ public class InvitePageActions {
 
     }
     public void clickOnPasswordNext(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click and enter email id ");
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + " Click Next Button ");
         try {
 
             genericfunctions.waitTillTheElementIsVisible(invitepageobjects.gmail_id_next_button);

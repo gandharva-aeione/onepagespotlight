@@ -4,6 +4,7 @@ import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class BlueStorePageTest extends TestSetUp
      * Author:- Gandahrva
      * Date :- 05-03-2021
      */
-    @Test(priority = 154, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
+    @Test(priority = 162, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
     public void TC_BS_01_P1_VerifyCreateBlueStorePostTest() throws Exception
     {
         String RegistrationRange = "Registration!A4:H";
@@ -71,7 +72,6 @@ public class BlueStorePageTest extends TestSetUp
         String password = null;
         String fullname = null;
         String action = null;
-
         ArrayList<String> val = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
         String fullName= val.get(0);
         String userName=getRegistrationPage().getUserName(val.get(1));
@@ -147,7 +147,7 @@ public class BlueStorePageTest extends TestSetUp
      * Author:- Gandahrva
      * Date :- 17-03-2021
      */
-    @Test(priority = 155, enabled = true, alwaysRun = true, description = "BlueStore Categories")
+    @Test(priority = 163, enabled = true, alwaysRun = true, description = "BlueStore Categories")
     public void TC_BS_02_P1_VerifyBlueStoreCategoriesTest() throws Exception
     {
         String LogInRange = "Login!A21:C21";
@@ -172,7 +172,14 @@ public class BlueStorePageTest extends TestSetUp
 
         getBlueStorePageActions().verifyCreateAnItemForSaleOrRentButtonOnBlueStoreLandingPage("Verify Step",page.split(",")[0]);
         getBlueStorePageActions().verifyCategoriesOnBluStoreLandingPage("Verify Step",categories);
+    }
 
+    @AfterMethod(dependsOnMethods = {"com.aeione.ops.generic.TestSetUp.afterMethod"})
+    public void after() throws IOException
+    {
+        getHomePageActions().navigateHomePage();
+        getHomePageActions().clickOnTopBarDropdown("Action Step");
+        getHomePageActions().clickOnSignOut("Action Step");
     }
 
 }

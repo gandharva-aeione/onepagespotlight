@@ -78,6 +78,26 @@ public class CommunityPageActions {
 	}
 
 	/*
+	 * @author: Gandharva
+	 * Description: Click on Edit Community from Group Settings
+	 * Created on : 27-04-2021
+	 */
+	public void clickOnEditCommunity(String...strings )
+	{
+		ExtentTestManager.getTest().log(LogStatus.INFO, strings[0]+":: Click on Edit Action from Community Settings Action");
+		try
+		{
+			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.editCommunity);
+			Assert.assertTrue(communityPageObjects.editCommunity.isDisplayed());
+			communityPageObjects.editCommunity.click();
+		}
+		catch (Throwable e)
+		{
+			Assert.fail("&" + "Could not perform action on \" Edit Action \"" + e.getMessage());
+		}
+	}
+
+	/*
 	 * @author: Aishwarya
 	 * Description: Enter community title
 	 * Created on : 29-05-2020
@@ -85,10 +105,13 @@ public class CommunityPageActions {
 	public void enterCommunityName(String...strings)
 	{
 		String communityName=strings[1];
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Community name as : "+communityName);
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Community name as : " + " <b>\""+communityName+ "\"</b>");
 		try
 		{
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.communityName_TextField);
+			genericfunctions.waitWebDriver(2000);
+			communityPageObjects.communityName_TextField.clear();
+			genericfunctions.waitWebDriver(2000);
 			communityPageObjects.communityName_TextField.sendKeys(communityName);
 		}
 		catch (Throwable e)
@@ -105,10 +128,13 @@ public class CommunityPageActions {
 	public void enterCommunityDescription(String...strings)
 	{
 		String description=strings[1];
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Community description as : " +description);
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Community description as : " +" <b>\""+description+ "\"</b>");
 		try
 		{
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.communityDescription_TextArea);
+			genericfunctions.waitWebDriver(2000);
+			communityPageObjects.communityDescription_TextArea.clear();
+			genericfunctions.waitWebDriver(2000);
 			communityPageObjects.communityDescription_TextArea.sendKeys(description);
 		}
 		catch (Throwable e)
@@ -152,7 +178,7 @@ public class CommunityPageActions {
 		{
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.community_CreateButton);
 			communityPageObjects.community_CreateButton.click();
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Community is created successfully");
+			ExtentTestManager.getTest().log(LogStatus.PASS, "Community is Updated successfully");
 
 		}
 		catch(Throwable e)
@@ -424,7 +450,7 @@ public class CommunityPageActions {
 		try 
 		{
 			genericfunctions.waitForPageToLoad(communityPageObjects.joinButton_CommunitiesPage);
-			genericfunctions.scrollToElement(communityPageObjects.joinButton_CommunitiesPage);
+			//genericfunctions.scrollToElement(communityPageObjects.joinButton_CommunitiesPage);
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.joinButton_CommunitiesPage);
 			communityPageObjects.joinButton_CommunitiesPage.click();
 		}
@@ -585,6 +611,7 @@ public class CommunityPageActions {
 		try
 		{
 			genericfunctions.waitWebDriver(6000);
+			genericfunctions.refreshWebPage();
 			genericfunctions.waitForPageToLoad(communityPageObjects.communityTitle_InnerPage);
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.communityTitle_InnerPage);
 			actualComm_Name= communityPageObjects.communityTitle_InnerPage.getText().trim();
@@ -637,6 +664,8 @@ public class CommunityPageActions {
 		{
 			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.community_CommunityYouManage);
 			actual_Community= communityPageObjects.community_CommunityYouManage.getText().trim();
+			System.out.println("Actual:-" + actual_Community);
+			System.out.println("Expected :- " + deleted_Community);
 			Assert.assertNotEquals(actual_Community, deleted_Community);
 			ExtentTestManager.getTest().log(LogStatus.PASS, " Deleted Community <b> \""+deleted_Community+"\" </b> is successfully removed from the <b>\"Communities you manage list\"<b> ");
 
@@ -658,16 +687,32 @@ public class CommunityPageActions {
 		String status=null;
 		try
 		{
-			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.openButton_PublicCommunity);
-			status= communityPageObjects.openButton_PublicCommunity.getText().trim();
-			Assert.assertTrue(communityPageObjects.openButton_PublicCommunity.isDisplayed());
-			ExtentTestManager.getTest().log(LogStatus.PASS, "" + strings[0] + ":: User joined a \"Public Community\" successfully. "
-					+ "And the\" Join button\" turned into - "+status+ " button");
+			System.out.println("Group Inner Page Joining...!!");
+			genericfunctions.waitTillTheElementIsVisible(communityPageObjects.joinButton);
+			status= communityPageObjects.joinButton.getText().trim();
+			System.out.println("Group Inner Page Joining...!! "+ status);
+			Assert.assertTrue(communityPageObjects.joinButton.isDisplayed());
+			ExtentTestManager.getTest().log(LogStatus.PASS, "" + ":: Join Button is Displayed..!!");
 
-		} catch (Throwable e)
+		}
+		catch (Throwable e)
 		{
 			Assert.fail("Expected :: User should be able to join a public community ; " +
 					"Actual :: Failed to verify joining a public community \"" + "&" + e.getMessage() + "");
+		}
+		try
+		{
+			System.out.println("Click on Join...!!");
+			communityPageObjects.joinButton.click();
+			status= communityPageObjects.joinButton.getText().trim();
+			System.out.println("Group Join Stauts...!! "+ status);
+			Assert.assertTrue(communityPageObjects.group_leave_button.isDisplayed());
+			ExtentTestManager.getTest().log(LogStatus.PASS, ""  + ":: User joined a \"Public Community\" successfully. "
+					+ "And the\" Join button\" turned into - "+status+ " button");
+		}
+		catch (Throwable e)
+		{
+			Assert.fail( "&"+ "Could not Perform an Action " + e.getMessage() + "");
 		}
 	}
 
@@ -696,22 +741,72 @@ public class CommunityPageActions {
 		}
 	}
 
+
+	/*
+	 * @author: Gandharva
+	 * Description: Verify joining a community (Public and/or Private community)
+	 * Created on : 27-04-2021
+	 */
+	public void verifyJoiningCommunity(String... strings)
+	{
+		ExtentTestManager.getTest().log(LogStatus.INFO, " "+ strings[0]  +" :: Join a" + "  Community");
+
+		try
+		{
+				if(communityPageObjects.joinButton_CommunitiesPage.isDisplayed())
+				{
+					clickOnJoinButtonOfRecommendedCommunity("Action Step");
+					System.out.println("Group Page");
+
+					if ( communityPageObjects.communityTitle_InnerPage.isDisplayed() & communityPageObjects.group_members_count.isDisplayed())
+					{
+						System.out.println("Group Inner Page");
+						verifyJoiningPublicCommunity("Verify Step");
+					}
+					else if (communityPageObjects.join_private_community_request_pop_up.isDisplayed() )
+					{
+						System.out.println(" Private Community PopUp");
+						clickOnJoinButtonOfPrivateCommunity("Action Step");
+					}
+					else
+					{
+						System.out.println("Else");
+						ExtentTestManager.getTest().log(LogStatus.FAIL, " "+ strings[0]  +" :: Failed to verify"
+								+ " joining Community");
+					}
+
+				}
+				else
+				{
+					ExtentTestManager.getTest().log(LogStatus.FAIL, " "+ strings[0]  +" :: Failed to "
+							+ " Join Community");
+				}
+
+		}
+		catch (Throwable e)
+		{
+			Assert.fail("Expected :: User should be able to join community ; " +
+					"Actual :: Failed to verify joining a community \"" + "&" + e.getMessage() + "");
+		}
+	}
+
 	/*
 	 * @author: Aishwarya
 	 * Description: Verify joining a community (Public and/or Private community)
 	 * Created on : 02-06-2020
 	 */
-	public void verifyJoiningCommunity(String... strings)
+	public void verifyJoininCommunity(String... strings)
 	{
 		try
 		{
-			clickOnJoinButtonOfRecommendedCommunity("Action Step");
+			//clickOnJoinButtonOfRecommendedCommunity("Action Step");
+			//verifyJoiningPublicCommunity("Verify Step");
 			if(communityPageObjects.joinButton_PrivateCommunity.isDisplayed())
 			{
 				clickOnJoinButtonOfPrivateCommunity("Action Step");
 				verifyJoiningPrivateCommunity("Verify Step");
 			}
-			else if (communityPageObjects.openButton_PublicCommunity.isDisplayed()) 
+			else if (communityPageObjects.joinButton_CommunitiesPage.isDisplayed())
 			{
 				verifyJoiningPublicCommunity("Verify Step");
 			}

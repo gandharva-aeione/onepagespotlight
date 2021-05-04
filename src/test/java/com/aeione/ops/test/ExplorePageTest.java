@@ -47,7 +47,7 @@ public class ExplorePageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority =145, enabled = true, alwaysRun = true, description = "Verify navigation to the \" Explore page\" by clicking on the Home page Header >> Explore ")
+	@Test(priority =147, enabled = true, alwaysRun = true, description = "Verify navigation to the \" Explore page\" by clicking on the Home page Header >> Explore ")
 	public void tc_EX_01_P1_VerifyNavigationToExplorePageTest() throws Exception
 	{
 		String range = "Login!A14:C14";
@@ -72,14 +72,16 @@ public class ExplorePageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority =146, enabled = true, alwaysRun = true, description = "Verify \" Suggested Hashtags\" in sub-header of Explore page")
+	@Test(priority =148, enabled = true, alwaysRun = true, description = "Verify \" Suggested Hashtags\" in sub-header of Explore page")
 	public void tc_EX_02_P1_VerifySuggestedHashtagsInSubHeaderOfExplorePageTest() throws Exception{
 
-		String range = "Explore Page!A21:A1";
-		Map<String, String> suggestedHashtags= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
+		String ExploreRange = "Explore!A2:A2";
+		Map<String, String> value= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, ExploreRange);
+
+		String exploreTabs = value.get("Explore Tabs");
 
 		getExplorePageActionss().clickOnExploreLink("Action Step");
-		getExplorePageActionss().verifySuggestedHashtagsInSubHeaderOfExplorePage(suggestedHashtags, "Verify Step");
+		getExplorePageActionss().verifySuggestedHashtagsInSubHeaderOfExplorePage("Verify Step",exploreTabs);
 	}
 
 

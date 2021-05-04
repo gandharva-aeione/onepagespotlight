@@ -19,8 +19,11 @@ public class ProfileCompletionPageObjects {
     public WebElement skills_tag_container;
 
 
-    @FindBy(xpath = "//*[@class='ng2-tags-container']//input")
-    public WebElement add_skill_textfield;
+   /* @FindBy(xpath = "//*[@class='ng2-tags-container']//input")
+    public WebElement add_skill_textfield;*/
+
+    @FindBy (xpath = "//*[@class='ng2-tags-container']//input[@placeholder='Enter a new tag']")
+    public List<WebElement> add_skill_textfield;
 
     @FindBy(xpath = "//*[@class='tag__text inline']")
     public WebElement added_skill;
@@ -285,6 +288,21 @@ public class ProfileCompletionPageObjects {
 
     @FindBy (id = "awards-award-title")
     public List<WebElement>  project_details;
+
+    @FindBy (id = "work-designation")
+    public List<WebElement>  work_designation;
+
+    @FindBy (id = "awards-award-title")
+    public List<WebElement> award_title;
+
+    @FindBy (id = "eduaction-feild-of-study")
+    public List<WebElement> eduaction_feild_of_study;
+
+    @FindBy ( xpath = "//*[@id='sidebar-education-widget']//a" )
+    public List<WebElement> sidebar_education_widget;
+
+    @FindBy (id = "toast-container")
+    public WebElement toast_container;
 
     @FindBy ( id = "projects-update-icon")
     public List<WebElement> edit_projects_icon;

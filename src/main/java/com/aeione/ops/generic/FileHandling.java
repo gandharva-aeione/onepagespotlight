@@ -9,12 +9,16 @@ public class FileHandling extends TestSetUp
         try {
             String folderNamePath = userDirPath + "//" + folderName;
             File file = new File(folderNamePath);
-            if (!file.exists()) {
-                if (file.mkdir()) {
-                    System.out.println("Directory is created!");
-                } else {
-                    System.out.println("Failed to create directory!");
-                }
+            if (!file.exists())
+            {
+                if (file.mkdir())
+                    {
+                        System.out.println("Directory is created!");
+                    }
+                else
+                    {
+                        System.out.println("Failed to create directory!");
+                    }
             }
 
         } catch (Exception e) {

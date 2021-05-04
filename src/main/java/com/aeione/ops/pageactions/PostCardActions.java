@@ -9,12 +9,15 @@ import com.aeione.ops.pageobjects.HomePageObjects;
 import com.aeione.ops.pageobjects.LoginPageObjects;
 import com.aeione.ops.pageobjects.PostCardObjects;
 import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Random;
 
 public class PostCardActions {
     GenericFunctions genericfunctions;
@@ -34,6 +37,7 @@ public class PostCardActions {
     }
 
     /////////////////////////// Page Actions ////////////////////////////////
+
     public void clickOnContributeIcon(String... strings) {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Contribute_Icon in postcard ");
         try {Thread.sleep(2000);
@@ -116,13 +120,13 @@ public class PostCardActions {
             Assert.fail("Could not perform action on \"Yes Button in Delete this post popup\"" + "&" + e.getMessage() + "");
 
         }
-
     }
 
     public void clickOnBoostButton(String... strings) {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Boost Button");
         try {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_button);
+            Thread.sleep(1000);
             postcardobjects.boost_button.click();
         } catch (Exception e) {
             Assert.fail("Could not perform action on \"Boost Button\"" + "&" + e.getMessage() + "");
@@ -130,6 +134,31 @@ public class PostCardActions {
         }
 
     }
+
+    public void clickOnBoostButtonOnPostCard(String... strings) {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Boost Button on PostCard");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_button_on_post_card);
+            postcardobjects.boost_button_on_post_card.click();
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Boost Button\"" + "&" + e.getMessage() + "");
+
+        }
+
+    }
+
+    public void clickOnBoostButtonOnPopUp(String... strings) {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Boost Button on Boost Window PopUp");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_button_on_boost_popup);
+            postcardobjects.boost_button_on_boost_popup.click();
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Boost Button\"" + "&" + e.getMessage() + "");
+
+        }
+
+    }
+
 
     public String getPostActivityTime(String... strings) {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: get post activity time");
@@ -196,9 +225,11 @@ public class PostCardActions {
 
     public void clickOnLikeButton(String... strings) {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Like button");
-        try {
+        try
+        {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.like_button.get(0));
-            genericfunctions.clickOnElementUsingJavascript(postcardobjects.like_button.get(0));
+            //genericfunctions.clickOnElementUsingJavascript(postcardobjects.like_button.get(0));
+            postcardobjects.like_button.get(0).click();
 
         } catch (Exception e) {
             Assert.fail("Could not perform action on \"like button\"" + "&" + e.getMessage() + "");
@@ -307,6 +338,20 @@ public class PostCardActions {
             Assert.fail("Could not perform action on \"Text of Boost Impression\""+"&"+e.getMessage()+"" );
         }
     }
+
+    public void clickOnBoostButtonInBoostPopup(String... strings) {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: click On Boost Button In boost popup");
+        try {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_popup_boost_button);
+            Thread.sleep(1000);
+            postcardobjects.boost_popup_boost_button.click();
+        } catch (Exception e) {
+            Assert.fail("Could not perform action on \"Boost Button\"" + "&" + e.getMessage() + "");
+
+        }
+
+    }
+
     public void clickOnBoostConsole(String... strings)
     {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on Boost Console");
@@ -323,14 +368,88 @@ public class PostCardActions {
 
 
 
+    /**
+     * Profile Activity Details
+     * Author:- Gandharva
+     * Date:- 25-03-2021
+     */
+    public void clickOnPostCardActvityAction(String... strings)
+    {
+        String action =strings[1];
+        String count = null;
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Click on " + "<b>"+ action+ "</b>"+" Icon ");
 
+        try
+        {
+            switch (action)
+            {
+                case "like":
+                    DriverManager.getDriver().findElement(By.id(action)).click();
+                    ExtentTestManager.getTest().log(LogStatus.PASS, " "+ " Clicked on \" Like \" Icon ");
+
+                    break;
+                case "comment":
+                    DriverManager.getDriver().findElement(By.id(action)).click();
+                    ExtentTestManager.getTest().log(LogStatus.INFO, " "+ " Clicked on \" Comment \" Icon ");
+
+                    break;
+
+
+                case "share-menu":
+                    DriverManager.getDriver().findElement(By.id(action)).click();
+                    ExtentTestManager.getTest().log(LogStatus.INFO, " "+ " Clicked on \" Share \" Icon ");
+
+                    break;
+
+                case "contribute-icon":
+                    DriverManager.getDriver().findElement(By.id(action)).click();
+                    ExtentTestManager.getTest().log(LogStatus.INFO, " "+ " Clicked on \" Contribute \" Icon ");
+
+                    break;
+
+                default:
+                    break;
+
+            }
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not found \"Profile Activity Details\" " + "&" + e.getMessage() + "");
+        }
+
+
+    }
+
+
+    /**
+     * Profile Activity Details
+     * Author:- Gandharva
+     * Date:- 25-03-2021
+     */
+    public void clickOnLikeCountDetailsOnPostCard(String... strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Click on Like Count Under PostCard :");
+
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.like_count_icon.get(0));
+            Assert.assertTrue(postcardobjects.like_count_icon.get(0).isDisplayed());
+            postcardobjects.like_count_icon.get(0).click();
+
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not Perform an Action On \" Like Count Icon\" " + "&" + e.getMessage() + "");
+        }
+    }
 
     //////////////////////////// Page Verifications /////////////////////////////////////
 
     public void verifyDisplayOfBuyCoinsPopup(String... strings) {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  BuyCoins popup is displaying or not :");
 
-        try {
+        try
+        {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.buy_coins_popup);
             Assert.assertTrue(postcardobjects.buy_coins_popup.isDisplayed());
             ExtentTestManager.getTest().log(LogStatus.PASS, "\"BuyCoins popup\" is displaying");
@@ -549,9 +668,9 @@ public class PostCardActions {
     public void verifyDisplayOfBoostButton(String... strings) {
 
         try {
-            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_button);
-            Assert.assertTrue(postcardobjects.boost_button.isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, " "  + " \" boost button\" is displaying");
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_button_on_post_card);
+            Assert.assertTrue(postcardobjects.boost_button_on_post_card.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " "  + " \" boost button\" is displaying on PostCard");
 
         } catch (Exception e) {
             Assert.fail("Expected :: \" boost button\" should be displayed  ; Actual ::  \"boost button\" is not displayed" + "&" + e.getMessage() + "");
@@ -566,55 +685,61 @@ public class PostCardActions {
             Assert.assertTrue(postcardobjects.posted_content.get(0).isDisplayed());
             ExtentTestManager.getTest().log(LogStatus.PASS, " "  + "  \" Posted Content\" is displaying");
 
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             Assert.fail("Expected :: \" Posted Content\" should be displayed  ; Actual ::  \"Posted Content\" is not displayed" + "&" + e.getMessage() + "");
         }
 
-
     }
 
 
-
-
-    public void verifyDisplayOfPostCardCommentSection(String... strings) {
+    public void verifyDisplayOfPostCardCommentSection(String... strings)
+    {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  comment section is displaying or not:");
-        try {
+        try
+        {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.postcard_comment_text_section.get(0));
             Assert.assertTrue(postcardobjects.postcard_comment_text_section.get(0).isDisplayed());
             ExtentTestManager.getTest().log(LogStatus.PASS, " " +  "  \" comment section\" is displaying");
-
-        } catch (Exception e) {
-            Assert.fail("Expected :: \" comment section\" should be displayed  ; Actual ::  \"comment section\" is not displayed" + "&" + e.getMessage() + "");
         }
-
+        catch (Exception e)
+        {
+            Assert.fail("&"+"Expected :: \" comment section\" should be displayed  ; Actual ::  \"comment section\" is not displayed" + "&" + e.getMessage() + "");
+        }
 
     }
 
-    public void verifyDisplayOfAddedCommentToPost(String... strings) {
+    public void verifyDisplayOfAddedCommentToPost(String... strings)
+    {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Added Comment To Text Post");
         String expectedTextPost = strings[1].trim();
         genericfunctions.waitWebDriver(2000);
-        genericfunctions.waitForPageToLoad(postcardobjects.postcard_comment_text_section.get(0));
-        String actualTextPost = postcardobjects.postcard_comment_text_section.get(0).getText().trim();
-        try {
-            genericfunctions.waitTillTheElementIsVisible(postcardobjects.postcard_comment_text_section.get(0));
+        genericfunctions.waitForPageToLoad(postcardobjects.postcard_comment_text.get(0));
+        String actualTextPost = postcardobjects.postcard_comment_text.get(0).getText().trim();
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.postcard_comment_text.get(0));
             Assert.assertTrue(actualTextPost.equals(expectedTextPost));
             ExtentTestManager.getTest().log(LogStatus.PASS, "" + "Expected :: \"added comment\" should be displayed as "
                     + " " + "<b>" + expectedTextPost + " " + "</b> " + " ; Actual :: \"added comment\" is displayed as" + " " + "<b>" + actualTextPost + " " + "</b>" + "");
-        } catch (Exception e) {
-            Assert.fail("Expected :: \"added comment \" should be displayed ; Actual :: \"added comment \" is not displayed" + "&" + e.getMessage() + "");
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("&"+"Expected :: \"added comment \" should be displayed ; Actual :: \"added comment \" is not displayed" + "&" + e.getMessage() + "");
         }
     }
-    public String verifyBeforePostShareCount(String... strings) {
-        ExtentTestManager.getTest().log(LogStatus.PASS, " " + strings[0] + " :: get post share count");
+    public String verifyBeforePostShareCount(String... strings)
+    {
+        String postsharecounts = null;
+        ExtentTestManager.getTest().log(LogStatus.PASS, " " + strings[0] + " :: Get Post Share count");
         try {
 
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.share_count_icon.get(0));
-            String postsharecounts = postcardobjects.share_count_icon.get(0).getText();
+            postsharecounts = postcardobjects.share_count_icon.get(0).getText();
             ExtentTestManager.getTest().log(LogStatus.INFO, " " + " \"share Counts are \" " + "<b>" + postsharecounts + "</b>");
             return postsharecounts;
         } catch (Exception e) {
-            Assert.fail("Could not perform action on \"share count\"" + "&" + e.getMessage() + "");
+            Assert.fail("&"+"Could not perform action on \"share count\"" + "&" + e.getMessage() + "");
 
         }
 
@@ -695,7 +820,7 @@ public class PostCardActions {
     }
     public void verifyDisplayOfRepostedTextPost(String... strings)
     {
-        genericfunctions.refreshWebPage();
+       // genericfunctions.refreshWebPage();
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Created RePost is Displayed or not");
         String expectedTextPost = strings[1].trim();
         String actualTextPost = null;
@@ -738,12 +863,12 @@ public class PostCardActions {
 
         try
         {
-            genericfunctions.waitForPageToLoad(homepageobjects.activity_text.get(0));
-            actualTextPost=homepageobjects.activity_text.get(0).getText().trim();
-            genericfunctions.waitTillTheElementIsVisible(homepageobjects.activity_text.get(0));
+            genericfunctions.waitForPageToLoad(postcardobjects.boost_text_value);
+            actualTextPost=postcardobjects.boost_text_value.getText().trim();
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.boost_text_value);
             Assert.assertTrue(actualTextPost.equals(expectedTextPost));
-            ExtentTestManager.getTest().log(LogStatus.PASS,  " Expected :: \" Created Text Post\" should be displayed as :: "
-                    + " \"<b>" + expectedTextPost +"\"   </b> ; Actual :: \" Created Text Post\" is displayed as :: " + " \"<b>" + actualTextPost +"\"   </b>");
+            ExtentTestManager.getTest().log(LogStatus.PASS,  " Expected :: \" Boosted Text Post\" should be displayed as :: "
+                    + " \"<b>" + expectedTextPost +"\"   </b> ; Actual :: \" Boosted Text Post\" is displayed as :: " + " \"<b>" + actualTextPost +"\"   </b>");
         }
         catch(Throwable e)
         {
@@ -752,36 +877,40 @@ public class PostCardActions {
             switch (actualException)
             {
                 case "java.lang.NoSuchElementException":
-                    Assert.fail(actualException +"Expected :: \"Created Post \" should be displayed ; Actual :: \"Created Post \" is not displayed" + "&" + e.getMessage() + "");
+                    Assert.fail(actualException +"Expected :: \"Boosted Post \" should be displayed ; Actual :: \"Boosted Post \" is not displayed" + "&" + e.getMessage() + "");
                     break;
                 case "java.lang.AssertionError":
-                    Assert.fail(actualException + " " + " Expected :: \" Created Text Post\" should be displayed as :: "
-                            + " \"<b>" + expectedTextPost +"\"   </b> ; Actual :: \" Created Text Post\" is displayed as :: " + " \"<b>" + actualTextPost +"\"   </b>"  + "&" + e.getMessage() + "");
+                    Assert.fail(actualException + " " + " Expected :: \" Boosted Text Post\" should be displayed as :: "
+                            + " \"<b>" + expectedTextPost +"\"   </b> ; Actual :: \" Boosted Text Post\" is displayed as :: " + " \"<b>" + actualTextPost +"\"   </b>"  + "&" + e.getMessage() + "");
                     break;
                 default:
                     Assert.fail(actualException+ "&"  + e.getMessage() + "");
             }
         }
     }
-    public void verifyContentsOfBoostedPost(String... strings) {
+
+
+
+    public void verifyContentsOfBoostedPost(String... strings)
+    {
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: All the  contents in Bookmarked post section with following assertion :");
 
-        verifyDisplayOfBoostedUserProfileName();
+        verifyDisplayOfBoostedUserProfilePicture();
         verifyDispalyOfBoostedUserProfileName();
         verifyDisplayOfBoostedButton();
 
 
     }
 
-    public void verifyDisplayOfBoostedUserProfileName(String... strings) {
+    public void verifyDisplayOfBoostedUserProfilePicture(String... strings) {
 
         try {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.boosted_post_profile_img.get(0));
             Assert.assertTrue(postcardobjects.boosted_post_profile_img.get(0).isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" User profile Name\" is displaying");
+            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" User Profile Picture\" is displaying");
 
         } catch (Exception e) {
-            Assert.fail("Expected :: \" User profile Name\" should be displayed  ; Actual ::  \" User profile Name\" is not displayed" + "&" + e.getMessage() + "");
+            Assert.fail("Expected :: \" User Profile Picture\" should be displayed  ; Actual ::  \" Profile Picture\" is not displayed" + "&" + e.getMessage() + "");
         }
 
     }
@@ -790,24 +919,56 @@ public class PostCardActions {
         try {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.boosted_post_profile_name.get(0));
             Assert.assertTrue(postcardobjects.boosted_post_profile_name.get(0).isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" User profile Image\" is displaying");
+            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" User Profile Name\" is displaying");
 
         } catch (Exception e) {
-            Assert.fail("Expected :: \" User profile Image\" should be displayed  ; Actual ::  \" User profile Image\" is not displayed" + "&" + e.getMessage() + "");
+            Assert.fail("Expected :: \" User Profile Name\" should be displayed  ; Actual ::  \" User profile Name\" is not displayed" + "&" + e.getMessage() + "");
         }
 
     }
-    public void verifyDisplayOfBoostedButton(String... strings) {
+    public void verifyDisplayOfBoostedButton(String... strings)
+    {
 
         try {
             genericfunctions.waitTillTheElementIsVisible(postcardobjects.boosted_post_boosted_button.get(0));
             Assert.assertTrue(postcardobjects.boosted_post_boosted_button.get(0).isDisplayed());
-            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" User profile Name\" is displaying");
+            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" Boosted button\" is displaying on card");
 
         } catch (Exception e) {
-            Assert.fail("Expected :: \" User profile Name\" should be displayed  ; Actual ::  \" User profile Name\" is not displayed" + "&" + e.getMessage() + "");
+            Assert.fail("Expected :: \" Boosted button \" should be displayed  ; Actual ::  \" Boosted button\" is not displayed" + "&" + e.getMessage() + "");
         }
 
+    }
+
+
+    public void verifyDisplayOfLikePopUp(String... strings)
+    {
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " ::  Like PopUp is Displayed or not");
+        try
+        {
+            genericfunctions.waitTillTheElementIsVisible(postcardobjects.like_list_PopUP);
+            Assert.assertTrue(postcardobjects.like_list_PopUP.isDisplayed());
+            ExtentTestManager.getTest().log(LogStatus.PASS, " " + " \" Like PopUp List \" is displayed");
+        }
+        catch (Exception e)
+        {
+            Assert.fail("&" + "\" Like PopUp List \" is not displayed\"" + "&" + e.getMessage() + "");
+        }
+    }
+
+    public void verifyDisplayOfPostLikedUserList(String... strings)
+    {
+        List<WebElement> UserList = null;
+        ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Post Liked User List  :-");
+
+        try
+        {
+            UserList = postcardobjects.Like_List_User_List;
+        }
+        catch (Throwable e)
+        {
+            Assert.fail("Could not perform action on \" Liked User Lists\"" + "&" + e.getMessage() + "");
+        }
     }
 
 

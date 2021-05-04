@@ -23,6 +23,21 @@ public WebElement contribution_popup_buy_coins_button;
     @FindBy(id = "boost-actions")
     public WebElement boost_button;
 
+    @FindBy(id = "boost-actions")
+    public WebElement boost_button_on_post_card;
+
+    @FindBy(id = "creator-boost-submit")
+    public WebElement boost_button_on_boost_popup;
+
+    @FindBy(id = "creator-boost-submit")
+    public WebElement boost_popup_boost_button;
+
+    @FindBy(id = "card-boost-entity-message")
+    public List<WebElement> boosted_post_boostconsole;
+
+    @FindBy ( id = "card-boost-entity-message")
+    public WebElement boost_text_value;
+
     @FindBy(id = "post-form-submit")
     public WebElement post_button;
 
@@ -39,10 +54,8 @@ public WebElement contribution_popup_buy_coins_button;
     @FindBy(xpath = "//*[@class='btn btn-outline-primary']")
     public WebElement repost_popup_cancel_button;
 
-
     @FindBy(id = "overlay-dismiss")
     public WebElement buycoins_popup_cancel_button;
-
 
     @FindBy(id = "creator-boost-post")
     public WebElement boost_popup;
@@ -74,6 +87,12 @@ public WebElement contribution_popup_buy_coins_button;
     @FindBy(xpath="//span[@id='like-count']")
     public List<WebElement> like_count_icon;
 
+    @FindBy (xpath = "//*[@class='o-post-liked-members-popup']")
+    public WebElement like_list_PopUP;
+
+    @FindBy (id = "username")
+    public List<WebElement> Like_List_User_List;
+
     @FindBy(xpath = "//*[@class='mdl-shadow--2dp']")
     public WebElement postcard_user_profile_image;
 
@@ -97,10 +116,11 @@ public WebElement contribution_popup_buy_coins_button;
     })
     public List<WebElement> posted_content;
 
-
     @FindBy(xpath = "//div[@id='textarea-comment']")
     public List<WebElement> postcard_comment_text_section;
 
+    @FindBy(xpath = "//*[@class='m-commentBubble__message']")
+    public List<WebElement> postcard_comment_text;
 
     @FindBy(id = "list-comment-enter")
     public WebElement comment_section_post_button;
@@ -120,14 +140,22 @@ public WebElement contribution_popup_buy_coins_button;
     @FindBy(id="topbar-dropdown-boostConsole")
     public WebElement topbar_boostconsole;
 
-    @FindBy(xpath = "//*[@class='o-avatar']")
+    /*@FindBy(xpath = "//*[@class='o-avatar']")
+    public List<WebElement> boosted_post_profile_img;*/
+
+    @FindBy(xpath = "//a[@class='o-avatar']//following::div[@class='feed-head']")
     public List<WebElement> boosted_post_profile_img;
 
     @FindBy(id = "card-boost-owner-name")
     public List<WebElement> boosted_post_profile_name;
 
-    @FindBy(xpath = "//*[@class='text-md']")
+   /* @FindBy(xpath = "//*[@class='text-md']")
+    public List<WebElement> boosted_post_boosted_button;*/
+
+    @FindBy(xpath = "//span[contains(text(),'Boosted')]")
     public List<WebElement> boosted_post_boosted_button;
+
+
 
 }
 

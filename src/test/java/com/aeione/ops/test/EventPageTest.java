@@ -8,6 +8,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 public class EventPageTest extends TestSetUp
@@ -52,16 +55,16 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 21-05-2020
 	 */
 
-	@Test(priority = 148, enabled = true, alwaysRun = true, description = "Verify \"Create Event\" option by clicking on the Group "
+	@Test(priority = 157, enabled = true, alwaysRun = true, description = "Verify \"Create Event\" option by clicking on the Group "
 			+ "link from Header")
-	public void tc_EV_01_P1_VerifyCreateEventOptionByClickingOnGroupLinkTest() throws Exception
+	public void TC_EV_01_P1_VerifyCreateEventOptionByClickingOnGroupLinkTest() throws Exception
 	{
-		String range = "Login!A14:B14";
+		String LogInRange = "Login!A20:C20";
 		String username = null;
 		String password = null;
 		String fullname = null;
 
-		Map<String, String> values= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
+		Map<String, String> values= sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, LogInRange);
 		username=values.get("UserName / Email / PhoneNumber");
 		password=values.get("Password");
 		fullname=values.get("FullName");
@@ -78,9 +81,9 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 149, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" option by clicking on the Group "
+	@Test(priority = 158, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" option by clicking on the Group "
 			+ "link from Header")
-	public void tc_EV_02_P1_VerifyNavigationToCreateEventPageTest() throws Exception
+	public void TC_EV_02_P1_VerifyNavigationToCreateEventPageTest() throws Exception
 	{
 		getEventPageActions().clickOnGroupIconFromHeader("Action Step");
 		getEventPageActions().clickOnCreateEventLinkFromGroupIcon("Action Step[");
@@ -94,8 +97,8 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 150, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
-	public void tc_EV_03_P1_VerifyCreateEventTest() throws Exception
+	@Test(priority = 159, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	public void TC_EV_03_P1_VerifyCreateEventTest() throws Exception
 	{
 		String range = "Event!A2:I2";
 		String title=null;
@@ -114,16 +117,29 @@ public class EventPageTest extends TestSetUp
 		event_type=val.get("Event_Type");
 		event_Category=val.get("Event_Category");
 		location= val.get("Event_Location");
-		startDate= val.get("Start_Date");
+		//startDate= val.get("Start_Date");
 		startTime= val.get("Start_Time");
-		EndDate= val.get("End_Date");
+		//EndDate= val.get("End_Date");
 		EndTime= val.get("End_Time");
 
-		dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
-		String imageFile = userDirPath + IMAGE_TEST_FILE1;
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_YEAR, 15);
+		Date upcomingDate = calendar.getTime();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		startDate = formatter.format(upcomingDate);
+
+		calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_YEAR, 15);
+		upcomingDate = calendar.getTime();
+		formatter = new SimpleDateFormat("dd/MM/yyyy");
+		EndDate = formatter.format(upcomingDate);
+
+		dsriveAPI().downloadFileFromGoogleDrive(TEST_SHOWTIMEZ_IMAGE_ID);
+		String imageFile = userDirPath + IMAGE_SHOWTIMEZ_TEST_FILE;
 
 		getEventPageActions().clickOnGroupIconFromHeader("Action Step");
 		getEventPageActions().clickOnCreateEventLinkFromGroupIcon("Action Step[");
+
 		getEventPageActions().enterEventTitle("Action Step",title);
 		getEventPageActions().enterEventDescription("Action Step", description);
 		getEventPageActions().selectEventType("Action Step",event_type);
@@ -146,8 +162,8 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
-	@Test(priority = 151, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
-	public void tc_EV_04_P1_VerifyCreatedEventInHomePageTest() throws Exception
+	@Test(priority = 160, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	public void TC_EV_04_P1_VerifyCreatedEventInHomePageTest() throws Exception
 	{
 		String range = "Event!A2:B2";
 		String title=null;
@@ -176,8 +192,8 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 27-05-2020
 	 */
 
-	@Test(priority = 152, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
-	public void tc_EV_05_P1_VerifyDeletingEventTest() throws Exception
+	@Test(priority = 161, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
+	public void TC_EV_05_P1_VerifyDeletingEventTest() throws Exception
 	{
 		String range = "Event!A2:B2";
 		String title=null;

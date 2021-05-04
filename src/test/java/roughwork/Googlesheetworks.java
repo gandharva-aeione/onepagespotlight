@@ -38,7 +38,7 @@ public class Googlesheetworks extends TestSetUp
     public void getBatchRowData() throws Exception
     {
         List<String> ranges = Arrays.asList("A1:A3", "B1:C1");
-        sheetAPI().batchGetValues(TEST_EXECUTION_SHEET, ranges);
+      //  sheetAPI().batchGetValues(TEST_EXECUTION_SHEET, ranges);
     }
 
 

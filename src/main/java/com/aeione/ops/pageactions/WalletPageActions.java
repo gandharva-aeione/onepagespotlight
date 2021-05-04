@@ -278,6 +278,7 @@ public class WalletPageActions
         ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: <b>\"0.25\"</b> coins added in Wallet or not on Registration with following assertions :  ");
         try
         {
+            genericfunctions.refreshWebPage();
             genericfunctions.waitForPageToLoad(walletPageObjects.coins);
             genericfunctions.waitTillTheElementIsVisible(walletPageObjects.coins);
             actualCoinsAdded=walletPageObjects.coins.getText().trim();

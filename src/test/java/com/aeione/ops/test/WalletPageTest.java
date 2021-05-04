@@ -1,5 +1,6 @@
 package com.aeione.ops.test;
 
+import com.aeione.ops.generic.DriverManager;
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
 import com.aeione.ops.generic.TestSetUp;
@@ -53,10 +54,10 @@ public class WalletPageTest extends TestSetUp
     }
 
 
-    @Test(priority = 102, enabled = true, alwaysRun = true, description = "Verify the functionality of wallet topBar ")
+    @Test(priority = 103, enabled = true, alwaysRun = true, description = "Verify the functionality of wallet topBar ")
     public void tc_WLT_01_P1_VerifyWalletTopBarTest() throws Exception
     {
-        String  loginRange = "Login!A13:C13";
+        String  loginRange = "Login!A7:C7";
         Map<String, String> loginvalues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginRange);
         String username=loginvalues.get("UserName / Email / PhoneNumber");
         String password=loginvalues.get("Password");
@@ -75,27 +76,28 @@ public class WalletPageTest extends TestSetUp
      * Verify "0.25" Coins are getting added to wallet on registration
      *
      */
-    @Test(priority = 103, enabled = true, alwaysRun = true, description = "Verify \"0.25\" coins are getting added to wallet on registration")
+    @Test(priority = 104, enabled = true, alwaysRun = true, description = "Verify \"0.25\" coins are getting added to wallet on registration")
     public void tc_WLT_02_P1_VerifyCoinsAddedToWalletOnRegistrationTest() throws Exception
     {
         //Registration
-        String registrationRange = "Registration!A2:H2";
-        String  loginRange = "Login!A13:C13";
+        String RegistrationRange = "Registration!A4:H";
+        String loginRange = "Login!A13:C13";
         String searchRange = "Search!A2:B2";
         String walletRange = "Wallet!A2:A2";
+
 
         ArrayList<String> responseinfo = null;
         String response = null;
 
-        ArrayList<String> val = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, registrationRange);
-        String fullName = getRegistrationPage().getFullName();
-        String userName = getRegistrationPage().getUserName(val.get(1));
-        String emailAddress = getRegistrationPage().getEmail(val.get(2));
-        String countryCode = val.get(3);
-        String dateOfBirth = val.get(5);
-        String createPassword = getRegistrationPage().getRandomValidPassword(val.get(6));
-        String skipOtp = val.get(7);
-        String phoneNumber = getRegistrationPage().getPhoneNumber(val.get(4));
+        ArrayList<String> value = sheetAPI().getSpreadSheetValuesOfSpecificRow(TEST_DATA_GOOGLESHEET, RegistrationRange);
+        String fullName = value.get(0);
+        String userName = getRegistrationPage().getUserName(value.get(1));
+        String emailAddress = getRegistrationPage().getEmail(value.get(2));
+        String countryCode = value.get(3);
+        String dateOfBirth = value.get(5);
+        String createPassword = getRegistrationPage().getRandomValidPassword(value.get(6));
+        String skipOtp = value.get(7);
+        String phoneNumber = getRegistrationPage().getPhoneNumber(value.get(4));
 
         responseinfo = getRegistrationPage().mobileVerifyApi("Action Step", phoneNumber, countryCode, skipOtp);
         response = responseinfo.get(0);
@@ -107,24 +109,30 @@ public class WalletPageTest extends TestSetUp
         response = getRegistrationPage().registerApi("Action & verify", fullName, userName, phoneNumber, countryCode, secret, emailAddress, dateOfBirth, createPassword, skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
 
-        //Update values in sheet
-        List<List<Object>> updateLoginValues = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
-        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, loginRange, "USER_ENTERED", updateLoginValues);
+        //Update In Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
 
+        //Update In LogIn Page
+        List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
+        sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, loginRange, "USER_ENTERED", values);
+
+        //Update values in Search sheet
         List<List<Object>> updateSearchValues = Arrays.asList(Arrays.asList(userName, fullName));
         sheetAPI().updateMultipleCellValues(TEST_DATA_GOOGLESHEET, searchRange, "USER_ENTERED", updateSearchValues);
 
         //Login
-        Map<String, String> loginvalues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginRange);
-        String username=loginvalues.get("UserName / Email / PhoneNumber");
-        String password=loginvalues.get("Password");
-        String fullname=loginvalues.get("FullName");
+        Map<String, String> val = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginRange);
+        String username=val.get("UserName / Email / PhoneNumber");
+        String password=val.get("Password");
+        String fullname=val.get("FullName");
+
+        getLoginPage().logIn("Action Step", fullname, "valid username, password", username, password);
+        getLoginPage().clickOnAddSkillsPopupCloseButton("Action Step");
 
         //WALLET
         Map<String, String> walletValues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, walletRange);
 
-        getLoginPage().logIn("Action Step", fullname, "valid username, password", username, password);
-        getLoginPage().clickOnAddSkillsPopupCloseButton("Action Step");
         getWalletPageActions().clickOnWalletTopBar("Action Step");
         getWalletPageActions().verifyCoinsAddedInWalletOnRegistration("Verify Step", walletValues.get("Registration Reward Points").trim());
     }
@@ -137,7 +145,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Contents of Transaction Tab
      *
      */
-    @Test(priority = 104, enabled = true, alwaysRun = true, description = "Verify Contents of Transaction Tab")
+    @Test(priority = 105, enabled = true, alwaysRun = true, description = "Verify Contents of Transaction Tab")
     public void tc_WLT_04_P1_VerifyContentsOfTransactionTabTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";
@@ -164,7 +172,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Calculating of cost per coins in Buy Coins popup
      *
      */
-    @Test(priority = 105, enabled = true, alwaysRun = true, description = "Verify Calculating of cost per coins in Buy Coins popup")
+    @Test(priority = 106, enabled = true, alwaysRun = true, description = "Verify Calculating of cost per coins in Buy Coins popup")
     public void tc_WLT_07_P1_VerifyCalculationOfCostPerBuyCoinsTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";
@@ -195,7 +203,7 @@ public class WalletPageTest extends TestSetUp
      * Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup
      *
      */
-    @Test(priority = 106, enabled = true, alwaysRun = true, description = "Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup")
+    @Test(priority = 107, enabled = true, alwaysRun = true, description = "Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup")
     public void tc_WLT_18_P1_VerifyCoinsSliderAtBuyCoinsPopupTest() throws Exception
     {
         String  loginRange = "Login!A13:C13";

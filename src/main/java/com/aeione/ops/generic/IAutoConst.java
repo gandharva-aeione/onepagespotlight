@@ -28,6 +28,12 @@ public interface IAutoConst
 	String TEST_STORE_IMAGE_ID="1tk_6kxn6pMtULgHKPUevW3MYEVJJ0wMc";
 	String TEST_OPPORTUNITY_IMAGE_ID="1wf9LrvY6wzlTlaqQpMEuEh-7VE6-G4fm";
 	String TEST_SHOWTIMEZ_IMAGE_ID="1k0YKjXmLiuxKnxs98leHRgrlSVHZTe1r";
+	String TEST_PUBLIC_COMMUNITY_IMAGE_ID = "1IakLXvXxbezYruLXqDkt68CKdRpZeNmB";
+	String TEST_PRIVATE_COMMUNITY_IMAGE_ID = "1hLy5BGiD1kIjw0RQGfY09uCWSAmwEQaE";
+	String TEST_COMMUNITY_POST_IMAGE_ID = "1r-Mx5NZX2KfEc6q-bPcpURSZGbzjE2wE";
+	String TEST_ORGANIZATION_IMAGE_ID = "";
+	String TEST_PROFILE_PICTURE_IMAGE_ID = "1N8k609y39twfxAGkXovDeWM8e2hBqee5";
+	String TEST_COVER_PICTURE_IMAGE_ID = "1jsYrgt9eNPcYlHM2IqLXGAx5EFL-VaQn";
 
 	String TEST_AUDIO_ID="1BRDDt2NposS4BN_w3yLjYdSoGujvQvSt";
 	String TEST_VIDEO_ID1="1bGJOeXONYsgswo8D1US-DxSYk9c9jYGq";
@@ -42,16 +48,21 @@ public interface IAutoConst
 	String IMAGE_TEST_FILE1="/ops_test_image.jpg";
 	String AUDIO_TEST_FILE="/ops-test-audio.mp3";
 	String IMAGE_TEST_FILE2="/ops_test_image3.jpg";
+	String IMAGE_PROFILE_IMAGE_TEST_FILE = "/ops_test_profile_image.jpg";
+	String IMAGE_COVER_IMAGE_TEST_FILE = "/ops_test_cover_image.jpg";
 	String IMAGE_STORE_TEST_FILE="/ops_test_store_image.jpg";
 	String IMAGE_OPPORTUNITY_TEST_FILE="/ops_test_opportunity_image.jpeg";
 	String IMAGE_SHOWTIMEZ_TEST_FILE="/ops_test_showtimez_image.jpg";
+	String IMAGE_PUBLIC_COMMUNITY_TEST_FILE="/ops_test_public_community_profile_image.jpg";
+	String IMAGE_PRIVATE_COMMUNITY_TEST_FILE ="/ops_test_private_community_profile_image.png";
+	String IMAGE_COMMUNITY_POST_TEST_FILE="/ops_test_public_private_community_post_image.jpg";
 
 	String TESTCASE_EXECUTION_CONFIGURATION_SHEET_ID="1PshffTlb_dcPvGowgDngj3NBICyYUjKJayIdCJGwehU";
 	String MIME_TYPE_GOOGLE_SHEET="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 	//String TEST_EXECUTION_SHEET="1HVl88zGLHR2fPakKf7or3RtRvMjtc2WiW2k4KkrhMYo";
-	String TEST_EXECUTION_SHEET="1HVl88zGLHR2fPakKf7or3RtRvMjtc2WiW2k4KkrhMYo";
+	//String TEST_EXECUTION_SHEET="1HVl88zGLHR2fPakKf7or3RtRvMjtc2WiW2k4KkrhMYo";
 
-	String LOGIN_PAGE_TITLE = "Login | One Page Spotlight";
+	String LOGIN_PAGE_TITLE = "Login | Professional Social Media Network for Creators|Made In India";
 
 	//Google Test Drive  Constants
 	String AUTHORIZE_URI = "automation@aeione.com";

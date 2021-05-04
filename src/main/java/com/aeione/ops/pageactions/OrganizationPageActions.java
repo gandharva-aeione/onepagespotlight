@@ -74,6 +74,7 @@ public class OrganizationPageActions {
 	public void clickOnCreateOrganizationButton(String... strings) {
 		try 
 		{
+			genericfunctions.waitForPageToLoad(organizationPageObjects.createOrganization_Button);
 			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.createOrganization_Button);
 			organizationPageObjects.createOrganization_Button.click();
 		}
@@ -91,11 +92,12 @@ public class OrganizationPageActions {
 	public void enterOrganizationName(String...strings)
 	{
 		String orgName=strings[1];
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Organization name as "
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Organization name as :: "
 				+ " <b>\""+orgName+"\" </b>");
 		try
 		{
 			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.createOrganization_Name);
+			organizationPageObjects.createOrganization_Name.clear();
 			organizationPageObjects.createOrganization_Name.sendKeys(orgName);
 		}
 		catch (Throwable e)
@@ -125,6 +127,29 @@ public class OrganizationPageActions {
 			Assert.fail("Could not able to select \"Organization Type\" "+"&"+e.getMessage()+"" );
 		}
 	}
+
+	/*
+	 * @author: Gandharva
+	 * Description: Enter Organization Description
+	 * Created on : 20-04-2021
+	 */
+	public void enterOrganizationDescription(String...strings)
+	{
+		String description=strings[1];
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter Organization Description as :: \"\r\n" +
+				"				+ \" <b>"+description+"\" </b>\"");
+		try
+		{
+			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.organization_description);
+			organizationPageObjects.organization_description.clear();
+			organizationPageObjects.organization_description.sendKeys(description);
+		}
+		catch (Throwable e)
+		{
+			Assert.fail("Could not able to select \"Organization Type\" "+"&"+e.getMessage()+"" );
+		}
+	}
+
 
 	/*
 	 * @author: Aishwarya
@@ -161,6 +186,7 @@ public class OrganizationPageActions {
 		{
 			genericfunctions.scrollToElement(organizationPageObjects.createOrganization_Location);
 			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.createOrganization_Location);
+			organizationPageObjects.createOrganization_Location.clear();
 			organizationPageObjects.createOrganization_Location.sendKeys(location);
 		}
 		catch (Throwable e)
@@ -305,9 +331,9 @@ public class OrganizationPageActions {
 		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Click on \"Invite Members\" icon ");
 		try 
 		{
-			genericfunctions.waitForPageToLoad(organizationPageObjects.inviteIcon);
-			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.inviteIcon);
-			organizationPageObjects.inviteIcon.click();
+			genericfunctions.waitForPageToLoad(organizationPageObjects.invite_Icon);
+			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.invite_Icon.get(0));
+			organizationPageObjects.invite_Icon.get(0).click();
 
 		}
 		catch(Exception e)
@@ -387,8 +413,8 @@ public class OrganizationPageActions {
 		String enterSkills = strings[1].toUpperCase();
 		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Enter skills tag as <b>\" "+enterSkills+ "\" </b>"  );
 		try {
-			genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.add_skill_textfield);
-			profileCompletionPageObjects.add_skill_textfield.sendKeys(enterSkills);
+			genericfunctions.waitTillTheElementIsVisible(profileCompletionPageObjects.add_skill_textfield.get(0));
+			profileCompletionPageObjects.add_skill_textfield.get(0).sendKeys(enterSkills);
 			action.sendKeys(Keys.ENTER).build().perform();
 			genericfunctions.waitWebDriver(3000);
 			genericfunctions.waitForElementToAppear(organizationPageObjects.createOrganization_Name);
@@ -574,7 +600,7 @@ public class OrganizationPageActions {
 	 */   
 	public void verifyDeletedOrganizationInOrganizationPage(String... strings) 
 	{
-		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Removeal of Deleted Organization From Organization page");
+		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: Removal of Deleted Organization From Organization page");
 		String expectedOrg=strings [1];
 		String actualOrg=null;
 
@@ -583,20 +609,23 @@ public class OrganizationPageActions {
 			genericfunctions.waitWebDriver(2000);
 			//genericfunctions.waitForPageToLoad(organizationPageObjects.createdOrganization);
 			//genericfunctions.waitTillTheElementInVisible(organizationPageObjects.createdOrganization);
-			Assert.assertNotEquals(actualOrg, expectedOrg);
+			//Assert.assertNotEquals(actualOrg, expectedOrg);
+			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.createOrganization_Button);
+			Assert.assertTrue(organizationPageObjects.createOrganization_Button.isDisplayed());
 			ExtentTestManager.getTest().log(LogStatus.PASS,  "Deleted Organization <b>\": "+expectedOrg+ "\"<\b> "
 					+ "is removed from the \"Organizations You Manage\"  list" );
 		}
 		catch(Throwable e)
 		{
 			String actualException=e.getClass().getName();
+			actualOrg = organizationPageObjects.createdOrganization.getText();
 			switch (actualException)
 			{
-			case "NoSuchElementException":
+			case "java.lang.NoSuchElementException":
 				Assert.fail("Expected ::Deleted organization should be removed from \"Organization You Manage\" list  ;"
 						+ " Actual ::Deleted organization is still displaying in \"Organization You Manage\" list "+"&"+e.getMessage()+"" );
 				break;
-			case "AssertionError":
+			case "java.lang.AssertionError":
 				Assert.fail("Expected ::Deleted organization should be removed from \"Organization You Manage\" list <b>\"" 
 						+ expectedOrg + "\"</b> ; "
 						+ "Actual :: Deleted organization is still displaying in \"Organization You Manage\" list <b>\"" + actualOrg + "\"</b>");
@@ -619,9 +648,8 @@ public class OrganizationPageActions {
 		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: display of Invite Members icon");
 		try 
 		{
-			genericfunctions.waitForPageToLoad(organizationPageObjects.inviteIcon);
-			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.inviteIcon);
-			Assert.assertTrue(organizationPageObjects.inviteIcon.isDisplayed());
+			genericfunctions.waitTillTheElementIsVisible(organizationPageObjects.invite_Icon.get(0));
+			Assert.assertTrue(organizationPageObjects.invite_Icon.get(0).isDisplayed());
 
 			ExtentTestManager.getTest().log(LogStatus.PASS,  " Invite Members icon is displaying successfully " );
 		}
@@ -641,10 +669,8 @@ public class OrganizationPageActions {
 		ExtentTestManager.getTest().log(LogStatus.INFO, " " + strings[0] + " :: <b>\"Invite Members\"</b> plus icon is clickable or not with following assertion :");
 		try 
 		{
-			genericfunctions.waitForPageToLoad(organizationPageObjects.inviteIcon);
-			genericfunctions.isElementClickable(organizationPageObjects.inviteIcon);
-			
-
+			genericfunctions.waitForPageToLoad(organizationPageObjects.invite_Icon.get(0));
+			genericfunctions.isElementClickable(organizationPageObjects.invite_Icon.get(0));
 			ExtentTestManager.getTest().log(LogStatus.PASS,  " \"Invite members\" Plus icon is clickable" );
 		}
 		catch(Throwable e)

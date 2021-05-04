@@ -64,7 +64,7 @@ public class HomePageObjects
     public WebElement opportunity_description;
     @FindBy (id = "opportunity-location")
     public WebElement opportunity_location;
-    @FindBy(xpath = "//*[@class='o-create-opportunity-cover-image__avatar']")
+    @FindBy ( id = "create-opportunity-cover-image__avatar")
     public WebElement opportunity_thumbnail;
     @FindBy(id = "opportunity-submit")
     public WebElement opportunity_submit;

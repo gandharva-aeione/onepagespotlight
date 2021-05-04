@@ -73,11 +73,11 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @autor Kirthana
      * @throws Exception
      */
-    @Test(priority = 69, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading profile image")
+    @Test(priority = 70, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading profile image")
     public void tc_PCM_01_P1_VerifyUploadProfileImageTest() throws Exception
     {
-        dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID);
-        String imageFile = userDirPath + IMAGE_TEST_FILE;
+        dsriveAPI().downloadFileFromGoogleDrive(TEST_PROFILE_PICTURE_IMAGE_ID);
+        String imageFile = userDirPath + IMAGE_PROFILE_IMAGE_TEST_FILE;
 
         //Registration
         String registrationRange = "Registration!A2:H2";
@@ -139,12 +139,12 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Upload Cover Image
      */
-    @Test(priority = 70, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading cover image")
+    @Test(priority = 71, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading cover image")
     public void tc_PCM_02_P1_VerifyUploadCoverImageTest() throws Exception
     {
 
-        dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
-        String imageFile = userDirPath + IMAGE_TEST_FILE1;
+        dsriveAPI().downloadFileFromGoogleDrive(TEST_COVER_PICTURE_IMAGE_ID);
+        String imageFile = userDirPath + IMAGE_COVER_IMAGE_TEST_FILE;
 
         String  loginRange = "Login!A12:C12";
         Map<String, String> loginvalues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginRange);
@@ -167,7 +167,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Edit Cover Image
      */
-    @Test(priority = 71, enabled = true, alwaysRun = true, description = "Verify Edit Cover Image")
+    @Test(priority = 72, enabled = true, alwaysRun = true, description = "Verify Edit Cover Image")
     public void tc_PCM_03_P1_VerifyEditCoverImageTest() throws Exception
     {
 
@@ -197,7 +197,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Contents of cover icons
      */
-    @Test(priority = 72, enabled = true, alwaysRun = true, description = "Verify contents of cover icons")
+    @Test(priority = 73, enabled = true, alwaysRun = true, description = "Verify contents of cover icons")
     public void tc_PCM_04_P1_VerifyContentsCoverIconsTest() throws Exception
     {
         dsriveAPI().downloadFileFromGoogleDrive(TEST_IMAGE_ID1);
@@ -222,7 +222,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Contents of cover icons
      */
-    @Test(priority = 73, enabled = true, alwaysRun = true, description = "Verify the funtonality of deleting an added cover image , author : Gandharva")
+    @Test(priority = 74, enabled = true, alwaysRun = true, description = "Verify the funtonality of deleting an added cover image , author : Gandharva")
     public void tc_PCM_05_P1_VerifyDeleteCoverImageTest() throws Exception
     {
         String  loginRange = "Login!A12:C12";
@@ -247,7 +247,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify Contents of General Info Tab
      */
-    @Test(priority = 74, enabled = true, alwaysRun = true, description = "Verify contents  \"General info\" tab ")
+    @Test(priority = 75, enabled = true, alwaysRun = true, description = "Verify contents  \"General info\" tab ")
     public void tc_PCM_06_P1_VerifyContentsOfGeneralInfoTabTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -270,7 +270,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify Edit general info
      */
-    @Test(priority = 75, enabled = true, alwaysRun = true, description = "Verify the functionality of \"Save changes\" button  in general info tab ")
+    @Test(priority = 76, enabled = true, alwaysRun = true, description = "Verify the functionality of \"Save changes\" button  in general info tab ")
     public void TC_PCM_07_P1_VerifyEditGeneralInfoSectionTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -291,6 +291,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().clickOnEditIconOfAboutSection("Action Step");
         getProfileCompletionPageActions().clickOnGenralInfoTab("Action Step");
         getProfileCompletionPageActions().enterValueOfFullName("Action Step", newfullname);
+        getProfileCompletionPageActions().enterProfession("Action Step",addSkills.split(",")[0]);
         getProfileCompletionPageActions().enterSkillsTag("Action Step", addSkills.split(",")[1]);
         getProfileCompletionPageActions().clickOnGeneralInfoSaveChangesButton("Action Step");
     }
@@ -301,7 +302,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify contents of About Tab
      */
-    @Test(priority = 76, enabled = true, alwaysRun = true, description = "Verify Contents of \"About\" Tab ")
+    @Test(priority = 77, enabled = true, alwaysRun = true, description = "Verify Contents of \"About\" Tab ")
     public void tc_PCM_08_P1_VerifyContentsOfAboutTabTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -322,7 +323,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify contents of About Tab
      */
-    @Test(priority = 77, enabled = true , alwaysRun = true, description = "Verify Edit Info  ")
+    @Test(priority = 78, enabled = true , alwaysRun = true, description = "Verify Edit Info  ")
     public void tc_PCM_09_P1_VerifyEditAboutSectionTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -361,7 +362,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandahrva
      * Verify user location Visible to Everyone
      */
-    @Test(priority = 78, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to Everyone\"  ")
+    @Test(priority = 79, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to Everyone\"  ")
     public void tc_PCM_10_P1_VerifyUserLocationVisibleToEveryoneTest() throws Exception
     {
         String registerrange = "Registration!A4:H";
@@ -469,7 +470,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to people who follows you
      */
-    @Test(priority = 79, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to people who follows you\"  ")
+    @Test(priority = 80, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to people who follows you\"  ")
     public void tc_PCM_11_P1_VerifyUserLocationVisibleToPeopleWhoFollowsYouTest() throws Exception
     {
         //User A
@@ -565,7 +566,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to people you follow
      */
-    @Test(priority = 80, enabled =  false, alwaysRun = true, description = " Verify that a following user can see the user location if Checkbox related to \"Visible to people you follow\" is selected")
+    @Test(priority = 81, enabled =  false, alwaysRun = true, description = " Verify that a following user can see the user location if Checkbox related to \"Visible to people you follow\" is selected")
     public void tc_PCM_12_P1_VerifyUserLocationVisibleToPeopleYouFollowTest() throws Exception
     {
         //User A
@@ -673,7 +674,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to only me
      */
-    @Test(priority = 81, enabled = true, alwaysRun = true, description = " Verify the functionality of \"Only me\" option Related to 'Location' field")
+    @Test(priority = 82, enabled = true, alwaysRun = true, description = " Verify the functionality of \"Only me\" option Related to 'Location' field")
     public void tc_PCM_13_P1_VerifyUserLocationVisibleToOnlyMeTest() throws Exception
     {
         //User A
@@ -745,7 +746,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify Add work experience
      */
-    @Test(priority = 82, enabled = true, alwaysRun = true, description = "Verify \"Add Work experience\"  ")
+    @Test(priority = 83, enabled = true, alwaysRun = true, description = "Verify \"Add Work experience\"  ")
     public void tc_PCM_14_P1_VerifyAddWorkExperienceTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -781,6 +782,9 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().selectWorkStartYear("Action Step", workStartYear);
         getProfileCompletionPageActions().clickOnShowWorkExperienceOnProfileRadioButton("Action Step", showworkexperienceonprofile);
         getProfileCompletionPageActions().clickOnWorkSectionSaveButton("Action Step", workstartmontherrormessage);
+
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedWorkDetailsOnWorkSection("Verify Step",designation);
+
     }
 
     /**
@@ -788,7 +792,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify edit work experience
      */
-    @Test(priority = 83, enabled = true, alwaysRun = true, description = "Verify \"Edit Work experience\"  ")
+    @Test(priority = 84, enabled = true, alwaysRun = true, description = "Verify \"Edit Work experience\"  ")
     public void tc_PCM_15_P1_VerifyEditWorkExperienceTest() throws Exception {
 
         String  loginRange = "Login!A12:C12";
@@ -820,6 +824,8 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().selectWorkStartMonth("Action Step", workStartMonth);
         getProfileCompletionPageActions().selectWorkStartYear("Action Step", workStartYear);
         getProfileCompletionPageActions().clickOnWorkSectionSaveButton("Action Step", workstartmontherrormessage);
+
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedWorkDetailsOnWorkSection("Verify Step",designation);
     }
 
 
@@ -828,11 +834,9 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify  25% default profile completion percentage  added on Registration
      */
-    @Test(priority = 84, enabled = true, alwaysRun = true, description = "Verify 25% default profile completion percentage added on Registration  ")
+    @Test(priority = 85, enabled = true, alwaysRun = true, description = "Verify 25% default profile completion percentage added on Registration  ")
     public void tc_PCM_16_P1_VerifyDefaultProfileCompletionPercentageAddedOnRegistrationTest() throws Exception
     {
-
-
         String registrationRange = "Registration!A2:H2";
 
         ArrayList<String> responseinfo = null;
@@ -857,6 +861,11 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getRegistrationPage().verifyMobileConfirmApi("Verify Step", response);
         response = getRegistrationPage().registerApi("Action & verify", fullName, userName, phoneNumber, countryCode, secret, emailAddress, dateOfBirth, createPassword, skipOtp);
         getRegistrationPage().verifyRegisterApi("Verify Step", response);
+
+
+        //Update in Registration Page
+        List<List<Object>> values1 = Arrays.asList(Arrays.asList(fullName,userName,emailAddress, countryCode,phoneNumber,dateOfBirth,createPassword,skipOtp));
+        sheetAPI().appendRowData(TEST_DATA_GOOGLESHEET, CONSTANT_ROW, "USER_ENTERED", values1);
 
         //Update values in sheet
         List<List<Object>> values = Arrays.asList(Arrays.asList(userName, createPassword, fullName));
@@ -891,7 +900,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 15% on adding skills in General info section
      */
-    @Test(priority = 85, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding skills in General info section")
+    @Test(priority = 86, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding skills in General info section")
     public void tc_PCM_17_P1_VerifyPercentageIncrementedOnAddingSkillsTest() throws Exception
     {
         //User B
@@ -903,7 +912,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
 
         String range = "EditProfile!A2:C2";
         Map<String, String> ecditprofileval = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, range);
-        String skills = ecditprofileval.get("Skills");
+        String addSkills = ecditprofileval.get("Skills");
 
         getLoginPage().logIn("Action Step", fullname, "valid username, password", username, password);
         getHomePageActions().clickOnTopBarDropdown("Action Step");
@@ -912,9 +921,10 @@ public class ProfileCompletionPageTest extends TestSetUp {
 
         String getProfileCompletionPercentageBeforeUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().clickOnGenralInfoTab("Action Step");
-        getProfileCompletionPageActions().enterSkillsTag("Action Step", skills.split(",")[0]);
+        getProfileCompletionPageActions().enterProfession("Action Step",addSkills.split(",")[0]);
+        getProfileCompletionPageActions().enterSkillsTag("Action Step", addSkills.split(",")[1]);
         getProfileCompletionPageActions().clickOnGeneralInfoSaveChangesButton("Action Step");
-        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup();
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
         String getProfileCompletionPercentageAfterUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().verifyPercentageIncrementedOnAddingSkills("Verify Step", getProfileCompletionPercentageBeforeUpdate, getProfileCompletionPercentageAfterUpdate);
 
@@ -926,7 +936,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 5% on adding description in About section
      */
-    @Test(priority = 86, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
+    @Test(priority = 87, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
     public void tc_PCM_18_P1_VerifyPercentageIncrementedOnAddingDescriptionTest() throws Exception
     {
         //User B
@@ -962,7 +972,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage   incremented by 5% on adding language known in about section
      */
-    @Test(priority = 87, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
+    @Test(priority = 88, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
     public void tc_PCM_19_P1_VerifyPercentageIncrementedOnAddingLanguageTest() throws Exception
     {
 
@@ -986,7 +996,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
         String getProfileCompletionPercentageBeforeUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().enterLanguagesKnown("Action Step", languageKnown);
         getProfileCompletionPageActions().clickOnAboutSectionSaveButton("Action Step");
-        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup();
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
         String getProfileCompletionPercentageAfterUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().verifyPercentageIncrementedOnAddingLanguage("Verify Step", getProfileCompletionPercentageBeforeUpdate, getProfileCompletionPercentageAfterUpdate);
     }
@@ -996,7 +1006,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 5% on adding contact location
      */
-    @Test(priority = 88, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding Contact Location  ")
+    @Test(priority = 89, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding Contact Location  ")
     public void tc_PCM_20_P1_VerifyPercentageIncrementedOnAddingContactLocationTest() throws Exception {
 
         //User B
@@ -1030,7 +1040,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify  profile completion percentage incremented by 15% on adding Work experience , and decremented by 15% on removing work experience
      */
-    @Test(priority = 89, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 15% on adding Work details , and decremented by 15% on removing work details  ")
+    @Test(priority = 90, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 15% on adding Work details , and decremented by 15% on removing work details  ")
     public void tc_PCM_21_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingWorkExperienceTest() throws Exception {
 
         //User B
@@ -1083,7 +1093,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Contents of Add Award Section
      */
-    @Test(priority = 90, enabled = true, alwaysRun = true, description = "Verify contents \"Add Award Section\"  ")
+    @Test(priority = 91, enabled = true, alwaysRun = true, description = "Verify contents \"Add Award Section\"  ")
     public void tc_PCM_22_P1_VerifyContentsOfAddAwardSection() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1107,7 +1117,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Profile completion percentage incremented by 5% on adding Award details , decremented by 5% on deleting Award details .
      */
-    @Test(priority = 91, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 5% on adding Award details , decremented by 5% on deleting Award details ")
+    @Test(priority = 92, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 5% on adding Award details , decremented by 5% on deleting Award details ")
     public void tc_PCM_23_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingAwardDetailsTest() throws Exception {
         String loginrange = "Login!A13:C13";
         Map<String, String> loginvalues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginrange);
@@ -1132,6 +1142,10 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().selectAwardIssuedYear("Action Step", ecditprofileval.get("Issued Year"));
         getProfileCompletionPageActions().clickOnShowAwardOnProfileRadioButton("Action Step",  ecditprofileval.get("Award show on profile"));
         getProfileCompletionPageActions().clickOnAwardUpdationSaveButton("Action Step", ecditprofileval.get("Award issued Month Error Message"));
+
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedAwardsDetailsOnAwardsSection("Verify Step",ecditprofileval.get("Award Title"));
+
         String getProfileCompletionPercentageAfterUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().verifyPercentageIncrementedOnAddingAwardDetails("Verify Step", getProfileCompletionPercentageBeforeUpdate, getProfileCompletionPercentageAfterUpdate);
 
@@ -1149,7 +1163,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Profile completion percentage incremented by 15% on adding Education details , decremented by 15% on deleting Education details .
      */
-    @Test(priority = 92, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 15% on adding Education details , decremented by 15% on deleting Education details")
+    @Test(priority = 93, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 15% on adding Education details , decremented by 15% on deleting Education details")
     public void tc_PCM_24_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingEducationDetailsTest() throws Exception {
         String loginrange = "Login!A13:C13";
         Map<String, String> loginvalues = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, loginrange);
@@ -1176,6 +1190,9 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().clickOnShowEducationOnProfileRadioButton("Action Step", editProfileVal.get("Show education on my profile"));
         getProfileCompletionPageActions().clickOnEducationUpdationSaveButton("Action Step",  editProfileVal.get("Education Start Month Error Message"));
 
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedEducationDetailsOnEducationSection("Verify Step",editProfileVal.get("Field of Study"));
+
         String getProfileCompletionPercentageAfterUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().verifyPercentageIncrementedOnAddingEducationDetails("Verify Step", getProfileCompletionPercentageBeforeUpdate, getProfileCompletionPercentageAfterUpdate);
 
@@ -1193,7 +1210,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Add Award
      */
-    @Test(priority = 93, enabled = true, alwaysRun = true, description = "Verify \"Add Award\"  ")
+    @Test(priority = 94, enabled = true, alwaysRun = true, description = "Verify \"Add Award\"  ")
     public void tc_PCM_25_P1_VerifyAddAwardTest() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1202,30 +1219,29 @@ public class ProfileCompletionPageTest extends TestSetUp {
         String password=loginvalues.get("Password");
         String fullname=loginvalues.get("FullName");
 
-        String range = "EditProfile!A2:Y1";
-
-        ArrayList<String> val = sheetAPI().getSpreadSheetValues(TEST_DATA_GOOGLESHEET, range, 2);
-        String awardtitle = val.get(18);
-        String awardissuer = val.get(19);
-        String awardissuedlocation = val.get(20);
-        String awardissedmonth = val.get(21);
-        String awardissuedyear = val.get(22);
-        String showwardonprofile = val.get(23);
-        String awardissuedmontherrormessage = val.get(24);
-
         getLoginPage().logIn("Action Step", fullname, "valid username, password", username, password);
+
+        String AwardRange = "EditProfile!S4:X4";
+
+        Map<String, String> ecditprofileval = sheetAPI().getSpreadSheetRowValueByColumnName(TEST_DATA_GOOGLESHEET, AwardRange);
+
         getHomePageActions().clickOnTopBarDropdown("Action Step");
         getProfilePageActions().clickOnViewProfileLink("Action Step");
         getProfileCompletionPageActions().clickOnEditIconOfAboutSection("Action Step");
         getProfileCompletionPageActions().clickOnAwardTab("Action Step");
+       // String getProfileCompletionPercentageBeforeUpdate = getProfileCompletionPageActions().getProfileCompletionRange();
         getProfileCompletionPageActions().clickAddAwardButton("Action Step");
-        getProfileCompletionPageActions().enterAwardTitle("Action Step", awardtitle);
-        getProfileCompletionPageActions().enterAwardIssuer("Action Step", awardissuer);
-        getProfileCompletionPageActions().enterAwardIssuedLocation("Action Step", awardissuedlocation);
-        getProfileCompletionPageActions().selectAwardIssuedMonth("Action Step", awardissedmonth);
-        getProfileCompletionPageActions().selectAwardIssuedYear("Action Step", awardissuedyear);
-        getProfileCompletionPageActions().clickOnShowAwardOnProfileRadioButton("Action Step", showwardonprofile);
-        getProfileCompletionPageActions().clickOnAwardUpdationSaveButton("Action Step", awardissuedmontherrormessage);
+        getProfileCompletionPageActions().enterAwardTitle("Action Step", ecditprofileval.get("Award Title"));
+        getProfileCompletionPageActions().enterAwardIssuer("Action Step", ecditprofileval.get("Award Issuer"));
+        getProfileCompletionPageActions().enterAwardIssuedLocation("Action Step", ecditprofileval.get("Award Location"));
+        getProfileCompletionPageActions().selectAwardIssuedMonth("Action Step", ecditprofileval.get("Issued Month"));
+        getProfileCompletionPageActions().selectAwardIssuedYear("Action Step", ecditprofileval.get("Issued Year"));
+        getProfileCompletionPageActions().clickOnShowAwardOnProfileRadioButton("Action Step",  ecditprofileval.get("Award show on profile"));
+        getProfileCompletionPageActions().clickOnAwardUpdationSaveButton("Action Step", ecditprofileval.get("Award issued Month Error Message"));
+
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedAwardsDetailsOnAwardsSection("Verify Step",ecditprofileval.get("Award Title"));
+
     }
 
 
@@ -1234,7 +1250,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify contents of Contact Tab
      */
-    @Test(priority = 94, enabled = true, alwaysRun = true, description = "Verify Contents of \"Contact\" Tab ")
+    @Test(priority = 95, enabled = true, alwaysRun = true, description = "Verify Contents of \"Contact\" Tab ")
     public void tc_PCM_26_P1_VerifyContentsOfContactTabTest() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1256,7 +1272,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Work Tab
      */
-    @Test(priority = 95, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Work experience\" section ")
+    @Test(priority = 96, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Work experience\" section ")
     public void tc_PCM_27_P1_VerifyContentsOfAddWorkExperiencePageTest() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1279,7 +1295,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Education Tab
      */
-    @Test(priority = 96, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Education\" section ")
+    @Test(priority = 97, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Education\" section ")
     public void tc_PCM_28_P1_VerifyContentsOfAddEducationPageTest() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1303,7 +1319,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify that user is able to create an Education by disabling  I’m currently studying here
      */
-    @Test(priority = 97, enabled = true, alwaysRun = true, description = "Verify that user is able to create an Education by disabling  I’m currently studying here ")
+    @Test(priority = 98, enabled = true, alwaysRun = true, description = "Verify that user is able to create an Education by disabling  I’m currently studying here ")
     public void tc_PCM_29_P1_VerifyCurrentStudyingRadioButtonTest() throws Exception {
 
         String loginrange = "Login!A13:C13";
@@ -1330,6 +1346,15 @@ public class ProfileCompletionPageTest extends TestSetUp {
         getProfileCompletionPageActions().selectEducationEndYearDropdown("Action Step", editProfileVal.get("Education end year"));
         getProfileCompletionPageActions().clickOnShowEducationOnProfileRadioButton("Action Step", editProfileVal.get("Show education on my profile"));
         getProfileCompletionPageActions().clickOnEducationUpdationSaveButton("Action Step",  editProfileVal.get("Education Start Month Error Message"));
+
+        //Updated by Gandharva 30-04-2021
+        getProfileCompletionPageActions().verifyDisplayOfConfirmationToastMessagePopup("Action Step");
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedEducationDetailsOnEducationSection("Verify Step",editProfileVal.get("Field of Study"));
+
+        getHomePageActions().clickOnTopBarDropdown("Action Step");
+        getProfilePageActions().clickOnViewProfileLink("Action Step");
+        getProfileCompletionPageActions().verifyDisplayOfUpdatedEducationDetailsOnProfilePageEducationWidget("Verify Step",editProfileVal.get("Field of Study"));
+
     }
 
    /**
@@ -1337,7 +1362,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Education Tab
      */
-    @Test(priority = 98, enabled = true, alwaysRun = true, description = "Verify Contents of  \"Add Project\" section ")
+    @Test(priority = 99, enabled = true, alwaysRun = true, description = "Verify Contents of  \"Add Project\" section ")
     public void tc_PCM_30_P1_VerifyContentsOfAddProjectTest() throws Exception
     {
 
@@ -1361,7 +1386,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Gandharva
      * Verify Add Projects
      */
-    @Test(priority = 99, enabled = true, alwaysRun = true, description = "Verify \"Add Projects\"  ")
+    @Test(priority = 100, enabled = true, alwaysRun = true, description = "Verify \"Add Projects\"  ")
     public void tc_PCM_31_P1_VerifyAddProjectsTest() throws Exception
     {
 
@@ -1401,7 +1426,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Gandharva
      * Verify Edit and Delete Projects
      */
-    @Test(priority = 100, enabled = true, alwaysRun = true, description = "Verify \"Modify Projects\"  ")
+    @Test(priority = 101, enabled = true, alwaysRun = true, description = "Verify \"Modify Projects\"  ")
     public void tc_PCM_32_P1_VerifyModifyProjectsTest() throws Exception
     {
         String loginrange = "Login!A13:C13";
