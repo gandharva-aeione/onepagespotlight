@@ -4,7 +4,7 @@
 
     <parameter name="shareReportToGoogleDrive" value="true"/>
     <parameter name="isParallel" value="false"/>
-    <parameter name="RunHeadless" value="true"/>
+    <parameter name="RunHeadless" value="false"/>
 
 
     <listeners>
@@ -19,6 +19,7 @@
         <parameter name="replaceExistingReport" value="true"/>
 
         <classes>
+
             <class name="com.aeione.ops.test.RegistrationPageTest"/>
             <class name="com.aeione.ops.test.LoginPageTest"/>
             <class name="com.aeione.ops.test.HomePageTest"/>

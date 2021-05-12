@@ -276,6 +276,7 @@ public abstract class TestSetUp implements IAutoConst {
 
                 GoogleDriveAPI.getUploadFileIntoGoogleDrive(renamedReport, AUTOMATION_REPORTS);
             }
+            System.out.println("Not Parallel");
         }
 
     }
@@ -291,6 +292,7 @@ public abstract class TestSetUp implements IAutoConst {
                 GoogleDriveAPI.getUploadFileIntoGoogleDrive(renamedReport, AUTOMATION_REPORTS);
             }
         }
+        System.out.println("Parallel");
         removeFilesByExtention(".jpg");
         removeFilesByExtention(".mp3");
         removeFilesByExtention(".mp4");
@@ -363,7 +365,8 @@ public abstract class TestSetUp implements IAutoConst {
      */
     public static void removeFilesByExtention(String fileExtention)
     {
-        try {
+        try
+        {
             FileFilter fileFilter = new FileFilter(fileExtention);
             File parentDir = new File(userDirPath);
 

@@ -10098,3 +10098,6 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 2021-05-12 11:30:47,513 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
 2021-05-12 11:31:26,766 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
 2021-05-12 11:31:35,566 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-12 17:17:20,781 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-12 17:18:02,349 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-12 17:18:15,787 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
