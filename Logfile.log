@@ -10101,3 +10101,6 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 2021-05-12 17:17:20,781 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
 2021-05-12 17:18:02,349 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
 2021-05-12 17:18:15,787 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-12 18:29:43,991 INFO  [GenericFunctions] I am in onTestStart method tc_RG_01_P1_RegistrationAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-05-12 18:29:59,455 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_01_P1_RegistrationAPITest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
+2021-05-12 18:30:01,700 INFO  [GenericFunctions] I am in onTestStart method tc_RG_02_P1_RegistrationWithInvalidOTPAPITest start , I am in onTestStart class RegistrationPageTest start 
