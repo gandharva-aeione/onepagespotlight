@@ -4,7 +4,7 @@
 
     <parameter name="shareReportToGoogleDrive" value="true"/>
     <parameter name="isParallel" value="false"/>
-    <parameter name="RunHeadless" value="false"/>
+    <parameter name="RunHeadless" value="true"/>
 
 
     <listeners>
