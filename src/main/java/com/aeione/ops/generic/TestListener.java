@@ -43,7 +43,10 @@ public class TestListener extends TestSetUp implements ITestListener
     String overViewSheet=null;
     ArrayList<String> failedModules=null;
     ArrayList<String> totalSheets= null;*/
-	 
+
+    //added name for extent report on 04-04-2021
+    String name = null;
+
     private static String getTestMethodName(ITestResult iTestResult)
     {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
@@ -53,6 +56,7 @@ public class TestListener extends TestSetUp implements ITestListener
     {
         return iTestResult.getMethod().getRealClass().getSimpleName();
     }
+
 
     public GoogleSheetAPI sheetAPI() throws IOException
     {
@@ -111,11 +115,18 @@ public class TestListener extends TestSetUp implements ITestListener
     @Override
     public void onTestStart(ITestResult iTestResult)
     {
+        //modified 04-04-2021
+        name = iTestResult.getMethod().getConstructorOrMethod().getMethod().getAnnotation(MyTestNGAnnotation.class).name();
+        System.out.println("Name:----"+name);
+        //modified 04-04-2021 from line number 117 to 122
+        //added iTestResult.getMethod().getConstructorOrMethod().getMethod().getAnnotation(MyTestNGAnnotation.class).name() in 128 line no
+
         System.out.println("I am in onTestStart method " +  getTestMethodName(iTestResult) + " start , I am in onTestStart class " +  getTestClassName(iTestResult) + " start");
         log.info("I am in onTestStart method " +  getTestMethodName(iTestResult) + " start , I am in onTestStart class " +  getTestClassName(iTestResult) + " start");
         
         //Start operation for extentreports.
-        ExtentTestManager.startTest(iTestResult.getMethod().getMethodName(),iTestResult.getMethod().getDescription());
+        ExtentTestManager.startTest(iTestResult.getMethod().getMethodName(),iTestResult.getMethod().getDescription()
+        , iTestResult.getMethod().getConstructorOrMethod().getMethod().getAnnotation(MyTestNGAnnotation.class).name());
         //Get the class Name of the Test method
 
         System.out.println("Print on Test Start"+iTestResult.getTestClass().toString());

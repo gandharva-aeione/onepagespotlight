@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
@@ -54,7 +55,7 @@ public class EventPageTest extends TestSetUp
 	 * Description: Verify navigation to Explore Page
 	 * Created on : 21-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 157, enabled = true, alwaysRun = true, description = "Verify \"Create Event\" option by clicking on the Group "
 			+ "link from Header")
 	public void TC_EV_01_P1_VerifyCreateEventOptionByClickingOnGroupLinkTest() throws Exception
@@ -80,7 +81,7 @@ public class EventPageTest extends TestSetUp
 	 * Description: Verify navigation to Create Event Page
 	 * Created on : 22-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 158, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" option by clicking on the Group "
 			+ "link from Header")
 	public void TC_EV_02_P1_VerifyNavigationToCreateEventPageTest() throws Exception
@@ -97,6 +98,7 @@ public class EventPageTest extends TestSetUp
 	 * Created on : 22-05-2020
 	 */
 
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 159, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void TC_EV_03_P1_VerifyCreateEventTest() throws Exception
 	{
@@ -161,7 +163,7 @@ public class EventPageTest extends TestSetUp
 	 * Description: Verify navigation to Create Event Page
 	 * Created on : 22-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 160, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void TC_EV_04_P1_VerifyCreatedEventInHomePageTest() throws Exception
 	{
@@ -191,7 +193,7 @@ public class EventPageTest extends TestSetUp
 	 * Description: Verify navigation to Create Event Page
 	 * Created on : 27-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 161, enabled = true, alwaysRun = true, description = "Verify \" Create Event\" functionality ")
 	public void TC_EV_05_P1_VerifyDeletingEventTest() throws Exception
 	{

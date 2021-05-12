@@ -1,10 +1,10 @@
 package com.aeione.ops.test;
 
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
 
 public class BlueStorePageTest extends TestSetUp
 {
@@ -55,6 +56,7 @@ public class BlueStorePageTest extends TestSetUp
      * Author:- Gandahrva
      * Date :- 05-03-2021
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 162, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
     public void TC_BS_01_P1_VerifyCreateBlueStorePostTest() throws Exception
     {
@@ -146,7 +148,9 @@ public class BlueStorePageTest extends TestSetUp
      * Test_Caeses_For_BlueStore_Categories
      * Author:- Gandahrva
      * Date :- 17-03-2021
+     *  @MyTestNGAnnotation on 04-04-2021
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 163, enabled = true, alwaysRun = true, description = "BlueStore Categories")
     public void TC_BS_02_P1_VerifyBlueStoreCategoriesTest() throws Exception
     {

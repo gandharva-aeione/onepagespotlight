@@ -26,6 +26,7 @@ import java.util.Map;
 
 public class ExtentTestManager
 {
+
     static Map extentTestMap = new HashMap();
 
     public static synchronized ExtentTest getTest()
@@ -39,10 +40,14 @@ public class ExtentTestManager
 
     }
 
-    public static synchronized ExtentTest startTest(String testName, String desc)
+    public static synchronized ExtentTest startTest(String testName, String desc, String name)
     {
-        ExtentTest test = DriverManager.getExtentReport().startTest(testName, desc);
-        System.out.print("TestCaseNameQWERTY:-"+testName);
+        ExtentTest test = DriverManager.getExtentReport().startTest(testName, desc).assignAuthor("Owner of Test Case :: "+
+                "<b><font color=Coral >" + name.toUpperCase() + "</font></b>");
+        System.out.println("TestCaseNameQWERTY:-"+testName);
+
+        //assignAuthor("Owner of Test Case :: "+name); added on 04-04-2021 and added extra parameter
+        System.out.println("NamewOfAuthor:-"+name);
 
         extentTestMap.put((int) Thread.currentThread().getId(), test);
         return test;

@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
@@ -50,6 +51,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify creating a public community
 	 * Created on : 05-05-2020
 	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority =139,enabled = true, alwaysRun = true, description = "Verify Create Public Community")
 	public void TC_CM_02_P1_VerifyCreatingPublicCommunityTest() throws Exception
 	{
@@ -95,7 +97,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify Invite members by creating private community
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 140,enabled = true, alwaysRun = true, description = "Verify Invite members by creating private community")
 	public void TC_CM_03_P1_InviteMembersInPrivateCommunityTest() throws Exception
 	{
@@ -136,6 +138,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 05-05-2020
 	 */
 
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 141,enabled = true, alwaysRun = true, description = "Verify converting a public community to private community")
 	public void TC_CM_04_P1_VerifyConvertingPublicCommunityToPrivateTest() throws Exception
 	{
@@ -176,6 +179,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Created on : 01-06-2020
 	 */
 
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 142,enabled = true, alwaysRun = true, description = "Verify \"Deleting\" the community as Admin")
 	public void tc_CM_05_P1_VerifyDeletingCommunityAsAdminTest() throws Exception
 	{
@@ -194,7 +198,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify creating a post in community as admin
 	 * Created on : 01-06-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 143,enabled = true, alwaysRun = true, description = "Verify \"Create Post\" in community as an admin")
 	public void tc_CM_06_P1_VerifyCreatingPostInCommunityAsAdminTest() throws Exception
 	{
@@ -220,6 +224,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify changing community Settings
 	 * Created on : 02-06-2020
 	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 144,enabled = true, alwaysRun = true, description = "Verify changing \"Community Settings \" as admin")
 	public void tc_CM_07_P1_VerifyChangingCommunitySettingsTest() throws Exception
 	{
@@ -257,6 +262,7 @@ public class CommunityPageTest extends TestSetUp
 	 * Description: Verify Updated Settings of community as admin
 	 * Created on : 02-06-2020
 	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 145,enabled = true, alwaysRun = true, description = "Verify \" Edit \"  community as admin")
 	public void tc_CM_08_P1_VerifyEditCommunityTest() throws Exception
 	{
@@ -303,7 +309,8 @@ public class CommunityPageTest extends TestSetUp
 	 * @author:Aishwarya
 	 * Description: Verify joining a community
 	 * Created on : 02-06-2020
-		*/
+	*/
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 146,enabled = true, alwaysRun = true, description = "Verify \"Join community\" in community ")
 	public void tc_CM_09_P1_VerifyJoiningCommunityTest() throws Exception
 	{

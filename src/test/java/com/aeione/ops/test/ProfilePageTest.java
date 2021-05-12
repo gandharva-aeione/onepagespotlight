@@ -1,9 +1,6 @@
 package com.aeione.ops.test;
 
-import com.aeione.ops.generic.GenericFunctions;
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.HomePageActions;
 import com.aeione.ops.pageactions.LoginPageActions;
 import com.aeione.ops.pageactions.ProfilePageActions;
@@ -54,7 +51,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify View profile Link 
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 63, enabled = true, alwaysRun = true, description = "Verify View-Profile Link")
 	public void TC_PP_01_P1_VerifyViewProfileLinkTest() throws Exception
 	{
@@ -79,7 +76,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify View profile functionality
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 64, enabled = true, alwaysRun = true, description = "Verify View-Profile link functionality")
 	public void TC_PP_02_P1_VerifyViewProfileLinkFunctionalityTest() throws Exception
 	{
@@ -97,7 +94,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify the functionality of edit profile picture
 	 * Created on : 08-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 65, enabled = true, alwaysRun = true, description = "Verify Edit Profile picture")
 	public void TC_PP_03_P1_VerifyEditProfilePictureTest() throws Exception{
 
@@ -116,7 +113,8 @@ public class ProfilePageTest extends TestSetUp
 	/* @author:Aishwarya
 	 * Description: Verify the Portfolio button & navigation to the Portfolio page
 	 * Created on : 08-05-2020
-	 */  
+	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 66, enabled = true, alwaysRun = true, description = "Verify Portfolio Page on clicking Portfolio "
 			+ "button from the Profile page")
 	public void TC_PP_04_P1_VerifyNavigationToPortfolioPageTest() throws Exception
@@ -132,7 +130,8 @@ public class ProfilePageTest extends TestSetUp
 	/* @author:Aishwarya
 	 * Description: Verify the details under the About section
 	 * Created on : 12-05-2020
-	 */   
+	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 67, enabled = true, alwaysRun = true, description = "Verify the About section details in Profile page")
 	public void TC_PP_05_P1_VerifyUserDetailsUnderAboutSectionTest() throws Exception
 	{
@@ -149,6 +148,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify creating a post from Profile Page
 	 *Created on : 12-05-2020
 	 */
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 68, enabled = true, alwaysRun = true, description = "Verify creating the post from Profile page")
 	public void TC_PP_06_P1_VerifyCreatingPostFromProfilePageTest() throws Exception {
 
@@ -174,7 +174,7 @@ public class ProfilePageTest extends TestSetUp
 	 * Description: Verify creating a post from Profile Page
 	 * Created on : 12-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 69, enabled = true, alwaysRun = true, description = "Verify the About section details")
 	public void TC_PP_07_P1_VerifyCreatingSpecialHashtagPostTest() throws Exception
 	{

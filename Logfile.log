@@ -10038,3 +10038,63 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 2021-05-04 13:54:28,608 INFO  [GenericFunctions] I am in onTestStart method TC_BC_09_P1_verifyRejectedPostInBoostConsoleTest start , I am in onTestStart class BoostConsolePageTest start 
 2021-05-04 13:55:46,414 INFO  [GenericFunctions] I am in onTestFailure method TC_BC_09_P1_verifyRejectedPostInBoostConsoleTest failed, I am in onTestFailure class BoostConsolePageTest failed 
 2021-05-04 13:55:53,579 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:31:46,591 INFO  [GenericFunctions] I am in onTestSkipped method tc_RG_01_P1_RegistrationAPITest skipped , I am in onTestSkipped class RegistrationPageTest skipped 
+2021-05-05 13:31:46,593 INFO  [GenericFunctions] I am in onTestFailure method tc_RG_01_P1_RegistrationAPITest failed, I am in onTestFailure class RegistrationPageTest failed 
+2021-05-05 13:32:34,912 INFO  [GenericFunctions] I am in onTestStart method TC_BC_01_P1_verifyBoostConsoleIconInProfileDropdownTest start , I am in onTestStart class BoostConsolePageTest start 
+2021-05-05 13:32:36,674 INFO  [GenericFunctions] I am in onTestFailure method TC_BC_01_P1_verifyBoostConsoleIconInProfileDropdownTest failed, I am in onTestFailure class BoostConsolePageTest failed 
+2021-05-05 13:32:39,711 INFO  [GenericFunctions] I am in onTestStart method TC_BC_02_P1_verifyBoostedPostTest start , I am in onTestStart class BoostConsolePageTest start 
+2021-05-05 13:33:08,172 INFO  [GenericFunctions] I am in onTestStart method TC_BC_01_P1_verifyBoostConsoleIconInProfileDropdownTest start , I am in onTestStart class BoostConsolePageTest start 
+2021-05-05 13:34:09,513 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 13:34:09,517 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 13:35:27,128 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-05 13:35:27,128 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-05 13:35:36,761 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:35:36,761 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:37:47,318 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 13:37:47,322 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 13:39:04,991 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-05 13:39:04,991 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-05 13:39:14,157 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:39:14,157 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:52:54,199 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 13:52:54,202 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_01_P1_VerifyCreateBlueStorePostTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-05-05 13:52:54,426 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_01_P1_VerifyCreateBlueStorePostTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-05-05 13:52:55,808 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:52:55,808 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-05 13:59:04,353 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 14:02:54,027 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 14:03:59,336 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-05 14:05:17,695 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-05 14:05:26,600 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-06 14:51:40,902 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-06 14:53:00,499 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-06 14:53:09,473 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-06 14:53:48,006 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-06 14:53:54,513 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-06 15:10:20,809 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-06 15:11:16,073 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-05-06 15:11:25,267 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-06 15:18:34,563 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-06 15:19:14,933 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-06 15:19:24,405 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-06 15:25:00,111 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-06 15:25:41,354 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-06 15:25:50,303 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-10 18:34:09,699 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-10 18:35:43,989 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-10 18:35:52,796 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-10 18:36:30,792 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-10 18:36:37,578 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-11 20:08:10,048 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-11 20:08:54,875 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-11 20:09:05,060 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-11 20:19:20,023 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-11 20:20:01,939 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-11 20:20:11,356 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-05-11 20:23:11,679 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-11 20:23:49,527 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-05-11 20:23:49,535 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-05-12 11:26:00,844 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-12 11:30:47,513 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-05-12 11:31:26,766 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-05-12 11:31:35,566 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 

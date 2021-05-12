@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
@@ -61,6 +62,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 24, enabled = true, alwaysRun = true, description = "Verify all the contents of Poster")
     public void TC_PWH_01_P1_verifyContentsOfPostTest() throws Exception {
         String LoginRange = "Login!A6:C6";
@@ -83,6 +85,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Audio_Post_Functionality
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 25, enabled = true, alwaysRun = true, description = "Verify Audio File Functionality")
     public void TC_PWH_02_P1_verifyAudioPostTest() throws Exception
     {
@@ -119,6 +122,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Caeses_For_Video_Post_Functionality
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 26, enabled = true, alwaysRun = true, description = "Verify Video Post Fuctionality")
     public void TC_PWH_03_P1_verifyVideoPostTest() throws Exception {
         String LoginRange = "Login!A6:C6";
@@ -153,6 +157,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Contents_Of_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 27, enabled = true, alwaysRun = true, description = "Verify all the contents of HashTags")
     public void TC_PWH_04_P1_verifyHashTagDropDownTest() throws Exception
     {
@@ -181,6 +186,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_NSFW_Functionality
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 28, enabled = true, alwaysRun = true, description = "Verify Restricted Content Toggle Button")
     public void TC_PWH_05_P1_verifyRestrictedContentToggleButtonTest() throws Exception
     {
@@ -232,6 +238,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_NSFW_Functionality
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 29, enabled = true, alwaysRun = true, description = "Verify Restritected Content Post")
     public void TC_PWH_06_P1_verifyRestrictedContentPost() throws Exception
     {
@@ -296,6 +303,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Pay_Per_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 30, enabled = true, alwaysRun = true, description = "Verify Pay Per Post")
     public void TC_PWH_07_P1_verifyPayPerPostTest() throws Exception
     {
@@ -386,6 +394,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Pay_Per_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 31, enabled = true, alwaysRun = true, description = "Verify Unlock Pay Per Post")
     public void TC_PWH_08_P1_verifyUnlockPayPerPostTest() throws Exception
     {
@@ -440,6 +449,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Verify_Edit_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 32, enabled = true, alwaysRun = true, description = "Verify Edit Post")
     public void TC_PWH_09_P1_verifyEditActonPostTest() throws Exception
     {
@@ -483,6 +493,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Delete_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 33, enabled = true, alwaysRun = true, description = "Verify Delete Post")
     public void TC_PWH_10_P1_verifyDeletePostTest() throws Exception
     {
@@ -520,6 +531,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_Share_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 34, enabled = true, alwaysRun = true, description = "Verify Share Post")
     public void TC_PWH_11_P1_verifySharePostTest() throws Exception
     {
@@ -591,6 +603,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#MyJourney_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 35, enabled = true, alwaysRun = true, description = "Create MyJourney Post")
     public void TC_PWH_12_P1_VerifyCreateMyJourneyHashTagPostTest() throws Exception
     {
@@ -636,6 +649,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#MyJourney_Edit_Delete_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 36, enabled = true, alwaysRun = true, description = "Verify MyJourney Post Functionality")
     public void TC_PWH_13_P1_VerifyMyJourneyPostEditAndDeleteActionTest() throws Exception
     {
@@ -678,6 +692,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 37, enabled = true, alwaysRun = true, description = "Create ShowTimez Post")
     public void TC_PWH_14_P1_verifyCreateShowtimezPostTest() throws Exception
     {
@@ -741,6 +756,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_Edit_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 38, enabled = true, alwaysRun = true, description = "Edit ShowTimez Post")
     public void TC_PWH_15_P1_VerifyEditShowtimezPostTest() throws Exception
     {
@@ -802,6 +818,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_ReachOut_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 39, enabled = true, alwaysRun = true, description = "ReachOut ShowTimez Post")
     public void TC_PWH_16_P1_VerifyReachOutShowtimezPostTest() throws Exception
     {
@@ -827,6 +844,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Test_Cases_For_#ShowTimez_Delete_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 40, enabled = true, alwaysRun = true, description = "Delete ShowTimez Post")
     public void TC_PWH_17_P1_VerifyDeleteShowtimezPostTest() throws Exception
     {
@@ -904,6 +922,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 21-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 41, enabled = true, alwaysRun = true, description = "Create BlueStore Post")
     public void TC_PWH_18_P1_VerifyCreateBlueStoreHashTagPost() throws Exception
     {
@@ -967,6 +986,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 42, enabled = true, alwaysRun = true, description = "Edit BlueStore Post")
     public void TC_PWH_19_P1_VerifyEditBlueStoreHashTagPost() throws Exception
     {
@@ -1033,6 +1053,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 43, enabled = true, alwaysRun = true, description = "Share BlueStore Post")
     public void TC_PWH_20_P1_VerifyShareBlueStoreHashTagPost() throws Exception
     {
@@ -1081,6 +1102,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 22-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 44, enabled = true, alwaysRun = true, description = "Delete BlueStore Post")
     public void TC_PWH_21_P1_VerifyDeleteBlueStoreHashTagPost() throws Exception
     {
@@ -1163,6 +1185,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 26-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 45, enabled = true, alwaysRun = true, description = "Create an Opportunity Post")
     public void TC_PWH_22_P1_VerifyCreateOpportunityHashTagPostTest() throws Exception
     {
@@ -1226,6 +1249,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 26-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 46, enabled = true, alwaysRun = true, description = "Contents of Opportunity Create PopUp")
     public void TC_PWH_23_P1_VerifyContentsOfCreateOpportunityHashTagPopUpTest() throws Exception
     {
@@ -1262,6 +1286,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 47, enabled = true, alwaysRun = true, description = "Create Portfolio Post")
     public void TC_PWH_24_P1_VerifyCreatePortfolioHashTagPostTest() throws Exception
     {
@@ -1310,6 +1335,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 48, enabled = true, alwaysRun = true, description = "Create Portfolio Restricted Post")
     public void TC_PWH_25_P1_VerifyCreatePortfolioHashTagRestrictedPostTest() throws Exception
     {
@@ -1365,6 +1391,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 27-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 49, enabled = true, alwaysRun = true, description = "Portfolio Post Actions")
     public void TC_PWH_26_P1_VerifyActionsOfPortfolioPostInPortfolioInnerPageTest() throws Exception
     {
@@ -1439,6 +1466,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 28-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 50, enabled = true, alwaysRun = true, description = "Portfolio Edit Post Actions")
     public void TC_PWH_27_P1_VerifyEditPortfolioPostTest() throws Exception
     {
@@ -1486,6 +1514,7 @@ public class PostWIthHashTagTest extends TestSetUp {
      * Author:- Gandahrva
      * Date:- 28-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 51, enabled = true, alwaysRun = true, description = "Portfolio Delete Post Actions")
     public void TC_PWH_28_P1_VerifyDeletePortfolioPostTest() throws Exception
     {

@@ -1,8 +1,5 @@
 package com.aeione.ops.test;
-import com.aeione.ops.generic.DriverManager;
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -54,7 +51,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_Verify the boost Console under profile drop down
      * Author:- Smita Sahoo
      */
-
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 149, enabled = true, alwaysRun = true, description = "Verify the boost Console under profile drop down")
     public void TC_BC_01_P1_verifyBoostConsoleIconInProfileDropdownTest () throws Exception
     {
@@ -74,7 +71,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_Verify the boosted post in the Boosted Console
      * Author:- Smita Sahoo
      */
-
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 150, enabled = true, alwaysRun = true, description = "Verify the Boosted Post under Boosted Console")
     public void TC_BC_02_P1_verifyBoostedPostTest() throws Exception {
         String RegistrationRange = "Registration!A4:H";
@@ -151,8 +148,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_ Verify the Functionality of "Boost" Button Under Boost console
      * Author:- Smita Sahoo
      */
-
-
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 151, enabled = true, alwaysRun = true, description = "Verify Boost functionality for My Posts under Boost Console")
     public void TC_BC_03_P1_verifyBoostButtonInBoostConsoleTest() throws Exception {
 
@@ -205,8 +201,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_Verify all the contents in a Boosted Console
      * Author:- Smita Sahoo
      */
-
-
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 152, enabled = true, alwaysRun = true, description = "Verify the contents of boost Console postcards")
     public void TC_BC_04_P1_verifyBoostConsoleContentsTest() throws Exception {
         String loginrange = "Login!A20:C20";
@@ -227,6 +222,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_ Verify the minimum view(Impression) for a post from Boost Post window
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 153, enabled = true, alwaysRun = true, description = "Verify Impression for post")
     public void TC_BC_05_P1_verifyMinimumViewForAPostFromBoostPostWindowTest() throws Exception
     {
@@ -263,6 +259,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_Verify the functionality of approving a Boosted post from Admin point of view
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 154, enabled = true, alwaysRun = true, description = "Verify the approved posts in the Admin Boosts Newsfeed")
     public void TC_BC_07_P1_verifyApprovePostInAdminBoostsNewsfeedTest() throws Exception
     {
@@ -372,6 +369,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_ Verify the functionality of rejecting a Boosted post from Admin point of view
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 155, enabled = true, alwaysRun = true, description = "Verify the rejected posts in the Admin Newsfeed")
     public void TC_BC_08_P1_verifyRejectedPostInAdminNewsfeedTest() throws Exception
     {
@@ -468,6 +466,7 @@ public class BoostConsolePageTest extends TestSetUp {
      * Test_Cases_To_ Verify the rejected posts in the Boost console
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 156, enabled = true, alwaysRun = true, description = "Verify the rejected posts in the Boost Console")
     public void TC_BC_09_P1_verifyRejectedPostInBoostConsoleTest() throws Exception
     {
@@ -493,9 +492,6 @@ public class BoostConsolePageTest extends TestSetUp {
         getBoostConsoleActions().verifyDisplayOfBoostedTextPost("Verify Step", PostVal);
 
     }
-
-
-
 
     @AfterMethod(dependsOnMethods = {"com.aeione.ops.generic.TestSetUp.afterMethod"})
     public void after () throws IOException {

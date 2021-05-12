@@ -10,6 +10,7 @@ package com.aeione.ops.generic;
 import com.aventstack.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.ExtentReports;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Parameters;
 
@@ -24,7 +25,6 @@ public class ExtentManager extends TestSetUp {
     public static ExtentReports extent;
     public static String reportName;
     public static String localDirectoryPath;
-
 
 
     public static ExtentReports getReporter()
@@ -52,6 +52,9 @@ public class ExtentManager extends TestSetUp {
 
         extent = new ExtentReports(localDirectoryPath + "//" + DriverManager.getReportName() + ".html", DriverManager.getReplaceExistingReport());
         extent.loadConfig(new File(workingDir + "//" + "src/main/resources/" + "/extent-config.xml"));
+        //
+
+        extent.addSystemInfo("Environmant","QA");
 
         return extent;
 

@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.openqa.selenium.support.FindBy;
@@ -73,6 +74,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @autor Kirthana
      * @throws Exception
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 70, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading profile image")
     public void tc_PCM_01_P1_VerifyUploadProfileImageTest() throws Exception
     {
@@ -139,6 +141,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Upload Cover Image
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 71, enabled = true, alwaysRun = true, description = "Verify the functionality of uploading cover image")
     public void tc_PCM_02_P1_VerifyUploadCoverImageTest() throws Exception
     {
@@ -167,6 +170,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Edit Cover Image
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 72, enabled = true, alwaysRun = true, description = "Verify Edit Cover Image")
     public void tc_PCM_03_P1_VerifyEditCoverImageTest() throws Exception
     {
@@ -197,6 +201,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Contents of cover icons
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 73, enabled = true, alwaysRun = true, description = "Verify contents of cover icons")
     public void tc_PCM_04_P1_VerifyContentsCoverIconsTest() throws Exception
     {
@@ -222,6 +227,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @throws Exception
      * Verify Contents of cover icons
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 74, enabled = true, alwaysRun = true, description = "Verify the funtonality of deleting an added cover image , author : Gandharva")
     public void tc_PCM_05_P1_VerifyDeleteCoverImageTest() throws Exception
     {
@@ -247,6 +253,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify Contents of General Info Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 75, enabled = true, alwaysRun = true, description = "Verify contents  \"General info\" tab ")
     public void tc_PCM_06_P1_VerifyContentsOfGeneralInfoTabTest() throws Exception {
 
@@ -270,6 +277,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify Edit general info
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 76, enabled = true, alwaysRun = true, description = "Verify the functionality of \"Save changes\" button  in general info tab ")
     public void TC_PCM_07_P1_VerifyEditGeneralInfoSectionTest() throws Exception {
 
@@ -302,6 +310,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify contents of About Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 77, enabled = true, alwaysRun = true, description = "Verify Contents of \"About\" Tab ")
     public void tc_PCM_08_P1_VerifyContentsOfAboutTabTest() throws Exception {
 
@@ -323,6 +332,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify contents of About Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 78, enabled = true , alwaysRun = true, description = "Verify Edit Info  ")
     public void tc_PCM_09_P1_VerifyEditAboutSectionTest() throws Exception {
 
@@ -362,6 +372,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandahrva
      * Verify user location Visible to Everyone
      */
+    @MyTestNGAnnotation(name = "Kirthana SS / Gandharva")
     @Test(priority = 79, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to Everyone\"  ")
     public void tc_PCM_10_P1_VerifyUserLocationVisibleToEveryoneTest() throws Exception
     {
@@ -470,6 +481,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to people who follows you
      */
+    @MyTestNGAnnotation(name = "Kirthana SS / Gandharva")
     @Test(priority = 80, enabled =  false, alwaysRun = true, description = " Verify the functionality of Checkbox related to \"Visible to people who follows you\"  ")
     public void tc_PCM_11_P1_VerifyUserLocationVisibleToPeopleWhoFollowsYouTest() throws Exception
     {
@@ -566,6 +578,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to people you follow
      */
+    @MyTestNGAnnotation(name = "Kirthana SS / Gandharva")
     @Test(priority = 81, enabled =  false, alwaysRun = true, description = " Verify that a following user can see the user location if Checkbox related to \"Visible to people you follow\" is selected")
     public void tc_PCM_12_P1_VerifyUserLocationVisibleToPeopleYouFollowTest() throws Exception
     {
@@ -674,6 +687,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS / Gandharva
      * Verify user location Visible to only me
      */
+    @MyTestNGAnnotation(name = "Kirthana SS / Gandharva")
     @Test(priority = 82, enabled = true, alwaysRun = true, description = " Verify the functionality of \"Only me\" option Related to 'Location' field")
     public void tc_PCM_13_P1_VerifyUserLocationVisibleToOnlyMeTest() throws Exception
     {
@@ -746,6 +760,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify Add work experience
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 83, enabled = true, alwaysRun = true, description = "Verify \"Add Work experience\"  ")
     public void tc_PCM_14_P1_VerifyAddWorkExperienceTest() throws Exception {
 
@@ -792,6 +807,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify edit work experience
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 84, enabled = true, alwaysRun = true, description = "Verify \"Edit Work experience\"  ")
     public void tc_PCM_15_P1_VerifyEditWorkExperienceTest() throws Exception {
 
@@ -834,6 +850,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana
      * Verify  25% default profile completion percentage  added on Registration
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 85, enabled = true, alwaysRun = true, description = "Verify 25% default profile completion percentage added on Registration  ")
     public void tc_PCM_16_P1_VerifyDefaultProfileCompletionPercentageAddedOnRegistrationTest() throws Exception
     {
@@ -900,6 +917,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 15% on adding skills in General info section
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 86, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding skills in General info section")
     public void tc_PCM_17_P1_VerifyPercentageIncrementedOnAddingSkillsTest() throws Exception
     {
@@ -936,6 +954,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 5% on adding description in About section
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 87, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
     public void tc_PCM_18_P1_VerifyPercentageIncrementedOnAddingDescriptionTest() throws Exception
     {
@@ -972,6 +991,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage   incremented by 5% on adding language known in about section
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 88, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding language known ")
     public void tc_PCM_19_P1_VerifyPercentageIncrementedOnAddingLanguageTest() throws Exception
     {
@@ -1006,6 +1026,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify profile completion percentage incremented by 5% on adding contact location
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 89, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 5% on adding Contact Location  ")
     public void tc_PCM_20_P1_VerifyPercentageIncrementedOnAddingContactLocationTest() throws Exception {
 
@@ -1040,6 +1061,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify  profile completion percentage incremented by 15% on adding Work experience , and decremented by 15% on removing work experience
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 90, enabled = true, alwaysRun = true, description = "Verify profile completion percentage incremented by 15% on adding Work details , and decremented by 15% on removing work details  ")
     public void tc_PCM_21_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingWorkExperienceTest() throws Exception {
 
@@ -1093,6 +1115,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Contents of Add Award Section
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 91, enabled = true, alwaysRun = true, description = "Verify contents \"Add Award Section\"  ")
     public void tc_PCM_22_P1_VerifyContentsOfAddAwardSection() throws Exception {
 
@@ -1117,6 +1140,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Profile completion percentage incremented by 5% on adding Award details , decremented by 5% on deleting Award details .
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 92, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 5% on adding Award details , decremented by 5% on deleting Award details ")
     public void tc_PCM_23_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingAwardDetailsTest() throws Exception {
         String loginrange = "Login!A13:C13";
@@ -1163,6 +1187,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Profile completion percentage incremented by 15% on adding Education details , decremented by 15% on deleting Education details .
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 93, enabled = true, alwaysRun = true, description = "Verify Profile completion percentage incremented by 15% on adding Education details , decremented by 15% on deleting Education details")
     public void tc_PCM_24_P1_VerifyProfileCompletionPercentageOnAddingAndDeletingEducationDetailsTest() throws Exception {
         String loginrange = "Login!A13:C13";
@@ -1210,6 +1235,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify Add Award
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 94, enabled = true, alwaysRun = true, description = "Verify \"Add Award\"  ")
     public void tc_PCM_25_P1_VerifyAddAwardTest() throws Exception {
 
@@ -1250,6 +1276,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author  Kirthana SS
      * Verify contents of Contact Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 95, enabled = true, alwaysRun = true, description = "Verify Contents of \"Contact\" Tab ")
     public void tc_PCM_26_P1_VerifyContentsOfContactTabTest() throws Exception {
 
@@ -1272,6 +1299,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Work Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 96, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Work experience\" section ")
     public void tc_PCM_27_P1_VerifyContentsOfAddWorkExperiencePageTest() throws Exception {
 
@@ -1295,6 +1323,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Education Tab
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 97, enabled = true, alwaysRun = true, description = "Verify Contents of \"Add Education\" section ")
     public void tc_PCM_28_P1_VerifyContentsOfAddEducationPageTest() throws Exception {
 
@@ -1319,6 +1348,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify that user is able to create an Education by disabling  I’m currently studying here
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 98, enabled = true, alwaysRun = true, description = "Verify that user is able to create an Education by disabling  I’m currently studying here ")
     public void tc_PCM_29_P1_VerifyCurrentStudyingRadioButtonTest() throws Exception {
 
@@ -1362,6 +1392,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Kirthana SS
      * Verify contents of  Education Tab
      */
+   @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 99, enabled = true, alwaysRun = true, description = "Verify Contents of  \"Add Project\" section ")
     public void tc_PCM_30_P1_VerifyContentsOfAddProjectTest() throws Exception
     {
@@ -1386,6 +1417,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Gandharva
      * Verify Add Projects
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 100, enabled = true, alwaysRun = true, description = "Verify \"Add Projects\"  ")
     public void tc_PCM_31_P1_VerifyAddProjectsTest() throws Exception
     {
@@ -1426,6 +1458,7 @@ public class ProfileCompletionPageTest extends TestSetUp {
      * @author Gandharva
      * Verify Edit and Delete Projects
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 101, enabled = true, alwaysRun = true, description = "Verify \"Modify Projects\"  ")
     public void tc_PCM_32_P1_VerifyModifyProjectsTest() throws Exception
     {

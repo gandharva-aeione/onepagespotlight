@@ -3,6 +3,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.HomePageActions;
 import com.aeione.ops.pageactions.LoginPageActions;
@@ -37,13 +38,13 @@ public class LoginPageTest extends TestSetUp
       return new GoogleDriveAPI();
    }
 
-
+   @MyTestNGAnnotation(name = "Kirthana")
    @Test(priority = 6, enabled = true, alwaysRun = true, description = "Verify all the contents under the login page")
    public void tc_LG_01_P1_ContentsOfLoginPageTest() throws Exception {
       getLoginPage().verifyContentsOfLoginPage("Verify Step");
    }
 
-
+   @MyTestNGAnnotation(name = "Kirthana")
    @Test(priority = 7, enabled = true, alwaysRun = true, description = "Verify if user will be able to login with a valid registered Username with valid password")
    public void tc_LG_02_P1_LoginViaValidUsernameAndPasswordTest() throws Exception {
       String loginRange = "Login!A4:C4";
@@ -61,6 +62,7 @@ public class LoginPageTest extends TestSetUp
 
    }
 
+   @MyTestNGAnnotation(name = "Kirthana")
    @Test(priority = 8, enabled = true, alwaysRun = true, description = "Verify if user will be able to login with a valid registered email with valid password")
    public void tc_LG_03_LoginViaValidEmailAndPassword() throws Exception
    {
@@ -79,6 +81,7 @@ public class LoginPageTest extends TestSetUp
 
    }
 
+   @MyTestNGAnnotation(name = "Kirthana")
    @Test(priority = 9, enabled = true, alwaysRun = true, description = "Verify if user will be able to login with a valid registered mobile number & password")
    public void tc_LG_04_LoginWithValidMobileNumberAndPasswordTest() throws Exception
    {
@@ -96,6 +99,7 @@ public class LoginPageTest extends TestSetUp
 
    }
 
+   @MyTestNGAnnotation(name = "Kirthana")
    @Test(priority = 10, enabled = true, alwaysRun = true, description = "Verify that user is getting error message with  Invalid mobile number on reset password")
    public void tc_LG_07_ResetPasswordWithInvalidMobileNumberTest() throws Exception
    {

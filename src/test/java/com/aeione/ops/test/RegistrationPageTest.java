@@ -54,7 +54,7 @@ public class RegistrationPageTest  extends TestSetUp
      * Tests on  Regsitartion Functionalities
      *
      */
-
+    @MyTestNGAnnotation(name = "Kirthana")
     @Test(priority = 01, enabled = true, alwaysRun = true, description = "Verify Registration API with valid password")
     public void tc_RG_01_P1_RegistrationAPITest() throws Exception
     {
@@ -105,7 +105,7 @@ public class RegistrationPageTest  extends TestSetUp
 
 
     }
-
+    @MyTestNGAnnotation(name = "Kirthana")
     @Test(priority = 02, enabled = true, alwaysRun = true, description = "Verify that user is able to register by giving Invalid OTP or not with  Registration API" )
     public void tc_RG_02_P1_RegistrationWithInvalidOTPAPITest() throws Exception
     {
@@ -142,7 +142,7 @@ public class RegistrationPageTest  extends TestSetUp
     }
 
 
-
+    @MyTestNGAnnotation(name = "Kirthana")
     @Test(priority = 03, enabled = true, alwaysRun = true, description = "Verify that user is able to register by giving Invalid Password  or not with  Registration API ")
     public void tc_RG_03_P1_RegistrationWithInvalidPasswordAPITest() throws Exception
     {
@@ -173,7 +173,7 @@ public class RegistrationPageTest  extends TestSetUp
         getRegistrationPage().verifyRegisterApiWithInvalidPassword("Verify Step", response, expectedINvalidPasswordErrorMessage);
     }
 
-
+    @MyTestNGAnnotation(name = "Kirthana")
     @Test(priority = 04, enabled = true, alwaysRun = true, description = "Verify DOB with less than age limit during Registration API Test ")
     public void tc_RG_04_P1_RegistrationOnDOBWithAgeLimitAPITest() throws Exception
     {
@@ -206,7 +206,7 @@ public class RegistrationPageTest  extends TestSetUp
         response= getRegistrationPage().registerApi("Action & verify", fullName,userName,phoneNumber,countryCode,secret, emailAddress,dateOfBirth,createPassword,skipOtp);
         getRegistrationPage().verifyRegisterApiWithInvalidDOB("Verify Step", response, expectedINvalidDOBErrorMessage);
     }
-
+    @MyTestNGAnnotation(name = "Kirthana")
     @Test(priority = 05, enabled = true, alwaysRun = true, description = "Verify the functionality of selecting a country code")
     public void tc_RG_05_P1_SelectCountryCodeTest() throws Exception
     {

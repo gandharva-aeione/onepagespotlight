@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
@@ -60,6 +61,7 @@ public class SettingsPageTest extends TestSetUp
 
     }
 
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 124,enabled = true, alwaysRun = true, description = "Verify Settings option")
     public void TC_STG_01_P1_settingsOptionTest() throws Exception
     {
@@ -86,6 +88,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 125,enabled = true, alwaysRun = true, description = "Verify Settings Page Contents")
     public void TC_STG_02_P1_verifyContentsOfSettingsPageTest() throws Exception
     {
@@ -119,6 +122,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 126,enabled = true, alwaysRun = true, description = "Verify Change Password Contents")
     public void TC_STG_05_P1_verifyContentsOfChangePasswordPageTest() throws Exception
     {
@@ -160,6 +164,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 127,enabled = true, alwaysRun = true, description = "Verify Update Password")
     public void TC_STG_06_P1_verifyUpdatePasswordPageTest() throws Exception
     {
@@ -225,6 +230,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 128,enabled = true, alwaysRun = true, description = "Verify Close All Session")
     public void TC_STG_07_P1_verifyCloseAllSessionButtonTest() throws Exception
     {
@@ -275,6 +281,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 09-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 129,enabled = true, alwaysRun = true, description = "Verify Delete Account")
     public void TC_STG_08_P1_verifyDeleteAccountTest() throws Exception
     {
@@ -364,6 +371,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 09-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 130,enabled = true, alwaysRun = true, description = "Verify DeActivate Account")
     public void TC_STG_09_P1_verifyDeActivateAccountTest() throws Exception
     {
@@ -419,6 +427,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 29-05-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 131,enabled = true, alwaysRun = true, description = "Save PayPerPost Background Image")
     public void TC_STG_13_P1_verifySavePayPerPostBackgroundImageTest() throws Exception
     {
@@ -488,6 +497,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 132,enabled = true, alwaysRun = true, description = "Verify General Tab Contents")
     public void TC_STG_14_P1_verifyContentsOfGeneralTabTest() throws Exception
     {
@@ -531,6 +541,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 133,enabled = true, alwaysRun = true, description = "Verify Mature Flag is Enabled")
     public void TC_STG_15_P1_verifyMatureFlagToggleIsEnabledTest() throws Exception
     {
@@ -594,6 +605,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 10-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 134,enabled = true, alwaysRun = true, description = "Verify Mature Flag is Disabled")
     public void TC_STG_16_P1_verifyMatureFlagToggleIsDisabledTest() throws Exception
     {
@@ -640,6 +652,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 135,enabled = true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Enable")
     public void TC_STG_17_P1_verifyPortfolioToggleFlagIsEnableTest() throws Exception
     {
@@ -709,6 +722,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 136,enabled = true, alwaysRun = true, description = "Verify Portfolio Flag Toggle is Disable")
     public void TC_STG_18_P1_verifyPortfolioToggleFlagIsDisableTest() throws Exception
     {
@@ -780,6 +794,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 137,enabled = true, alwaysRun = true, description = "Verify Contents Of Delete Account And Deactivate Account")
     public void TC_STG_19_P1_verifyContentsOfDeleteAccountAndDeactivateAccountTest() throws Exception
     {
@@ -831,6 +846,7 @@ public class SettingsPageTest extends TestSetUp
      * Author:- Gandahrva
      * Date:- 11-06-2020
      */
+    @MyTestNGAnnotation(name = "Gandharva")
     @Test(priority = 138,enabled = true, alwaysRun = true, description = "Verify Contents Of Report DropDown")
     public void TC_STG_20_P1_verifyContentsOfReportDropDownTest() throws Exception
     {

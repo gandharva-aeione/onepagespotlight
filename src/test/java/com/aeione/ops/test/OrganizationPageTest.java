@@ -75,7 +75,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify functionality of Create organization button
 	 * Created on : 05-05-2020
 	 */
-
+	 @MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 115, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
 	public void TC_ORG_01_P1_VerifyFunctionalityOfCreateOrganizationButtonTest() throws Exception
 	{
@@ -139,7 +139,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify functionality of Create organization button
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 116, enabled = true, alwaysRun = true, description = "Verify functionality of Create organization button")
 	public void TC_ORG_02_P1_CreateAndVerifyOrganizationTest() throws Exception
 	{
@@ -182,7 +182,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify deleting the organization
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 117, enabled = true, alwaysRun = true, description = "Verify functionality of Invite members icon")
 	public void TC_ORG_03_P1_VerifyInviteMembersIconAsOwnerTest() throws Exception
 	{
@@ -198,7 +198,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify creating Text post as owner
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 118, enabled = true, alwaysRun = true, description = "Verify creating Text post as owner")
 	public void TC_ORG_04_P1_VerifyCreatingTextPostAsOwnerTest() throws Exception
 	{
@@ -221,7 +221,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify Deleting the uploaded post as owner
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 119, enabled = true, alwaysRun = true, description = "Verify Deleting the uploaded post as owner")
 	public void TC_ORG_05_P1_VerifyDeletingPostAsOwnerTest() throws Exception
 	{
@@ -245,7 +245,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify Creating Restricted post as owner
 	 * Created on : 09-06-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 120, enabled = true, alwaysRun = true, description = "Verify Creating Restricted post as owner")
 	public void TC_ORG_06_P1_VerifyCreatingRestrictedPostTest() throws Exception
 	{
@@ -270,7 +270,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify Create Post functionality for Owner
 	 * Created on : 09-06-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 121, enabled = true, alwaysRun = true, description = "Verify Creating a post as owner")
 	public void TC_ORG_07_P1_VerifyCreatePostFunctionalityForOwnerTest() throws Exception
 	{
@@ -295,7 +295,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify comment functionality for Created Post functionality as Owner
 	 * Created on : 09-06-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 122, enabled = true, alwaysRun = true, description = "Verify \"Comment functionality\" for Created Post functionality as Owner")
 	public void TC_ORG_08_P1_VerifyCommentFunctionalityForPostAsOwnerTest() throws Exception
 	{
@@ -362,7 +362,7 @@ public class OrganizationPageTest extends TestSetUp
 	 * Description: Verify deleting the organization
 	 * Created on : 05-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority = 123, enabled = true, alwaysRun = true, description = "Verify deleting the organization")
 	public void TC_ORG_09_P1_VerifyDeleteOrganizationTest() throws Exception
 	{

@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.LoginPageActions;
 import com.aeione.ops.pageactions.NotificationActions;
@@ -32,7 +33,7 @@ public class NotificationTest extends TestSetUp
         return new GoogleDriveAPI();
 
     }
-
+    @MyTestNGAnnotation(name = "Aishwarya")
     @Test(priority = 102, enabled = true, alwaysRun = true, description = "Verify Notification icon functionality")
     public void tc_NT_01_P1_VerifyNotificationIconTest() throws Exception
     {

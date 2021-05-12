@@ -1,9 +1,6 @@
 package com.aeione.ops.test;
 
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.IAutoConst;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.GenericPageActions;
 import com.aeione.ops.pageactions.HomePageActions;
 import com.aeione.ops.pageactions.InvitePageActions;
@@ -48,7 +45,8 @@ public class InvitePageTest extends TestSetUp {
      * Test_Caeses_For_Check that User gets an option for "Invite Friend"
      * Author:- Smita Sahoo
      */
-  @Test(priority = 113, enabled = true, alwaysRun = true, description = "Display of Invite Friends option ")
+    @MyTestNGAnnotation(name = "Smita Sahoo")
+    @Test(priority = 113, enabled = true, alwaysRun = true, description = "Display of Invite Friends option ")
     public void tc_IN_01_P1_VerifyInviteFriendOptionTest() throws Exception
     {
         String LogInRange = "Login!A9:C9";
@@ -66,6 +64,7 @@ public class InvitePageTest extends TestSetUp {
      * Test_Caeses_For_"Verify user able to navigate to OnePageSpotLight Page through ""Email_Link"""
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 114, enabled = true, alwaysRun = true, description = "navigate to OnePageSpotLight Page through Email link")
     public void tc_IN_03_P1_VerifyInviteFriendsThroughEmailLinkTest() throws Exception
     {

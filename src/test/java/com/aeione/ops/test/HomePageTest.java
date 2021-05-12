@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.HomePageActions;
 import com.aeione.ops.pageactions.LoginPageActions;
@@ -46,6 +47,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 11, enabled = true, alwaysRun = true, description = "Verify all the contents in Home Page")
     public void TC_HM_01_P1_ContentsOfHomePageTest() throws Exception
     {
@@ -69,6 +71,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page_Profile_Card
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 12, enabled = true, alwaysRun = true, description = "Verify for PROFILE CARD")
     public void TC_HM_02_P1_ContentsOfProfileCardInHomePageTest() throws Exception
     {
@@ -90,6 +93,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page_Followed_User_Post
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 13, enabled = true, alwaysRun = true, description = "Verify for Followed User Post")
     public void TC_HM_03_P1_VerifyFollowedUserPostTest() throws Exception
     {
@@ -132,6 +136,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page_Published_Blog
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 14, enabled = true, alwaysRun = true, description = "Verify for Published Blog")
     public void TC_HM_04_P1_VerifyPublishedBlogTest() throws Exception
     {
@@ -175,6 +180,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page_Suggested_List
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 15, enabled = true, alwaysRun = true, description = " Verify for Suggestion List")
     public void TC_HM_05_P1_ContentsOfSuggestedListTest() throws Exception
     {
@@ -197,6 +203,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Verify_Contents_Of_Home_Page_Follow_User
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 16, enabled = true, alwaysRun = true, description = "verify for Follow Button")
     public void TC_HM_06_P1_VerifyFollowUserButtonTest() throws Exception
     {
@@ -222,6 +229,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Create_Post_And_Verification
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 17, enabled = true, alwaysRun = true, description = "create a post")
     public void TC_HM_07_P1_VerifyCreatePostAreaTest() throws Exception
     {
@@ -258,6 +266,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Opportunity_Widget
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 18, enabled = true, alwaysRun = true, description = "create a post")
     public void TC_HM_08_P1_VerifyOpportunityWidgetTest() throws Exception
     {
@@ -305,6 +314,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Messanger_PopUp_Verification
      * Author:- Gandahrva
      */
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 19, enabled = true, alwaysRun = true, description = "create a post")
     public void TC_HM_09_P1_VerifyMessangerPopUpTest() throws Exception
     {
@@ -329,6 +339,7 @@ public class HomePageTest extends TestSetUp {
      * * Date:- 08-09-2020
      * Author:- Gandahrva
 */
+   @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 20, enabled = true, alwaysRun = true, description = "Home Page Filters")
     public void TC_HM_10_P1_VerifyHomePageFiltersTest() throws Exception
     {
@@ -358,7 +369,7 @@ public class HomePageTest extends TestSetUp {
      * * Date:- 08-09-2020
      * Author:- Gandahrva
 */
-
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 21, enabled = true, alwaysRun = true, description = "Home Page Bluestore Filter Posts")
     public void TC_HM_11_P1_VerifyBlueStorePostOnBlueStoreTabAndAllPostsTabTest() throws Exception
     {
@@ -429,7 +440,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Home Page Filters_Posts
      * * Date:- 09-09-2020
      * Author:- Gandahrva
-*/
+*/     @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 22, enabled = true, alwaysRun = true, description = "Home Page Opportunity Filter Posts")
     public void TC_HM_12_P1_VerifyOpportunityPostOnOpportunityTabAndAllPostsTabTest() throws Exception
     {
@@ -492,7 +503,7 @@ public class HomePageTest extends TestSetUp {
      * Test_Caeses_For_Home Page Filters_Showtimez_Posts
      * * Date:- 09-09-2020
      * Author:- Gandahrva*/
-
+    @MyTestNGAnnotation(name = "Gandahrva")
     @Test(priority = 23, enabled = true, alwaysRun = true, description = "Home Page Showtimez Filter Posts")
     public void TC_HM_13_P1_VerifyShowtimezPostOnShowtimezTabAndAllPostsTabTest() throws Exception
     {

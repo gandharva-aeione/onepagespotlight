@@ -51,7 +51,7 @@ public abstract class TestSetUp implements IAutoConst {
     static GoogleDriveAPI dsriveapi = null;
     static String reportPath;
     static LocalDate localDate = null;
-
+    public static String browser;
 
     static {
 
@@ -68,7 +68,7 @@ public abstract class TestSetUp implements IAutoConst {
     }
 
 
-    @Parameters({"reportName", "replaceExistingReport", })
+    @Parameters({"reportName", "replaceExistingReport" })
     @BeforeTest
     public static void beforeTest(String reportName, boolean replaceExistingReport)
     {
@@ -78,6 +78,8 @@ public abstract class TestSetUp implements IAutoConst {
 
         ExtentReports extent = ExtentManager.getReporter();
         DriverManager.setExtentReport(extent);
+
+
     }
 
 
@@ -159,6 +161,7 @@ public abstract class TestSetUp implements IAutoConst {
         broswerName = DriverManager.getBrowserName();
         DriverManager.setBrowserVersion(broswerversion.trim());
 
+        System.out.println("BrowserNameInTestSetUp:- "+broswerName);
 
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, java.util.logging.Level.ALL);

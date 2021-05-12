@@ -1,9 +1,6 @@
 package com.aeione.ops.test;
 
-import com.aeione.ops.generic.DriverManager;
-import com.aeione.ops.generic.GoogleDriveAPI;
-import com.aeione.ops.generic.GoogleSheetAPI;
-import com.aeione.ops.generic.TestSetUp;
+import com.aeione.ops.generic.*;
 import com.aeione.ops.pageactions.HomePageActions;
 import com.aeione.ops.pageactions.LoginPageActions;
 import com.aeione.ops.pageactions.RegistrationPageActions;
@@ -53,7 +50,7 @@ public class WalletPageTest extends TestSetUp
         return new HomePageActions();
     }
 
-
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 103, enabled = true, alwaysRun = true, description = "Verify the functionality of wallet topBar ")
     public void tc_WLT_01_P1_VerifyWalletTopBarTest() throws Exception
     {
@@ -76,6 +73,7 @@ public class WalletPageTest extends TestSetUp
      * Verify "0.25" Coins are getting added to wallet on registration
      *
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 104, enabled = true, alwaysRun = true, description = "Verify \"0.25\" coins are getting added to wallet on registration")
     public void tc_WLT_02_P1_VerifyCoinsAddedToWalletOnRegistrationTest() throws Exception
     {
@@ -145,6 +143,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Contents of Transaction Tab
      *
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 105, enabled = true, alwaysRun = true, description = "Verify Contents of Transaction Tab")
     public void tc_WLT_04_P1_VerifyContentsOfTransactionTabTest() throws Exception
     {
@@ -172,6 +171,7 @@ public class WalletPageTest extends TestSetUp
      * Verify Calculating of cost per coins in Buy Coins popup
      *
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 106, enabled = true, alwaysRun = true, description = "Verify Calculating of cost per coins in Buy Coins popup")
     public void tc_WLT_07_P1_VerifyCalculationOfCostPerBuyCoinsTest() throws Exception
     {
@@ -203,6 +203,7 @@ public class WalletPageTest extends TestSetUp
      * Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup
      *
      */
+    @MyTestNGAnnotation(name = "Kirthana SS")
     @Test(priority = 107, enabled = true, alwaysRun = true, description = "Verify incrementing and decrementing Coins & Cost  via  coins slider at buy coins popup")
     public void tc_WLT_18_P1_VerifyCoinsSliderAtBuyCoinsPopupTest() throws Exception
     {

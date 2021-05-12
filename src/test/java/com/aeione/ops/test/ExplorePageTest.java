@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.ExplorePageActions;
 import com.aeione.ops.pageactions.HomePageActions;
@@ -46,7 +47,7 @@ public class ExplorePageTest extends TestSetUp
 	 * Description: Verify navigation to Explore Page
 	 * Created on : 21-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority =147, enabled = true, alwaysRun = true, description = "Verify navigation to the \" Explore page\" by clicking on the Home page Header >> Explore ")
 	public void tc_EX_01_P1_VerifyNavigationToExplorePageTest() throws Exception
 	{
@@ -71,7 +72,7 @@ public class ExplorePageTest extends TestSetUp
 	 * Description: Verify navigation to Explore Page
 	 * Created on : 21-05-2020
 	 */
-
+	@MyTestNGAnnotation(name = "Aishwarya")
 	@Test(priority =148, enabled = true, alwaysRun = true, description = "Verify \" Suggested Hashtags\" in sub-header of Explore page")
 	public void tc_EX_02_P1_VerifySuggestedHashtagsInSubHeaderOfExplorePageTest() throws Exception{
 

@@ -2,6 +2,7 @@ package com.aeione.ops.test;
 
 import com.aeione.ops.generic.GoogleDriveAPI;
 import com.aeione.ops.generic.GoogleSheetAPI;
+import com.aeione.ops.generic.MyTestNGAnnotation;
 import com.aeione.ops.generic.TestSetUp;
 import com.aeione.ops.pageactions.*;
 import org.testng.annotations.AfterMethod;
@@ -50,6 +51,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for users posts
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 108, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for own posts")
     public void tc_BM_01_P1_verifyBookmarkIconInCreatedPostTest() throws Exception {
         String range = "Login!A9:C9";
@@ -74,6 +76,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" icon is displayed  for  "FOLLOWED USER" posts
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 109, enabled = true, alwaysRun = true, description = "Verify BOOKMARK icon  for followed users  posts")
     public void tc_BM_02_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
@@ -109,6 +112,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_For_"BOOKMARK" functionality  for "FOLLOWING USER" posts
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 110, enabled = true, alwaysRun = true, description = "Verify BOOKMARK functionality for Following users  posts")
     public void tc_BM_03_P1_verifyBookmarkInfollowingUserPostTest() throws Exception
     {
@@ -200,6 +204,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify user is able to select any filters in bookmark page.
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 111, enabled = true, alwaysRun = true, description = "Verify user  is able to select any filters in bookmark page")
     public void tc_BM_04_P1_verifyBookmarkIconInfollowedUserPostTest() throws Exception {
 
@@ -262,6 +267,7 @@ public class BookmarkPageTest extends TestSetUp {
      * Test_Cases_to_Verify contents in bookmarked post
      * Author:- Smita Sahoo
      */
+    @MyTestNGAnnotation(name = "Smita Sahoo")
     @Test(priority = 112, enabled = true, alwaysRun = true, description = "Verify contents in bookmarked post")
     public void tc_BM_05_P1_verifyBookmarkInfollowingUserPostTest() throws Exception {
         String LoginRangeUserA = "Login!A9:C9";
