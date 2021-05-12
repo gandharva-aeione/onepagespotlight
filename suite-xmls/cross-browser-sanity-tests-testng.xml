@@ -19,7 +19,6 @@
         <parameter name="replaceExistingReport" value="true"/>
 
         <classes>
-
             <class name="com.aeione.ops.test.RegistrationPageTest"/>
             <class name="com.aeione.ops.test.LoginPageTest"/>
             <class name="com.aeione.ops.test.HomePageTest"/>
