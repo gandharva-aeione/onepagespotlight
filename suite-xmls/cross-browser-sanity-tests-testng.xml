@@ -4,7 +4,7 @@
 
     <parameter name="shareReportToGoogleDrive" value="true"/>
     <parameter name="isParallel" value="false"/>
-    <parameter name="RunHeadless" value="true"/>
+    <parameter name="RunHeadless" value="false"/>
 
 
     <listeners>
@@ -41,7 +41,7 @@
     </test>
 
 
-    <test enabled="false" verbose="100" preserve-order="true" name="Firefox-Execution">
+    <test enabled="true" verbose="100" preserve-order="true" name="Firefox-Execution">
 
         <parameter name="testBrowserName" value="Firefox"/>
         <parameter name="reportName" value="Firefox-ExtentReport"/>

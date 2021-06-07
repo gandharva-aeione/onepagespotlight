@@ -10104,3 +10104,24 @@ freemarker.core.InvalidReferenceException: [... Exception message was already pr
 2021-05-12 18:29:43,991 INFO  [GenericFunctions] I am in onTestStart method tc_RG_01_P1_RegistrationAPITest start , I am in onTestStart class RegistrationPageTest start 
 2021-05-12 18:29:59,455 INFO  [GenericFunctions] I am in onTestSuccess method tc_RG_01_P1_RegistrationAPITest succeed , I am in onTestSuccess class RegistrationPageTest succeed 
 2021-05-12 18:30:01,700 INFO  [GenericFunctions] I am in onTestStart method tc_RG_02_P1_RegistrationWithInvalidOTPAPITest start , I am in onTestStart class RegistrationPageTest start 
+2021-06-01 18:07:57,385 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:08:53,124 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:09:26,556 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:10:12,339 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-06-01 18:10:22,413 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:10:59,155 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-06-01 18:11:13,575 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-06-01 18:11:24,776 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:11:34,149 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-06-01 18:11:44,801 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-06-01 18:12:57,917 INFO  [GenericFunctions] I am in onFinish method Firefox-Execution 
+2021-06-01 18:14:43,765 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:16:01,181 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_01_P1_VerifyCreateBlueStorePostTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-06-01 18:16:10,890 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:16:49,607 INFO  [GenericFunctions] I am in onTestSuccess method TC_BS_02_P1_VerifyBlueStoreCategoriesTest succeed , I am in onTestSuccess class BlueStorePageTest succeed 
+2021-06-01 18:17:17,134 INFO  [GenericFunctions] I am in onFinish method Chrome-Execution 
+2021-06-01 18:17:50,266 INFO  [GenericFunctions] I am in onTestStart method TC_BS_01_P1_VerifyCreateBlueStorePostTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:18:21,376 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_01_P1_VerifyCreateBlueStorePostTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-06-01 18:18:43,648 INFO  [GenericFunctions] I am in onTestStart method TC_BS_02_P1_VerifyBlueStoreCategoriesTest start , I am in onTestStart class BlueStorePageTest start 
+2021-06-01 18:19:32,579 INFO  [GenericFunctions] I am in onTestFailure method TC_BS_02_P1_VerifyBlueStoreCategoriesTest failed, I am in onTestFailure class BlueStorePageTest failed 
+2021-06-01 18:19:55,156 INFO  [GenericFunctions] I am in onFinish method Firefox-Execution 
